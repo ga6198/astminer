@@ -6,6 +6,7 @@ import astminer.common.model.AstStorage
 import astminer.common.model.Node
 import astminer.common.model.Parser
 import astminer.parse.antlr.python.PythonParser
+import astminer.parse.antlr.php.PHPParser
 import astminer.parse.cpp.FuzzyCppParser
 import astminer.parse.java.GumTreeJavaParser
 import com.github.ajalt.clikt.core.CliktCommand
@@ -45,6 +46,9 @@ class ProjectParser : CliktCommand() {
         SupportedLanguage(FuzzyCppParser(), "c"),
         SupportedLanguage(FuzzyCppParser(), "cpp"),
         SupportedLanguage(PythonParser(), "py")
+        //can I add my php parser here?
+        ,
+        SupportedLanguage(PhpParser(), "php")
     )
 
     private val supportedAstStorages = listOf(

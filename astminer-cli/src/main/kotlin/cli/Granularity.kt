@@ -55,6 +55,7 @@ class MethodGranularity(override val splitTokens: Boolean,
                     FileMethods(methodSplitter.splitIntoMethods(it.root as SimpleNode), it.filePath)
                 }
             }
+            //need to add some sort of method splitter for php, but it does not seem to exist
             else -> throw UnsupportedOperationException("Unsupported extension $fileExtension")
         }.flatMap{ processMethods(it) }
     }
