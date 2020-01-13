@@ -1,0 +1,21 @@
+id,token
+1,a
+3,b
+7,var
+11,(
+12,)
+19,'Hi everybody'
+15,sum
+4,+
+2,,
+5,result
+20,<EOF>
+16,1
+17,2
+18,alert
+10,function
+8,;
+13,{
+6,=
+14,}
+9,return

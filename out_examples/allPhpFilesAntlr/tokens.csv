@@ -1,0 +1,1135 @@
+id,token
+517,cancel
+172,' ORDER BY  z.title, c.ordering'
+926,'ALERTNOTAUTH'
+778,' ,'
+984,'components'
+347,'Changes to Category saved'
+424,$newcatids
+814,$focus
+946,.search
+952,' LEFT JOIN #__categories AS cc ON cc.id = c.catid'
+167,quote
+578,$is_admin
+820,getActivityMailInfo
+955,' LEFT JOIN #__sections AS s ON s.id = cc.section AND s.scope="content"'
+417,'SELECT a.title AS `text`, a.id AS `value`'
+692, from  
+626,getTimeCombo
+509,getBool
+716,$groupname
+922,authorize
+86,$filter_order
+99,'.'
+300,'access'
+877, 
+192,!
+329,"
+634,%
+743,'Due Date'
+879,getDBInsertDateTimeValue
+83,&
+2,(
+767,': '
+4,)
+574,require
+655,*
+272,+
+631,$todocheck
+19,,
+67,-
+469,'catid'
+89,.
+762,'st_date_time'
+802,/
+25,0
+59,1
+73,2
+294,'image_position'
+583,3
+152,4
+635,5
+943,.viewContent.filter_order
+35,:
+391,' WHERE a.published = 1'
+545,'com_banners'
+769,'taskpriority'
+8,;
+111,strtolower
+215,<
+15,=
+129,>
+342,' AND type = "content_category"'
+292,?
+1015,'/'
+742,'End date and time'
+939,'viewContent'
+282,'N/A'
+1123,' AND default_con = 1'
+795,'minute'
+1111,'misc'
+248,$sections
+924,'manage'
+45,moveCategorySave
+580,$defaultOrgSharingPermission
+801,'PM'
+398,'com_categories'
+973,showListMenu
+854,T
+852,U
+148,strpos
+84,JFactory
+65,[
+839,time_end
+994,showRestore
+66,]
+489,'0'
+1011,ReadMenuXML
+142,_
+533,'Items unpublished'
+817,getUserEmailId
+644,$hrvalue
+889,ENT_QUOTES
+968,' FROM #__menu AS m'
+484,'SELECT cid, name'
+729,return_module_language
+1091,' LEFT JOIN #__users AS u ON u.id = cd.user_id'
+901,$users
+912,</option>
+950,'SELECT count(c.id)'
+1051,$groupqry
+668,'hr" class=small '
+32,{
+397,'Please select a section from the list'
+78,}
+828,sendnotification
+966,', m.menutype, m.ordering, m.ordering,  m.name'
+93,'cmd'
+560,'Users'
+456,'b.showBanner = 1'
+857,$grp_res
+291,image_position
+736,'LBL_CREATED'
+999,', ordering = '
+464,' FROM #__banner AS b'
+140,sprintf
+407,empty
+472,DS
+566,getOtherUserName
+664,'>AM</option>'
+170,' LEFT JOIN #__sections AS z ON z.id = c.section'
+387,' ORDER BY a.catid, a.title'
+783,strlen
+106,$search
+515,'index.php?option=com_banners&task=edit&cid[]='
+777,LBL_REGARDS_STRING
+135,' WHERE id = '
+169,' , z.title AS section_name'
+874,$start_hour
+50,'go2menu'
+532,'Items published'
+399,raiseWarning
+756,':<br>'
+944,'sectname'
+457,'b.showBanner = 0'
+328,check
+606,list
+1022,'Component'
+139,JText
+1049,$userIds
+68,'orderdown'
+312,'mainmenu'
+77,showCategories
+726,$log
+833,date_start
+371,' SET published = '
+325,raiseError
+1052,select email1,id from vtiger_users where id in(
+897,sql_escape_string
+493,cid
+1064,$cont_id
+687,roleid
+694,.picklist_valueid where roleid in (
+748,'LBL_ACTIVITY_NOTIFICATION'
+350,'Select a category to delete'
+534,remove
+904,$userSelectdata
+319,'oldtitle'
+368,$action
+231,'list.section'
+336,' SET sectionid = '
+370,'UPDATE #__categories'
+362,'DELETE FROM #__categories'
+806,$subject
+246,'SELECT COUNT( id )'
+588,::%
+28,JArrayHelper
+1104,'default_con'
+936,restoreTrash
+105,'int'
+908,<select class='small' onchange='fnRedirect();' name='onlyforuser'>
+388,$contents
+598,get_user_array
+243,'id'
+393,$SectionList
+827,$send_notification
+124,' ORDER BY '
+432,$access
+1058,'email1'
+90,'.filter_order'
+591, order by user_name ASC
+1081,'cd.name LIKE '
+1102,'list.users'
+995,$state
+1079,showContacts
+149,'com_'
+609,explode
+586,select id as id,user_name as user_name from vtiger_users where id=? and status='Active' union select vtiger_user2role.userid as id,vtiger_users.user_name as user_name from vtiger_user2role inner join vtiger_users on vtiger_users.id=vtiger_user2role.userid inner join vtiger_role on vtiger_role.roleid=vtiger_user2role.roleid where vtiger_role.parentrole like ? and status='Active' union select shareduserid as id,vtiger_users.user_name as user_name from vtiger_tmp_write_user_sharing_per inner join vtiger_users on vtiger_users.id=vtiger_tmp_write_user_sharing_per.shareduserid where status='Active' and vtiger_tmp_write_user_sharing_per.userid=? and vtiger_tmp_write_user_sharing_per.tabid=9
+761,Start date and time
+976,' WHERE ( a.id IN ( '
+1016,'.xml'
+561,getSharedCalendarId
+970,'SELECT m.name, m.id, m.menutype, m.type, com.name AS com_name'
+579,$profileGlobalPermission
+394,'sectionmove'
+501,'showBanner'
+263,checked_out
+676,getActFieldCombo
+1103,user_id
+840,$location
+708,get_current_user_access_groups
+355,' AS s ON s.catid = c.id'
+265,'DESCBEINGEDITTED'
+848,$usr_res
+503,save
+427,sectionid
+244,'type'
+1055,$noOfRows
+538,'Items removed'
+740,Events
+1114,'params'
+905,<span style='padding-left: 10px; padding-right: 10px;'><b>
+796,is_object
+860,select description from vtiger_crmentity where crmid=?
+520,'Copy of '
+1120,'UPDATE #__contact_details'
+113,'global.list.limit'
+657,'fmt" id="'
+451,$context
+722,getActivityDetails
+496,'/images/banners'
+539,$conditions
+287,'SELECT ordering AS value, title AS text'
+672,'&nbsp;'
+1059,$curr_userid
+523,getNullDate
+16,JRequest
+297,'image'
+23,'cid'
+165,' WHERE section > 0'
+466,'SELECT b.*, c.name AS client_name, cc.title AS category_name, u.name AS editor'
+112,$limit
+536,' WHERE bid = '
+652,'min" id="'
+850,'count'
+1106,$file
+200,' AS s2 ON s2.catid = c.id AND s2.checked_out > 0'
+969,' LEFT JOIN #__users AS u ON u.id = m.checked_out'
+792,':'
+79,function
+293,'left'
+993,'&task='
+201,' AND c.published != -2'
+505,$task
+809,$invites
+880,getDBInsertDateValue
+1039,getUserName
+1009,fromTrash
+410,'Categories moved to'
+188,new
+859,$desc_qry
+117,$limitstart
+307,checkToken
+310,$menu
+48,'copysave'
+1124,'Changes to X saved'
+43,$option
+812,';'
+847,smownerid
+1062,select * from vtiger_cntactivityrel where activityid=?
+888,'onlyforuser'
+656,$minsel
+241,$uid
+949,', s.name, cc.name, c.title'
+1030,$sec
+563,$userid
+189,JPagination
+75,saveOrder
+567,$user_details
+367,$publish
+437,reorder
+699,.picklist_valueid where roleid ='
+890,calendarview_getSelectedUserFilterQuerySuffix
+281,'text'
+675,'fmt">'
+813,$record
+130,$table
+703,'">'
+965,'LOWER(m.name) LIKE '
+1094,showcontacts
+604,$format
+900,$app_strings
+1089,' LEFT JOIN #__groups AS g ON g.id = cd.access'
+830,$priority
+18,'section'
+529,' SET showBanner = '
+1037,'}]
+837,due_date
+798,minute
+550,Array
+404,loadResultArray
+544,getCache
+510,'unlimited'
+815,$inviteeid
+899,$useridInUse
+630,$fmt
+537,' OR bid = '
+898,calendarview_getUserSelectOptions
+933,'restoreconfirm'
+953,' LEFT JOIN #__sections AS s ON s.id = cc.section AND s.scope = "content"'
+1073,saveContact
+208,echo
+643,$hrtext
+957,'UNCATEGORIZED'
+642,'>'
+1044,$groupid
+273,'select.option'
+408,' SET section = '
+627,$bimode
+278,'select.genericlist'
+1019,'component'
+571,getSharingUserName
+137,setQuery
+1,defined
+34,'add'
+118,'.limitstart'
+321,'description'
+260,'category'
+298,'list.images'
+1006,$model
+233,'grid.state'
+623,'endhour'
+764,getDBTimeZone
+895, AND vtiger_crmentity.smownerid IN (
+645,$hrsel
+564,'userid'
+706,$tabid
+1134,' AND published != 0'
+191,getTableList
+697,) order by sortid asc
+942,'return'
+490,'Select Client'
+861,$des_res
+110,JString
+577,'user_privileges/user_privileges_'
+982,$obj
+819,user_name
+1001,JModel
+688,$subrole
+757,'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+558,$sharedname
+76,default
+69,'accesspublic'
+576,'.php'
+229,$lists
+823,$mail_data
+528,'UPDATE #__banner'
+31,'task'
+931,'delete'
+1069,'get'
+1066,$cont_name
+524,'No items selected'
+22,getVar
+55,'remove'
+332,getNextOrder
+62,cancelCategory
+744,$name
+700,' and picklistid in (select picklistid from 
+619,'starthour'
+396,$sectionMove
+605,$timearr
+674,'<input type="hidden" name="'
+308,jexit
+601,getaddEventPopupTime
+385,'SELECT a.title'
+348,'&task=edit&cid[]='
+316,'redirect'
+918,continue
+876,$end_hour
+559,getFullNameFromQResult
+141,'Content:'
+737,$reply
+954,'SELECT c.title, c.id, c.sectionid, c.catid, g.name AS groupname, cc.title AS catname, s.title AS sectname'
+679,$js_fn
+851,$assignType
+947,'c.state = -2'
+760,'subject'
+119,'limitstart'
+54,saveCategory
+258,JTable
+284,name
+253,'com_banner'
+237,show
+862,description
+996,$ordering
+497,'imageurl'
+290,'list.specificordering'
+481,'Table'
+683,'" class=small '
+430,catid
+271,$max
+302,$published
+94,$filter_order_Dir
+667,'</select>'
+935,'restore'
+344,getErrorMsg
+413,'Category already in'
+693, inner join vtiger_role2picklist on vtiger_role2picklist.picklistvalueid = 
+641,'hr" '
+986,'tables'
+704,getTranslatedString
+780,Exiting getActivityDetails method ...
+707,$noof_group_rows
+157,'other'
+145,Quote
+632,$mod_strings
+335,'UPDATE #__content'
+590,array_push
+599,FALSE
+941,$return
+1014,'/components/com_menus/'
+409,' WHERE catid IN ( '
+61,'cancel'
+1126,'index.php?option=com_contact&task=edit'
+1122,' WHERE id <> '
+1024,isset
+1068,'com_contact'
+1035,',HOUR:'
+467,' INNER JOIN #__bannerclient AS c ON c.cid = b.cid'
+915,selected='true'
+109,'string'
+689,getRoleSubordinates
+60,'unpublish'
+454,$filter_catid
+477,_task
+786,$datetime
+870,'sendnotification'
+887,$_REQUEST
+33,case
+474,'banner.php'
+585,$parent_roles
+665,'<option value="pm" '
+677,$fieldname
+1003,JPATH_BASE
+313,'post'
+831,priority
+483,$sql
+500,sticky
+449,'resethits'
+834,$st_time
+155,' WHERE link = '
+695,\"
+713,get_select_options_array
+747,'LBL_ACTIVITY_INVITATION'
+734,'LBL_UPDATED'
+480,'banner'
+1040,$am
+658,'fmt" class=small '
+279,'class="inputbox" size="1"'
+681,'onChange = "getSelectedStatus();"'
+562,SELECT * from vtiger_sharedcalendar where sharedid=?
+765,'end_date_time'
+621,'startmin'
+974,$mids
+1085,' ORDER BY category, cd.ordering'
+455,'filter_catid'
+166,' WHERE section = '
+450,display
+723,$description
+525,setMessage
+1110,editcontact
+504,'custombannercode'
+235,'order'
+919,$userselect
+1105,default_con
+330,section = 
+339,'UPDATE #__menu'
+709,get_group_options
+431,'Categories copied to'
+268,section
+540,$condition
+592,Error filling in user array: 
+871,'user_id'
+1118,\n
+53,'apply'
+745,getUserFullName
+58,publishCategories
+696,) and picklistid in (select picklistid from 
+587,$params
+82,$db
+461,' AND '
+1127,'Contact saved'
+768,Priority
+816,$to_email
+653,'min" class=small '
+9,require_once
+961,'m.menutype'
+459,'LOWER(b.name) LIKE '
+460,' WHERE '
+927,$mid
+341,' WHERE name = '
+322,JREQUEST_ALLOWRAW
+1012,$component
+629,$min
+414,', '
+651,'<select name="'
+295,'list.positions'
+718,$group_option
+873,'group_name'
+824,$qry
+283,$temp
+1080,'cd.ordering'
+29,toInteger
+945,.viewContent.filter_order_Dir
+553,pquery
+654,$value
+97,'word'
+637,$jsfn
+885,htmlspecialchars
+964,'m.published = -2'
+1096,imagepos
+39,'edit'
+159,'com_contact_details'
+239,$user
+738,'mode'
+375,move
+730,debug
+488,$clientlist
+389,'SELECT a.title AS text, a.id AS value'
+508,$unlimited
+773,LBL_CONTACT_LIST
+1077,changeAccess
+660,'am'
+502,banner
+546,clean
+988,$fp
+1098,'SELECT ordering AS value, name AS text'
+499,'sticky'
+133,'SELECT title'
+63,'orderup'
+314,$menuid
+74,'saveorder'
+356,' WHERE c.id IN ( '
+446,parent
+875,'Task'
+686,$roleid
+473,'views'
+763,DateTimeField
+1075,changeContact
+1092,' LEFT JOIN #__users AS v ON v.id = cd.checked_out'
+81,$mainframe
+896, AND vtiger_crmentity.smownerid = 
+323,bind
+334,checkin
+482,showBanner
+784,trim
+925,'index.php'
+614,'startfmt'
+721,$fieldvalue
+739,'activity_mode'
+771,'relatedto'
+262,isCheckedOut
+620,twoDigit
+1042,$crmentity
+223,active
+521,impmade
+618,am
+1132,index.php?option=com_contact
+613,$hr
+843,$owner_qry
+327,getError
+360,as
+514,$link
+810,'INVITATION'
+462,$orderby
+138,loadResult
+185,jimport
+250,!=
+3,'_JEXEC'
+178,'P'
+422,$id
+383,' WHERE a.id IN ( '
+1054,$groupqry_res
+1097,'top'
+331,ordering
+917,$index
+731,Entering getActivityDetails(
+198,' LEFT JOIN #__groups AS g ON g.id = c.access'
+758,LBL_SUBJECT
+646,'selected'
+921,</select></span>
+640,'hr" id="'
+662,'pm'
+1045,'include/utils/GetGroupUsers.php'
+441,BannerControllerBanner
+1099,' FROM #__contact_details'
+1000,'joomla.application.component.model'
+255,'index.php?option=com_categories&section='
+929,'deleteconfirm'
+832,$st_date
+685,select * from 
+395,'class="inputbox" size="10"'
+916,'LBL_MINE'
+71,'accessregistered'
+690,$roleids
+779,'<br>'
+206,loadObjectList
+236,categories_html
+983,JPATH_ADMINISTRATOR
+678,$tablename
+804,$inviteesid
+910,<option value='ALL'>
+930,viewdeleteTrash
+197,' LEFT JOIN #__users AS u ON u.id = c.checked_out'
+104,'sectionid'
+42,moveCategorySelect
+759,' : '
+211,$count
+6,die
+611,$edmin
+13,'admin_html'
+513,'catid = '
+715,do
+625,'24'
+581,getTabid
+1005,'models'
+150,===
+967,'SELECT count(*)'
+479,'option'
+299,image
+415,'Categories already in'
+115,getCfg
+1087,' FROM #__contact_details AS cd'
+766,LBL_STATUS
+940,viewTrashContent
+212,count
+122,$content_join
+1033,',MONTH:'
+190,$tablesAllowed
+305,'class="inputbox"'
+373,' ) )'
+682,'" id="'
+187,$pageNav
+1125,'index.php?option=com_contact&task=edit&cid[]='
+405,$title
+249,&&
+1029,$d
+27,'array'
+256,'WARNSECTION'
+790,$h
+836,$end_date
+214,$i
+234,'order_Dir'
+392,' ORDER BY a.title'
+530,' WHERE bid IN ( '
+555,$j
+1116,$k
+213,for
+361,numcat
+791,$m
+475,BannersViewBanner
+519,$n
+932,deleteTrash
+267,title
+340,' SET name = '
+684,$q
+977,content
+264,$msg
+285,'<input type="hidden" name="section" value="'
+1117,$v
+261,load
+1028,$y
+1056,$z
+1072,'save2copy'
+1083,'cd.published = 1'
+180,'U'
+920,' 
+1112,'POST'
+252,'com_newsfeeds'
+440,class
+710,$nameArray
+20,'com_content'
+26,''
+855,$group_qry
+749,$current_username
+772,'contact_name'
+781,$no
+1002,addIncludePath
+92,'c.ordering'
+37,false
+589, OR id=?
+318,getString
+320,$post
+439,'joomla.application.component.controller'
+752,$list
+902,SELECT id,user_name FROM vtiger_users WHERE status = 'Active' and deleted = 0
+711,fetch_array
+883,$default_charset
+176,$filter
+326,500
+527,publish
+120,$section_name
+121,$content_add
+132,$query
+376,'section = '
+506,clicks
+584,$role_seq
+1084,'cd.published = 0'
+512,bid
+448,registerTask
+633,$combo
+844,select smownerid from vtiger_crmentity where crmid=?
+1113,JREQUEST_ALLOWHTML
+622,'endfmt'
+444,__construct
+572,$current_user
+998,' SET state = '
+147,else
+220,id
+127,if
+478,'method'
+775,'location'
+938,viewTrashMenu
+1101,' AND catid = '
+438,'New ordering saved'
+639,'<select class=small name="'
+663,'<option value="am" '
+671,LBL_HR
+247,' WHERE scope = "content"'
+892,'ALL'
+98,$filter_state
+224,' AND a.state = -2'
+374,$inc
+1109,params
+1121,' SET default_con = 0'
+151,substr
+476,banners
+549,$sharedid
+992,'index.php?option='
+274,getInt
+470,'list.category'
+365,'WARNNOTREMOVEDRECORDS'
+570,$username
+596,'user_name'
+160,'Contact'
+568,select * from vtiger_users where deleted=0 and status='Active' and id!=?
+987,'frontpage.php'
+934,viewrestoreTrash
+418,' ORDER BY a.name'
+894,fetchUserGroupids
+91,'filter_order'
+526,'Items copied'
+893,$user_group_ids
+184,getEscaped
+985,'com_frontpage'
+649,'</option>'
+386,' WHERE a.catid IN ( '
+991,'Item(s) successfully Deleted'
+878,$endDate
+608,$stmin
+1057,$emailadd
+315,'menuid'
+650,'</select>&nbsp;'
+673,LBL_MIN
+971,' LEFT JOIN #__components AS com ON com.id = m.componentid AND m.type = "components"'
+203,limitstart
+216,++
+582,'Calendar'
+390,' FROM #__sections AS a'
+38,break
+1036,',MINUTE:'
+980,menu
+443,JController
+384,$items
+72,'accessspecial'
+364,, 
+412,is_array
+951,' FROM #__content AS c'
+463,', b.ordering'
+714,'private'
+232,'state'
+793,getDisplayTime
+210,return
+421,$category
+1050,group_users
+858,$grp_name
+829,subject
+863,$rel_qry
+593,while
+914,->id'
+575,'user_privileges/sharing_privileges_'
+597,unset
+1007,'List'
+909,is_admin
+225,$trash
+487,'index.php?option=com_banners'
+1031,split
+126,', c.ordering'
+363,' WHERE id IN ( '
+400,$sectionNew
+324,JError
+492,array_merge
+57,'publish'
+204,limit
+406,array_diff
+554,num_rows
+818,send_mail
+41,'moveselect'
+95,'.filter_order_Dir'
+128,intval
+266,'The category'
+296,NULL
+886,strip_tags
+168,$total
+1053,generateQuestionMarks
+733,$updated
+842,getDisplayDate
+822,$activity_type
+1119,catid = 
+1018,parseXMLInstallFile
+1060,$mail_status
+226,trash
+87,->
+202,' GROUP BY c.id'
+218,' FROM #__content AS a'
+366,null
+1095,'contact'
+40,true
+1071,'save2new'
+419,$contentid
+516,'Item Saved'
+349,'Category saved'
+864,select case vtiger_crmentity.setype when 'Leads' then vtiger_leaddetails.lastname when 'Accounts' then vtiger_account.accountname when 'Potentials' then vtiger_potential.potentialname when 'Quotes' then vtiger_quotes.subject when 'PurchaseOrder' then vtiger_purchaseorder.subject when 'SalesOrder' then vtiger_salesorder.subject when 'Invoice' then vtiger_invoice.subject when 'Campaigns' then vtiger_campaign.campaignname when 'HelpDesk' then vtiger_troubletickets.title  end as relname from vtiger_seactivityrel inner join vtiger_crmentity on vtiger_crmentity.crmid=vtiger_seactivityrel.crmid left join vtiger_leaddetails on vtiger_leaddetails.leadid = vtiger_seactivityrel.crmid  left join vtiger_account on vtiger_account.accountid=vtiger_seactivityrel.crmid left join vtiger_potential on vtiger_potential.potentialid=vtiger_seactivityrel.crmid left join vtiger_quotes on vtiger_quotes.quoteid= vtiger_seactivityrel.crmid left join vtiger_purchaseorder on vtiger_purchaseorder.purchaseorderid = vtiger_seactivityrel.crmid  left join vtiger_salesorder on vtiger_salesorder.salesorderid = vtiger_seactivityrel.crmid left join vtiger_invoice on vtiger_invoice.invoiceid = vtiger_seactivityrel.crmid  left join vtiger_campaign on vtiger_campaign.campaignid = vtiger_seactivityrel.crmid left join vtiger_troubletickets on vtiger_troubletickets.ticketid = vtiger_seactivityrel.crmid where vtiger_seactivityrel.activityid=?
+154,' FROM #__components'
+1008,'MenusModel'
+872,'assign_type'
+691,select distinct 
+205,$rows
+659,$amselected
+701,$Res
+990,delete
+1129,'DELETE FROM #__contact_details'
+30,switch
+164,.=
+359,foreach
+434,$groupings
+797,hour
+1067,getContactName
+47,copyCategorySelect
+108,'search'
+352,implode
+928,'mid'
+511,imptotal
+826,$ary_res
+5,or
+1010,'Item(s) successfully Restored'
+805,$mode
+548,$adb
+845,$res
+552,$result
+821,$return_id
+85,getDBO
+452,'com_banners.banner.list.'
+698, from 
+1063,$cont_res
+96,'filter_order_Dir'
+602,$starttime
+64,orderCategory
+617,pm
+369,'Select a category to '
+49,copyCategorySave
+238,$edit
+727,$current_language
+21,$cid
+1043,CRMEntity
+963,.viewMenu.limitstart
+486,setRedirect
+429,$newcatid
+551,SELECT vtiger_users.*,vtiger_sharedcalendar.* from vtiger_sharedcalendar left join vtiger_users on vtiger_sharedcalendar.sharedid=vtiger_users.id where userid=?
+1048,getAllUsersInGroup
+123,$order
+382,' FROM #__categories AS a'
+720,$selected
+569,$num_rows
+782,10
+616,12
+628,$hour
+702,$noofrows
+303,'published'
+306,edit
+913,<option value='
+1082,'cd.catid = '
+425,old
+610,$edhr
+411,enqueueMessage
+379,$sectionOld
+717,groupname
+317,$oldtitle
+648,'" '
+182,' AND LOWER(c.title) LIKE '
+163,' FROM #__categories'
+750,$status
+195,'SELECT  c.*, c.checked_out as checked_out_contact_category, g.name AS groupname, u.name AS editor, COUNT( DISTINCT s2.checked_out ) AS checked_out_count'
+495,$directory
+594,fetchByAssoc
+670,23
+1070,editContact
+433,access
+280,'value'
+1065,contactid
+647,'<option value="'
+80,global
+217,'SELECT COUNT( a.id )'
+156,'option='
+458,'cc.id = '
+751,'status'
+196,' FROM #__categories AS c'
+997,9999
+177,' AND c.section = '
+853,$usr_id
+1038,SELECT vtiger_users.user_name,vtiger_sharedcalendar.* from vtiger_sharedcalendar left join vtiger_users on vtiger_sharedcalendar.sharedid=vtiger_users.id where userid=?
+311,'menu'
+254,redirect
+728,'include/utils/utils.php'
+869,getActivityRelatedContacts
+666,'>PM</option>'
+603,$endtime
+333,store
+125,' '
+1025,'fieldval'
+923,'com_trash'
+785,timeString
+959,showListContent
+377,'&section='
+746,invite
+1088,'SELECT cd.*, cc.title AS category, u.name AS user, v.name as editor, g.name AS groupname'
+381,'SELECT a.title, a.section'
+794,'hour'
+103,'.sectionid'
+471,JPATH_COMPONENT
+846,$owner_id
+907, : </b>
+107,'.search'
+46,'copyselect'
+573,$assigned_user_id
+345,'index.php?option=com_menus&menutype='
+541,$found
+807,$desc
+770,Related To
+989,TableFrontPage
+338,query
+209,stderr
+219,' WHERE a.catid = '
+825,select * from vtiger_activity where activityid=?
+442,extends
+811,$invitees_array
+1090,' LEFT JOIN #__categories AS cc ON cc.id = cd.catid'
+153,'SELECT name'
+221,' AND a.state <> -2'
+735,$created
+595,$temp_result
+162,'SELECT COUNT(*)'
+230,JHTML
+173,' ORDER BY  '
+102,$sectionid
+881,getDBInsertTimeValue
+207,getErrorNum
+134,' FROM #__sections'
+972,$menus
+661,$pmselected
+358,$err
+543,$cache
+565,$shared_ids
+937,'viewMenu'
+1013,$xmlfile
+776,LBL_APP_DESCRIPTION
+787,$timeStr
+453,'cc.title'
+269,checkout
+275,'SELECT s.id AS value, s.title AS text'
+866,$rel_name
+624,'endmin'
+343,'UPDATE #__sections SET count=count+1'
+447,$this
+161,'Component:'
+498,imageurl
+346,'&task=edit&id='
+841,location
+259,getInstance
+979,' FROM #__menu AS a'
+612,'am/pm'
+774,Location
+485,' FROM #__bannerclient'
+712,$users_combo
+70,accessMenu
+183,'%'
+638,'onChange="changeEndtime_StartTime(document.EditView.activitytype.value);"'
+636,'start'
+975,'SELECT a.title AS name'
+535,'DELETE FROM #__banner'
+465,' LEFT JOIN #__categories AS cc ON cc.id = b.catid'
+808,modules/Emails/mail.php
+12,getPath
+277,' ORDER BY s.ordering'
+849,select count(*) as count from vtiger_users where id=?
+1041,getEventNotification
+755,'LBL_DETAILS_STRING'
+7,'Restricted access'
+116,'list_limit'
+380,'Select an item to move'
+44,'movesave'
+194,getPrefix
+978,'SELECT a.name'
+1093,HTML_contact
+257,$row
+856,select groupname from vtiger_groups where groupid=?
+420,'item'
+286,'" />'
+494,'onchange="changeDisplayImage();"'
+179,' AND c.published = 1'
+337,' WHERE catid = '
+911,'COMBO_ALL'
+981,showDelete
+56,removeCategories
+11,::
+507,'Reset Banner clicks'
+958,HTML_trash
+36,editCategory
+401,'SELECT id, title'
+1130,<script> alert('
+960,.viewMenu.filter_order
+100,'.filter_state'
+288,' ORDER BY ordering'
+423,'Copy of'
+557,'sharedid'
+309,'Invalid Token'
+962,.viewMenu.filter_order_Dir
+193,in_array
+803,sendInvitation
+1107,'/components/com_contact/contact_items.xml'
+1023,' - '
+181,' AND c.published = 0'
+1108,JParameter
+242,get
+868,$relatedContacts
+14,$section
+518,copy
+245,$redirect
+1047,GetGroupUsers
+186,'joomla.html.pagination'
+741,$end_date_lable
+276,' FROM #__sections AS s'
+884,$only_for_user
+1004,'com_menus'
+131,'content'
+174,', z.title, c.ordering'
+289,'ordering'
+1086,', category, cd.ordering'
+51,'go2menuitem'
+143,$where
+146,$type
+542,$cond
+428,hits
+175,'All Content:'
+1076,orderContacts
+607,$sthr
+522,date
+1020,||
+669,<=
+1021,<>
+17,getCmd
+52,'save'
+680,'eventstatus'
+724,$user_id
+301,'list.accesslevel'
+903,$userscount
+88,getUserStateFromRequest
+354,'SELECT c.id, c.name, c.title, COUNT( s.catid ) AS numcat'
+171,' WHERE c.section NOT LIKE "%com_%"'
+436,$group
+788,formatUserTimeString
+158,==
+719,=>
+867,relname
+222,$active
+357,' )'
+270,published
+1027,Y:m:d:H:i:s
+838,$end_time
+351,$cids
+600,Active
+426,$content
+799,$am_pm
+101,'filter_state'
+705,getAssignedTo
+10,JApplicationHelper
+1128,'index.php?option=com_contact'
+144,' WHERE c.section = '
+403,$scid
+615,>=
+753,'<br><br>'
+1061,$cont_qry
+835,time_start
+240,getUser
+754,'.<br> '
+1046,$getGroupObj
+372,' AND ( checked_out = 0 OR ( checked_out = '
+547,getSharedUserId
+956,sectname
+199,' LEFT JOIN #__'
+882,calendarview_getSelectedUserId
+1026,$currtime
+1100,' WHERE published >= 0'
+891,$qcondition
+1078,cancelContact
+228,'onchange="document.adminForm.submit();"'
+1074,removeContacts
+1131,'); window.history.go(-1); </script>
+24,array
+948,'LOWER(c.title) LIKE '
+1115,$txt
+732,) method ...
+1032,YEAR:'
+1133,'Select an item to'
+1034,',DAY:'
+353,','
+1017,$data
+725,$from
+800,'AM'
+416,'SELECT a.title, a.id'
+114,'limit'
+304,'select.booleanlist'
+378,'index.php?option=com_categories'
+468,' LEFT JOIN #__users AS u ON u.id = b.checked_out'
+136,int
+251,'com_weblinks'
+531,'  )'
+402,' AND section = '
+906,'LBL_LIST_OF'
+789,$date
+435,array_unique
+445,$config
+556,query_result
+227,$javascript
+491,'name'
+865,$rel_res

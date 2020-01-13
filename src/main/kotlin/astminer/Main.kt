@@ -8,16 +8,20 @@ fun main(args: Array<String>) {
 }
 
 fun runExamples() {
-    code2vecJavaMethods()
+    /*code2vecJavaMethods()
     allJavaFilesGumTree()
     allJavaFiles()
     allJavaMethods()
     allPythonFiles()
-    allJavaScriptFiles()
+    allJavaScriptFiles()*/
     allCppFiles()
 
+    println("PHP files")
+    allPhpFiles()
 
-    AllJavaFiles.runExample()
+    /*AllJavaFiles.runExample()
 
     allJavaAsts()
+    */
+
 }

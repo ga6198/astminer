@@ -23,9 +23,11 @@ class PhpParser : Parser<SimpleNode> {
             parser.removeErrorListeners()
             //val context = parser.compilationUnit() //original before I commented it out
             //not sure if this declaration is correct, but convertAntlrTree does take a parser rule context. Look at the javascript folder for more help
-            val context = parser.context //parser.ruleContext instead?
+            //maybe try to search for function that returns a ParserRuleContext inside PhpParser? convertAntlrTree takes a ParserRuleContext as a param
+            val context = parser.htmlElements()//parser.context //parser.ruleContext instead?
             convertAntlrTree(context, PhpParser.ruleNames, PhpParser.VOCABULARY)
         } catch (e: Exception) {
+            print("exception reached")
             null
         }
     }

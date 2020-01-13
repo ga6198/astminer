@@ -1,0 +1,17 @@
+id,token
+2,
+8,"Hello again world!"
+9,void
+11,SingleFunction
+13,main
+15,SingleMethodInnerClass
+1,String
+4,int
+3,args
+16,0
+7,println
+5,param
+12,"Hello world!"
+14,InnerClass
+6,System.out
+10,fun

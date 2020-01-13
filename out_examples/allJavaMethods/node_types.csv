@@ -1,0 +1,27 @@
+id,node_type
+6,SingleVariableDeclaration UP
+7,SingleVariableDeclaration DOWN
+10,PrimitiveType UP
+18,PrimitiveType DOWN
+5,Dimension DOWN
+9,Dimension UP
+14,StringLiteral DOWN
+26,StringLiteral UP
+20,ExpressionStatement DOWN
+22,ExpressionStatement UP
+11,QualifiedName UP
+21,QualifiedName DOWN
+15,MethodDeclaration UP
+16,MethodDeclaration DOWN
+1,SimpleName UP
+8,SimpleName DOWN
+3,ArrayType UP
+4,ArrayType DOWN
+19,Block DOWN
+23,Block UP
+25,NumberLiteral DOWN
+2,SimpleType UP
+17,SimpleType DOWN
+24,ReturnStatement DOWN
+12,MethodInvocation UP
+13,MethodInvocation DOWN
