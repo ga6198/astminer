@@ -1,186 +1,186 @@
 id,token
-111,"BAD"
-100,numInversions
-155,K.front
-181,KEN1.end
-102,bad
-156,N.pop_front
-28,setiosflags
-58,"%d%d%d"
-70,gcd
-77,"%lf%lf"
-13,scanf
-57,three
-130,crow1.end
-38,dummy
-153,score
-128,set_intersection
-184,solveRegular
-174,KEN2.push_back
-29,setprecision
-20,const _T &
-40,FLUSH
-159,K.back
-163,solveDeceitful
-3,curr
-171,NAOMI1.push_back
-30,10
-95,ii
-72,"%u%u"
-71,uns &
-26,cout
-134,0U
-61,vector < string >
-89,double
-18,is
-146,ceil
-33,0
-65,"%lf%lf%lf"
-173,KEN1.push_back
-49,getInt
-98,1
-112,"GOOD"
-51,vector < ld >
-107,2
-166,ANS2
-108,245
-110,3
-90,"%lf"
-123,4
-136,"Bad magician!"
-167,ANS1
-172,NAOMI2.push_back
-109,8
-127,inters.begin
-48,"%d%d"
-121,card
-161,N.pop_back
-17,istream &
-76,tostr
-97,jj
-140,C
-31,1U
-144,F
-169,NAOMI2
-42,": "
-168,NAOMI1
-152,K
-1,unsigned long long
-47,two
-94,N
-180,KEN1.begin
-56,ABS
-10,signed long long
-24,T
-52,SI
-158,N.back
-139,X
-165,KEN2
-170,KEN1
-164,deque < double >
-19,a
-119,st
-179,NAOMI2.end
-67,b
-85,MSI
-93,map < string , void * >
-27,ios::fixed
-114,c
-143,CF
-147,max
-115,inters
-46,one
-39,inline void
-141,n
-125,crow2.insert
-59,PII
-92,MSV
-117,r
-23,operator <<
-68,t
-145,2.0
-60,pair < int , int >
-37,ld
-54,x
-135,"Volunteer cheated!"
-80,vector < bool >
-142,XF2CCF
-25,tt
-86,map < string , int >
-99,numbers
-35,main
-120,size_t
-16,getUnsigned
-64,double &
-132,crow2.end
-91,inline double
-103,invs
-137,XF2C
-129,crow1.begin
-183,KEN2.end
-88,inline int
-96,ret
-41,testNum
-113,row1
-185," "
-182,KEN2.begin
-32,foreachTest
-175,sort
-81,VB
-116,row2
-50,VD
-22,inline istream&
-82,VI
-124,crow1.insert
-157,K.pop_front
-15,inline uns
-62,VS
-104,rightconc
-14,"%u"
-105,nn
-53,set < int >
-151,deque < double > &
-4,string
-101,bool
-138,ANS
-5,cin
-66,getDouble
-162,N.empty
-6,ANY
-45,int &
-133,inters.size
-83,vector < int >
-149,printf
-87,"%d"
-122,crow1
-118,crow2
-63,sqr
-69,_T
-7,getline
-106,leftconc
-44,endl
-177,NAOMI1.end
-176,NAOMI1.begin
-55,inline _T
-73,os
-79,"%u%u%u"
-178,NAOMI2.begin
-11,i64
-36,long double
-9,getLine
-126,std::inserter
-84,getString
-150,"%.7f"
-34,int
-8,inline string
-2,u64
-75,os.str
-148,0.0
-21,is.putback
-160,K.pop_back
-78,unsigned
-12,uns
-74,ostringstream
-131,crow2.begin
-154,N.front
-43,"Case #"
+164,~deque < double >~
+40,~FLUSH~
+14,~"%u"~
+54,~x~
+163,~solveDeceitful~
+61,~vector < string >~
+143,~CF~
+21,~is.putback~
+125,~crow2.insert~
+29,~setprecision~
+145,~2.0~
+121,~card~
+174,~KEN2.push_back~
+47,~two~
+149,~printf~
+35,~main~
+88,~inline int~
+151,~deque < double > &~
+62,~VS~
+133,~inters.size~
+95,~ii~
+137,~XF2C~
+64,~double &~
+120,~size_t~
+153,~score~
+139,~X~
+45,~int &~
+185,~" "~
+106,~leftconc~
+5,~cin~
+44,~endl~
+22,~inline istream&~
+81,~VB~
+108,~245~
+39,~inline void~
+69,~_T~
+93,~map < string , void * >~
+128,~set_intersection~
+83,~vector < int >~
+19,~a~
+97,~jj~
+147,~max~
+30,~10~
+13,~scanf~
+126,~std::inserter~
+127,~inters.begin~
+173,~KEN1.push_back~
+89,~double~
+32,~foreachTest~
+109,~8~
+129,~crow1.begin~
+131,~crow2.begin~
+31,~1U~
+165,~KEN2~
+60,~pair < int , int >~
+181,~KEN1.end~
+111,~"BAD"~
+117,~r~
+2,~u64~
+148,~0.0~
+33,~0~
+38,~dummy~
+167,~ANS1~
+182,~KEN2.begin~
+80,~vector < bool >~
+116,~row2~
+142,~XF2CCF~
+150,~"%.7f"~
+10,~signed long long~
+42,~": "~
+75,~os.str~
+67,~b~
+96,~ret~
+48,~"%d%d"~
+3,~curr~
+177,~NAOMI1.end~
+12,~uns~
+84,~getString~
+161,~N.pop_back~
+50,~VD~
+23,~operator <<~
+175,~sort~
+36,~long double~
+98,~1~
+18,~is~
+58,~"%d%d%d"~
+112,~"GOOD"~
+113,~row1~
+46,~one~
+160,~K.pop_back~
+79,~"%u%u%u"~
+114,~c~
+155,~K.front~
+136,~"Bad magician!"~
+115,~inters~
+134,~0U~
+51,~vector < ld >~
+169,~NAOMI2~
+8,~inline string~
+68,~t~
+102,~bad~
+107,~2~
+63,~sqr~
+101,~bool~
+159,~K.back~
+52,~SI~
+152,~K~
+158,~N.back~
+77,~"%lf%lf"~
+27,~ios::fixed~
+55,~inline _T~
+130,~crow1.end~
+140,~C~
+59,~PII~
+16,~getUnsigned~
+28,~setiosflags~
+20,~const _T &~
+92,~MSV~
+103,~invs~
+154,~N.front~
+168,~NAOMI1~
+183,~KEN2.end~
+170,~KEN1~
+110,~3~
+24,~T~
+86,~map < string , int >~
+57,~three~
+166,~ANS2~
+17,~istream &~
+132,~crow2.end~
+41,~testNum~
+178,~NAOMI2.begin~
+105,~nn~
+26,~cout~
+9,~getLine~
+6,~ANY~
+156,~N.pop_front~
+184,~solveRegular~
+7,~getline~
+66,~getDouble~
+119,~st~
+90,~"%lf"~
+71,~uns &~
+124,~crow1.insert~
+123,~4~
+34,~int~
+78,~unsigned~
+1,~unsigned long long~
+157,~K.pop_front~
+99,~numbers~
+104,~rightconc~
+141,~n~
+180,~KEN1.begin~
+43,~"Case #"~
+179,~NAOMI2.end~
+11,~i64~
+82,~VI~
+162,~N.empty~
+172,~NAOMI2.push_back~
+118,~crow2~
+100,~numInversions~
+56,~ABS~
+4,~string~
+73,~os~
+135,~"Volunteer cheated!"~
+53,~set < int >~
+91,~inline double~
+85,~MSI~
+15,~inline uns~
+70,~gcd~
+87,~"%d"~
+65,~"%lf%lf%lf"~
+72,~"%u%u"~
+94,~N~
+37,~ld~
+49,~getInt~
+74,~ostringstream~
+76,~tostr~
+171,~NAOMI1.push_back~
+144,~F~
+138,~ANS~
+122,~crow1~
+25,~tt~
+176,~NAOMI1.begin~
+146,~ceil~

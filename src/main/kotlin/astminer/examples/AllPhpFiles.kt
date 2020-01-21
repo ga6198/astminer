@@ -1,7 +1,7 @@
 package astminer.examples
 
 import astminer.common.model.LabeledPathContexts
-import astminer.parse.antlr.php.PhpParser
+import astminer.parse.antlr.php.PhpMainParser
 import astminer.paths.CsvPathStorage
 import astminer.paths.PathMiner
 import astminer.paths.PathRetrievalSettings
@@ -17,7 +17,7 @@ fun allPhpFiles() {
     val storage = CsvPathStorage(outputDir)
 
     File(folder).forFilesWithSuffix(".php") {file ->
-        val node = PhpParser().parse(file.inputStream()) ?: return@forFilesWithSuffix
+        val node = PhpMainParser().parse(file.inputStream()) ?: return@forFilesWithSuffix
         val paths = miner.retrievePaths(node)
 
         storage.store(LabeledPathContexts(file.path, paths.map { toPathContext(it) }))
