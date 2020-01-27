@@ -1,186 +1,186 @@
 id,token
-164,~deque < double >~
-40,~FLUSH~
-14,~"%u"~
-54,~x~
-163,~solveDeceitful~
-61,~vector < string >~
-143,~CF~
-21,~is.putback~
+152,~deque < double >~
+85,~FLUSH~
+76,~"%u"~
+64,~x~
+171,~solveDeceitful~
+63,~vector < string >~
+138,~CF~
+71,~is.putback~
 125,~crow2.insert~
-29,~setprecision~
+53,~setprecision~
 145,~2.0~
-121,~card~
-174,~KEN2.push_back~
-47,~two~
+113,~card~
+161,~KEN2.push_back~
+34,~two~
 149,~printf~
-35,~main~
-88,~inline int~
-151,~deque < double > &~
+57,~main~
+45,~inline int~
+174,~deque < double > &~
 62,~VS~
 133,~inters.size~
-95,~ii~
-137,~XF2C~
-64,~double &~
+110,~ii~
+142,~XF2C~
+32,~double &~
 120,~size_t~
-153,~score~
-139,~X~
-45,~int &~
-185,~" "~
-106,~leftconc~
-5,~cin~
-44,~endl~
-22,~inline istream&~
-81,~VB~
-108,~245~
-39,~inline void~
-69,~_T~
-93,~map < string , void * >~
+176,~score~
+140,~X~
+66,~int &~
+173,~" "~
+100,~leftconc~
+3,~cin~
+24,~endl~
+72,~inline istream&~
+31,~VB~
+104,~245~
+10,~_T~
+25,~inline void~
+47,~map < string , void * >~
 128,~set_intersection~
-83,~vector < int >~
-19,~a~
-97,~jj~
+28,~vector < int >~
+7,~a~
+111,~jj~
 147,~max~
-30,~10~
-13,~scanf~
+54,~10~
+36,~scanf~
 126,~std::inserter~
 127,~inters.begin~
-173,~KEN1.push_back~
-89,~double~
-32,~foreachTest~
-109,~8~
+160,~KEN1.push_back~
+79,~double~
+26,~foreachTest~
+105,~8~
 129,~crow1.begin~
 131,~crow2.begin~
-31,~1U~
-165,~KEN2~
-60,~pair < int , int >~
-181,~KEN1.end~
-111,~"BAD"~
-117,~r~
-2,~u64~
+56,~1U~
+151,~KEN2~
+74,~pair < int , int >~
+168,~KEN1.end~
+107,~"BAD"~
+115,~r~
+89,~u64~
 148,~0.0~
-33,~0~
-38,~dummy~
-167,~ANS1~
-182,~KEN2.begin~
-80,~vector < bool >~
-116,~row2~
-142,~XF2CCF~
+12,~0~
+84,~dummy~
+155,~ANS1~
+169,~KEN2.begin~
+30,~vector < bool >~
+117,~row2~
+144,~XF2CCF~
 150,~"%.7f"~
-10,~signed long long~
-42,~": "~
-75,~os.str~
-67,~b~
-96,~ret~
-48,~"%d%d"~
-3,~curr~
-177,~NAOMI1.end~
-12,~uns~
-84,~getString~
-161,~N.pop_back~
-50,~VD~
-23,~operator <<~
-175,~sort~
-36,~long double~
-98,~1~
-18,~is~
-58,~"%d%d%d"~
-112,~"GOOD"~
-113,~row1~
-46,~one~
-160,~K.pop_back~
-79,~"%u%u%u"~
-114,~c~
-155,~K.front~
+42,~signed long long~
+17,~os.str~
+22,~": "~
+9,~b~
+109,~ret~
+67,~"%d%d"~
+2,~curr~
+164,~NAOMI1.end~
+19,~uns~
+6,~getString~
+179,~N.pop_back~
+91,~VD~
+73,~operator <<~
+162,~sort~
+61,~long double~
+112,~1~
+70,~is~
+93,~"%d%d%d"~
+108,~"GOOD"~
+114,~row1~
+33,~one~
+181,~K.pop_back~
+88,~"%u%u%u"~
+122,~c~
+184,~K.front~
 136,~"Bad magician!"~
-115,~inters~
+118,~inters~
 134,~0U~
-51,~vector < ld >~
-169,~NAOMI2~
-8,~inline string~
-68,~t~
-102,~bad~
-107,~2~
-63,~sqr~
-101,~bool~
-159,~K.back~
-52,~SI~
-152,~K~
-158,~N.back~
-77,~"%lf%lf"~
-27,~ios::fixed~
-55,~inline _T~
+92,~vector < ld >~
+156,~NAOMI2~
+5,~inline string~
+11,~t~
+96,~bad~
+103,~2~
+65,~sqr~
+97,~bool~
+178,~K.back~
+86,~SI~
+175,~K~
+177,~N.back~
+68,~"%lf%lf"~
+51,~ios::fixed~
+13,~inline _T~
 130,~crow1.end~
-140,~C~
-59,~PII~
-16,~getUnsigned~
-28,~setiosflags~
-20,~const _T &~
-92,~MSV~
-103,~invs~
-154,~N.front~
-168,~NAOMI1~
-183,~KEN2.end~
-170,~KEN1~
-110,~3~
-24,~T~
-86,~map < string , int >~
-57,~three~
-166,~ANS2~
-17,~istream &~
+143,~C~
+75,~PII~
+52,~setiosflags~
+55,~getUnsigned~
+8,~const _T &~
+48,~MSV~
+99,~invs~
+183,~N.front~
+154,~NAOMI1~
+170,~KEN2.end~
+153,~KEN1~
+106,~3~
+49,~T~
+58,~map < string , int >~
+35,~three~
+157,~ANS2~
+69,~istream &~
 132,~crow2.end~
-41,~testNum~
-178,~NAOMI2.begin~
-105,~nn~
-26,~cout~
-9,~getLine~
-6,~ANY~
-156,~N.pop_front~
-184,~solveRegular~
-7,~getline~
-66,~getDouble~
-119,~st~
-90,~"%lf"~
-71,~uns &~
+20,~testNum~
+165,~NAOMI2.begin~
+98,~nn~
+21,~cout~
+40,~getLine~
+4,~ANY~
+172,~solveRegular~
+185,~N.pop_front~
+38,~getDouble~
+39,~getline~
+121,~st~
+80,~"%lf"~
+82,~uns &~
 124,~crow1.insert~
 123,~4~
-34,~int~
-78,~unsigned~
-1,~unsigned long long~
-157,~K.pop_front~
-99,~numbers~
-104,~rightconc~
+29,~unsigned~
+43,~int~
+90,~unsigned long long~
+180,~K.pop_front~
+95,~rightconc~
+101,~numbers~
 141,~n~
-180,~KEN1.begin~
-43,~"Case #"~
-179,~NAOMI2.end~
-11,~i64~
-82,~VI~
-162,~N.empty~
-172,~NAOMI2.push_back~
-118,~crow2~
-100,~numInversions~
-56,~ABS~
-4,~string~
-73,~os~
+167,~KEN1.begin~
+23,~"Case #"~
+166,~NAOMI2.end~
+41,~i64~
+27,~VI~
+182,~N.empty~
+159,~NAOMI2.push_back~
+116,~crow2~
+102,~numInversions~
+78,~ABS~
+1,~string~
+16,~os~
 135,~"Volunteer cheated!"~
-53,~set < int >~
-91,~inline double~
-85,~MSI~
-15,~inline uns~
-70,~gcd~
-87,~"%d"~
-65,~"%lf%lf%lf"~
-72,~"%u%u"~
+81,~inline double~
+87,~set < int >~
+59,~MSI~
+14,~gcd~
+44,~"%d"~
+77,~inline uns~
+37,~"%lf%lf%lf"~
+83,~"%u%u"~
 94,~N~
-37,~ld~
-49,~getInt~
-74,~ostringstream~
-76,~tostr~
-171,~NAOMI1.push_back~
-144,~F~
-138,~ANS~
-122,~crow1~
-25,~tt~
-176,~NAOMI1.begin~
+60,~ld~
+15,~ostringstream~
+18,~tostr~
+46,~getInt~
+158,~NAOMI1.push_back~
+137,~F~
+139,~ANS~
+119,~crow1~
+50,~tt~
+163,~NAOMI1.begin~
 146,~ceil~

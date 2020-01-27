@@ -8,9 +8,9 @@ import astminer.paths.PathRetrievalSettings
 import astminer.paths.toPathContext
 import java.io.File
 
-fun allPhpFiles() {
-    val folder = "./testData/examples"
-    val outputDir = "out_examples/allPhpFilesAntlr"
+fun allPhpFiles(folderPath: String = "./testData/examples", outputPath: String = "out_examples/allPhpFilesAntlr") {
+    val folder = folderPath
+    val outputDir = outputPath
 
     //I think this will let us go down a max of 5 paths
     val miner = PathMiner(PathRetrievalSettings(5, 5))
