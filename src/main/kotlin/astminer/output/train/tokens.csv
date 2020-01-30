@@ -1,0 +1,533 @@
+id,token
+345,~'index.php?option=com_menus&menutype='~
+525,~'DELETE FROM #__contact_details'~
+434,~$groupings~
+317,~$oldtitle~
+222,~$active~
+91,~'filter_order'~
+409,~' WHERE catid IN ( '~
+391,~' WHERE a.published = 1'~
+416,~'SELECT a.title, a.id'~
+157,~'other'~
+280,~'value'~
+309,~'Invalid Token'~
+184,~getEscaped~
+462,~$filter_catid~
+94,~$filter_order_Dir~
+457,~orderContacts~
+361,~numcat~
+48,~'copysave'~
+53,~'apply'~
+505,~'misc'~
+240,~getUser~
+201,~' AND c.published != -2'~
+135,~' WHERE id = '~
+302,~$published~
+22,~getVar~
+375,~move~
+11,~::~
+488,~'SELECT ordering AS value, name AS text'~
+173,~' ORDER BY  '~
+460,~showContacts~
+118,~'.limitstart'~
+211,~$count~
+253,~'com_banner'~
+275,~'SELECT s.id AS value, s.title AS text'~
+406,~array_diff~
+381,~'SELECT a.title, a.section'~
+413,~'Category already in'~
+497,~default_con~
+519,~'Changes to X saved'~
+7,~'Restricted access'~
+453,~'save2copy'~
+247,~' WHERE scope = "content"'~
+367,~$publish~
+523,~'Contact saved'~
+32,~{~
+351,~$cids~
+147,~else~
+281,~'text'~
+223,~active~
+63,~'orderup'~
+217,~'SELECT COUNT( a.id )'~
+112,~$limit~
+238,~$edit~
+235,~'order'~
+364,~, ~
+153,~'SELECT name'~
+65,~[~
+390,~' FROM #__sections AS a'~
+256,~'WARNSECTION'~
+35,~:~
+77,~showCategories~
+51,~'go2menuitem'~
+124,~' ORDER BY '~
+88,~getUserStateFromRequest~
+482,~showcontacts~
+359,~foreach~
+495,~'name'~
+458,~changeAccess~
+263,~checked_out~
+512,~$v~
+39,~'edit'~
+316,~'redirect'~
+78,~}~
+8,~;~
+61,~'cancel'~
+139,~JText~
+234,~'order_Dir'~
+190,~$tablesAllowed~
+75,~saveOrder~
+284,~name~
+446,~DS~
+187,~$pageNav~
+326,~500~
+148,~strpos~
+264,~$msg~
+199,~' LEFT JOIN #__'~
+138,~loadResult~
+339,~'UPDATE #__menu'~
+20,~'com_content'~
+66,~]~
+464,~'cd.name LIKE '~
+29,~toInteger~
+215,~<~
+301,~'list.accesslevel'~
+108,~'search'~
+30,~switch~
+123,~$order~
+423,~'Copy of'~
+107,~'.search'~
+42,~moveCategorySelect~
+265,~'DESCBEINGEDITTED'~
+442,~'index.php'~
+136,~int~
+76,~default~
+119,~'limitstart'~
+304,~'select.booleanlist'~
+311,~'menu'~
+526,~<script> alert('~
+515,~'UPDATE #__contact_details'~
+418,~' ORDER BY a.name'~
+15,~=~
+357,~' )'~
+332,~getNextOrder~
+531,~'catid = '~
+412,~is_array~
+17,~getCmd~
+287,~'SELECT ordering AS value, title AS text'~
+50,~'go2menu'~
+529,~$state~
+27,~'array'~
+276,~' FROM #__sections AS s'~
+502,~params~
+274,~getInt~
+277,~' ORDER BY s.ordering'~
+142,~_~
+520,~$link~
+450,~'get'~
+129,~>~
+120,~$section_name~
+248,~$sections~
+470,~$orderby~
+44,~'movesave'~
+308,~jexit~
+221,~' AND a.state <> -2'~
+455,~removeContacts~
+174,~', z.title, c.ordering'~
+407,~empty~
+288,~' ORDER BY ordering'~
+229,~$lists~
+424,~$newcatids~
+292,~?~
+258,~JTable~
+307,~checkToken~
+41,~'moveselect'~
+320,~$post~
+334,~checkin~
+473,~' FROM #__contact_details AS cd'~
+405,~$title~
+169,~' , z.title AS section_name'~
+23,~'cid'~
+271,~$max~
+358,~$err~
+385,~'SELECT a.title'~
+33,~case~
+182,~' AND LOWER(c.title) LIKE '~
+306,~edit~
+100,~'.filter_state'~
+337,~' WHERE catid = '~
+401,~'SELECT id, title'~
+341,~' WHERE name = '~
+509,~$txt~
+507,~JREQUEST_ALLOWHTML~
+31,~'task'~
+315,~'menuid'~
+402,~' AND section = '~
+121,~$content_add~
+370,~'UPDATE #__categories'~
+528,~index.php?option=com_contact~
+213,~for~
+37,~false~
+246,~'SELECT COUNT( id )'~
+471,~' ORDER BY category, cd.ordering'~
+384,~$items~
+378,~'index.php?option=com_categories'~
+131,~'content'~
+262,~isCheckedOut~
+353,~','~
+210,~return~
+160,~'Contact'~
+388,~$contents~
+68,~'orderdown'~
+233,~'grid.state'~
+296,~NULL~
+143,~$where~
+85,~getDBO~
+360,~as~
+342,~' AND type = "content_category"'~
+192,~!~
+224,~' AND a.state = -2'~
+429,~$newcatid~
+146,~$type~
+231,~'list.section'~
+5,~or~
+95,~'.filter_order_Dir'~
+365,~'WARNNOTREMOVEDRECORDS'~
+444,~addIncludePath~
+71,~'accessregistered'~
+145,~Quote~
+230,~JHTML~
+420,~'item'~
+116,~'list_limit'~
+82,~$db~
+329,~"~
+333,~store~
+103,~'.sectionid'~
+414,~', '~
+166,~' WHERE section = '~
+496,~'default_con'~
+194,~getPrefix~
+111,~strtolower~
+346,~'&task=edit&id='~
+52,~'save'~
+270,~published~
+9,~require_once~
+204,~limit~
+324,~JError~
+352,~implode~
+197,~' LEFT JOIN #__users AS u ON u.id = c.checked_out'~
+395,~'class="inputbox" size="10"'~
+220,~id~
+291,~image_position~
+321,~'description'~
+522,~'index.php?option=com_contact&task=edit'~
+492,~'user_id'~
+362,~'DELETE FROM #__categories'~
+285,~'<input type="hidden" name="section" value="'~
+469,~' AND '~
+114,~'limit'~
+513,~\n~
+293,~'left'~
+168,~$total~
+404,~loadResultArray~
+216,~++~
+14,~$section~
+490,~' WHERE published >= 0'~
+504,~editcontact~
+489,~' FROM #__contact_details'~
+156,~'option='~
+374,~$inc~
+151,~substr~
+28,~JArrayHelper~
+448,~'tables'~
+478,~' LEFT JOIN #__users AS v ON v.id = cd.checked_out'~
+487,~'top'~
+330,~section = ~
+127,~if~
+459,~cancelContact~
+208,~echo~
+130,~$table~
+209,~stderr~
+144,~' WHERE c.section = '~
+273,~'select.option'~
+81,~$mainframe~
+191,~getTableList~
+347,~'Changes to Category saved'~
+122,~$content_join~
+24,~array~
+282,~'N/A'~
+475,~' LEFT JOIN #__groups AS g ON g.id = cd.access'~
+396,~$sectionMove~
+451,~editContact~
+45,~moveCategorySave~
+83,~&~
+171,~' WHERE c.section NOT LIKE "%com_%"'~
+232,~'state'~
+516,~' SET default_con = 0'~
+294,~'image_position'~
+322,~JREQUEST_ALLOWRAW~
+340,~' SET name = '~
+56,~removeCategories~
+486,~imagepos~
+278,~'select.genericlist'~
+477,~' LEFT JOIN #__users AS u ON u.id = cd.user_id'~
+503,~'component'~
+84,~JFactory~
+172,~' ORDER BY  z.title, c.ordering'~
+431,~'Categories copied to'~
+299,~image~
+244,~'type'~
+441,~'manage'~
+104,~'sectionid'~
+228,~'onchange="document.adminForm.submit();"'~
+356,~' WHERE c.id IN ( '~
+128,~intval~
+435,~array_unique~
+105,~'int'~
+463,~'filter_catid'~
+290,~'list.specificordering'~
+125,~' '~
+498,~$file~
+432,~$access~
+206,~loadObjectList~
+2,~(~
+493,~'list.users'~
+26,~''~
+38,~break~
+43,~$option~
+255,~'index.php?option=com_categories&section='~
+328,~check~
+70,~accessMenu~
+417,~'SELECT a.title AS `text`, a.id AS `value`'~
+6,~die~
+267,~title~
+86,~$filter_order~
+186,~'joomla.html.pagination'~
+480,~'list.category'~
+506,~'POST'~
+398,~'com_categories'~
+376,~'section = '~
+47,~copyCategorySelect~
+338,~query~
+4,~)~
+363,~' WHERE id IN ( '~
+443,~'ALERTNOTAUTH'~
+72,~'accessspecial'~
+149,~'com_'~
+163,~' FROM #__categories'~
+242,~get~
+485,~'Table'~
+491,~' AND catid = '~
+178,~'P'~
+312,~'mainmenu'~
+530,~'Select an item to'~
+115,~getCfg~
+36,~editCategory~
+532,~' AND published != 0'~
+179,~' AND c.published = 1'~
+286,~'" />'~
+411,~enqueueMessage~
+193,~in_array~
+305,~'class="inputbox"'~
+1,~defined~
+514,~catid = ~
+383,~' WHERE a.id IN ( '~
+268,~section~
+386,~' WHERE a.catid IN ( '~
+90,~'.filter_order'~
+422,~$id~
+170,~' LEFT JOIN #__sections AS z ON z.id = c.section'~
+467,~'cd.published = 0'~
+49,~copyCategorySave~
+266,~'The category'~
+13,~'admin_html'~
+421,~$category~
+449,~$task~
+300,~'access'~
+198,~' LEFT JOIN #__groups AS g ON g.id = c.access'~
+452,~'save2new'~
+454,~saveContact~
+34,~'add'~
+354,~'SELECT c.id, c.name, c.title, COUNT( s.catid ) AS numcat'~
+377,~'&section='~
+392,~' ORDER BY a.title'~
+133,~'SELECT title'~
+272,~+~
+126,~', c.ordering'~
+159,~'com_contact_details'~
+331,~ordering~
+110,~JString~
+225,~$trash~
+319,~'oldtitle'~
+249,~&&~
+323,~bind~
+297,~'image'~
+250,~!=~
+101,~'filter_state'~
+499,~'/components/com_contact/contact_items.xml'~
+479,~'catid'~
+481,~HTML_contact~
+162,~'SELECT COUNT(*)'~
+298,~'list.images'~
+440,~'com_contact'~
+10,~JApplicationHelper~
+21,~$cid~
+295,~'list.positions'~
+419,~$contentid~
+427,~sectionid~
+269,~checkout~
+336,~' SET sectionid = '~
+19,~,~
+283,~$temp~
+18,~'section'~
+69,~'accesspublic'~
+99,~'.'~
+102,~$sectionid~
+466,~'cd.published = 1'~
+109,~'string'~
+430,~catid~
+46,~'copyselect'~
+237,~show~
+67,~-~
+468,~' WHERE '~
+195,~'SELECT  c.*, c.checked_out as checked_out_contact_category, g.name AS groupname, u.name AS editor, COUNT( DISTINCT s2.checked_out ) AS checked_out_count'~
+80,~global~
+335,~'UPDATE #__content'~
+355,~' AS s ON s.catid = c.id'~
+259,~getInstance~
+389,~'SELECT a.title AS text, a.id AS value'~
+438,~'New ordering saved'~
+368,~$action~
+141,~'Content:'~
+397,~'Please select a section from the list'~
+62,~cancelCategory~
+117,~$limitstart~
+524,~'index.php?option=com_contact'~
+483,~'option'~
+456,~changeContact~
+239,~$user~
+64,~orderCategory~
+89,~.~
+183,~'%'~
+371,~' SET published = '~
+465,~'cd.catid = '~
+155,~' WHERE link = '~
+279,~'class="inputbox" size="1"'~
+501,~JParameter~
+200,~' AS s2 ON s2.catid = c.id AND s2.checked_out > 0'~
+177,~' AND c.section = '~
+387,~' ORDER BY a.catid, a.title'~
+3,~'_JEXEC'~
+106,~$search~
+137,~setQuery~
+196,~' FROM #__categories AS c'~
+494,~user_id~
+314,~$menuid~
+214,~$i~
+243,~'id'~
+97,~'word'~
+207,~getErrorNum~
+227,~$javascript~
+55,~'remove'~
+205,~$rows~
+325,~raiseError~
+16,~JRequest~
+79,~function~
+379,~$sectionOld~
+203,~limitstart~
+251,~'com_weblinks'~
+484,~'contact'~
+154,~' FROM #__components'~
+96,~'filter_order_Dir'~
+132,~$query~
+476,~' LEFT JOIN #__categories AS cc ON cc.id = cd.catid'~
+57,~'publish'~
+369,~'Select a category to '~
+113,~'global.list.limit'~
+180,~'U'~
+394,~'sectionmove'~
+518,~' AND default_con = 1'~
+167,~quote~
+181,~' AND c.published = 0'~
+25,~0~
+175,~'All Content:'~
+527,~'); window.history.go(-1); </script>~
+260,~'category'~
+408,~' SET section = '~
+134,~' FROM #__sections'~
+74,~'saveorder'~
+521,~'index.php?option=com_contact&task=edit&cid[]='~
+393,~$SectionList~
+348,~'&task=edit&cid[]='~
+366,~null~
+510,~$k~
+474,~'SELECT cd.*, cc.title AS category, u.name AS user, v.name as editor, g.name AS groupname'~
+254,~redirect~
+415,~'Categories already in'~
+12,~getPath~
+318,~getString~
+517,~' WHERE id <> '~
+40,~true~
+164,~.=~
+59,~1~
+428,~hits~
+303,~'published'~
+350,~'Select a category to delete'~
+257,~$row~
+188,~new~
+426,~$content~
+461,~'cd.ordering'~
+252,~'com_newsfeeds'~
+400,~$sectionNew~
+511,~=>~
+344,~getErrorMsg~
+98,~$filter_state~
+176,~$filter~
+73,~2~
+403,~$scid~
+58,~publishCategories~
+87,~->~
+425,~old~
+399,~raiseWarning~
+158,~==~
+380,~'Select an item to move'~
+382,~' FROM #__categories AS a'~
+500,~$params~
+241,~$uid~
+93,~'cmd'~
+439,~authorize~
+261,~load~
+410,~'Categories moved to'~
+310,~$menu~
+436,~$group~
+245,~$redirect~
+327,~getError~
+165,~' WHERE section > 0'~
+349,~'Category saved'~
+508,~'params'~
+219,~' WHERE a.catid = '~
+437,~reorder~
+152,~4~
+289,~'ordering'~
+202,~' GROUP BY c.id'~
+218,~' FROM #__content AS a'~
+92,~'c.ordering'~
+313,~'post'~
+445,~JPATH_ADMINISTRATOR~
+212,~count~
+236,~categories_html~
+343,~'UPDATE #__sections SET count=count+1'~
+373,~' ) )'~
+60,~'unpublish'~
+140,~sprintf~
+447,~'components'~
+472,~', category, cd.ordering'~
+372,~' AND ( checked_out = 0 OR ( checked_out = '~
+150,~===~
+226,~trash~
+161,~'Component:'~
+185,~jimport~
+189,~JPagination~
+54,~saveCategory~
+433,~access~

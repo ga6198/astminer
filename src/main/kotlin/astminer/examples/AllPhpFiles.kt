@@ -23,5 +23,6 @@ fun allPhpFiles(folderPath: String = "./testData/examples", outputPath: String =
         storage.store(LabeledPathContexts(file.path, paths.map { toPathContext(it) }))
     }
 
+    //This seems to be the line that creates the output folder. Need to modify this
     storage.save()
 }
