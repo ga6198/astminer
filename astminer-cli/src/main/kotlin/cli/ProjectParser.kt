@@ -48,7 +48,7 @@ class ProjectParser : CliktCommand() {
         SupportedLanguage(PythonParser(), "py")
         //can I add my php parser here?
         ,
-        SupportedLanguage(PhpParser(), "php")
+        SupportedLanguage(PhpMainParser(), "php")
     )
 
     private val supportedAstStorages = listOf(

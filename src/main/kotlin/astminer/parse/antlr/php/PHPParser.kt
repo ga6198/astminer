@@ -32,6 +32,7 @@ class PhpMainParser : Parser<SimpleNode> {
             //CommonTree tree = (CommonTree)parser.parse().getTree();
             //val context = parser.expression()
             //val context = parser.htmlElementOrPhpBlock()
+            //val context = parser.phpBlock()
             convertAntlrTree(context, PhpParser.ruleNames, PhpParser.VOCABULARY)
         } catch (e: Exception) {
             print("exception reached")

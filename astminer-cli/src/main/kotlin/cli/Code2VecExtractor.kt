@@ -7,6 +7,8 @@ import astminer.common.setNormalizedToken
 import astminer.common.splitToSubtokens
 import astminer.parse.antlr.python.PythonMethodSplitter
 import astminer.parse.antlr.python.PythonParser
+import astminer.parse.antlr.php.PHPMethodSplitter
+import astminer.parse.antlr.php.PHPParser
 import astminer.parse.cpp.FuzzyCppParser
 import astminer.parse.cpp.FuzzyMethodSplitter
 import astminer.parse.java.GumTreeJavaParser
@@ -127,6 +129,11 @@ class Code2VecExtractor : CliktCommand() {
                     val parser = PythonParser()
                     val roots = parser.parseWithExtension(File(projectRoot), extension)
                     extractFromMethods(roots, PythonMethodSplitter(), miner, storage)
+                }
+                "php" -> {
+                    val parser = PhpMainParser()
+                    val roots = parser.parseWithExtension(File(projectRoot), extension)
+                    extractFromMethods(roots, PhpMethodSplitter(), miner, storage)
                 }
                 else -> throw UnsupportedOperationException("Unsupported extension $extension")
             }
