@@ -80,6 +80,7 @@ fun runExamples() {
     runPythonCommand(valArray)
 }
 
+//TODO: pass in output file name from code2vec preprocess.sh
 fun getDirectories(dataSetType : String): Array<String> {
     //need to get the path to the current directory (current working directory)
     val workingDir = System.getProperty("user.dir")
@@ -110,6 +111,7 @@ fun getDirectories(dataSetType : String): Array<String> {
     return outputsArray
 }
 
+//run the script which transforms astminer csv output to code2vec format
 fun runPythonCommand(args: Array<String>){
     var command = "python3 extract.py"
 
