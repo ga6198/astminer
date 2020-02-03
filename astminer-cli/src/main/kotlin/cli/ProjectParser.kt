@@ -6,7 +6,7 @@ import astminer.common.model.AstStorage
 import astminer.common.model.Node
 import astminer.common.model.Parser
 import astminer.parse.antlr.python.PythonParser
-import astminer.parse.antlr.php.PHPParser
+import astminer.parse.antlr.php.PhpMainParser
 import astminer.parse.cpp.FuzzyCppParser
 import astminer.parse.java.GumTreeJavaParser
 import com.github.ajalt.clikt.core.CliktCommand

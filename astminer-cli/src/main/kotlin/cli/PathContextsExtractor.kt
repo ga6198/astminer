@@ -5,7 +5,7 @@ import astminer.common.model.*
 import astminer.common.preOrder
 import astminer.common.setNormalizedToken
 import astminer.parse.antlr.python.PythonParser
-import astminer.parse.antlr.php.PHPParser
+import astminer.parse.antlr.php.PhpMainParser
 import astminer.parse.cpp.FuzzyCppParser
 import astminer.parse.java.GumTreeJavaParser
 import astminer.paths.Code2VecPathStorage
@@ -36,7 +36,7 @@ class PathContextsExtractor : CliktCommand() {
         SupportedLanguage(PythonParser(), "py")
         //can I add my php parser here?
         ,
-        SupportedLanguage(PhpParser(), "php")
+        SupportedLanguage(PhpMainParser(), "php")
     )
 
     val extensions: List<String> by option(
