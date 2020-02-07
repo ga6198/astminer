@@ -1,412 +1,412 @@
 id,token
 335,~.viewMenu.filter_order~
 323,~' LEFT JOIN #__sections AS s ON s.id = cc.section AND s.scope = "content"'~
-47,~'filter_order'~
-198,~'Invalid Token'~
-54,~$filter_catid~
-85,~getEscaped~
+40,~'filter_order'~
+192,~'Invalid Token'~
+51,~$filter_catid~
+78,~getEscaped~
 374,~'Item(s) successfully Deleted'~
-111,~' LEFT JOIN #__users AS u ON u.id = b.checked_out'~
-50,~$filter_order_Dir~
-392,~$model~
-29,~'apply'~
-137,~getUser~
+106,~' LEFT JOIN #__users AS u ON u.id = b.checked_out'~
+48,~$filter_order_Dir~
+394,~$model~
+23,~'apply'~
+131,~getUser~
 375,~'index.php?option='~
-194,~banner~
-295,~'deleteconfirm'~
+189,~banner~
+296,~'deleteconfirm'~
 387,~JModel~
-303,~'viewMenu'~
+304,~'viewMenu'~
 348,~showListMenu~
-141,~getVar~
-151,~'banner'~
-22,~::~
+135,~getVar~
+145,~'banner'~
+15,~::~
 339,~'m.published = -2'~
 316,~'.limitstart'~
-123,~'com_banner'~
-262,~'DELETE FROM #__banner'~
+118,~'com_banner'~
+257,~'DELETE FROM #__banner'~
 337,~.viewMenu.filter_order_Dir~
 344,~' LEFT JOIN #__users AS u ON u.id = m.checked_out'~
 390,~'com_menus'~
 376,~'&task='~
-7,~'Restricted access'~
-247,~$publish~
-285,~'com_trash'~
-227,~'Item Saved'~
-171,~$clientlist~
-15,~{~
-251,~$cids~
-77,~else~
-240,~date~
-11,~class~
-143,~'method'~
-239,~impmade~
+5,~'Restricted access'~
+242,~$publish~
+284,~'com_trash'~
+222,~'Item Saved'~
+166,~$clientlist~
+28,~{~
+247,~$cids~
+74,~else~
+233,~date~
+280,~class~
+137,~'method'~
+232,~impmade~
 382,~' SET state = '~
-62,~$limit~
+61,~$limit~
 360,~menu~
-127,~'order'~
-74,~[~
-93,~:~
-95,~' ORDER BY '~
-45,~getUserStateFromRequest~
-393,~'List'~
-176,~'name'~
-234,~foreach~
-131,~'views'~
-308,~'return'~
-397,~ReadMenuXML~
-28,~'edit'~
+122,~'order'~
+68,~[~
+88,~:~
+89,~' ORDER BY '~
+43,~getUserStateFromRequest~
+392,~'List'~
+171,~'name'~
+235,~foreach~
+125,~'views'~
+306,~'return'~
+411,~ReadMenuXML~
+19,~'edit'~
 332,~'UNCATEGORIZED'~
-34,~}~
+29,~}~
 8,~;~
-174,~JText~
-132,~'banner.php'~
-13,~extends~
-126,~'order_Dir'~
-23,~$this~
-130,~DS~
-237,~name~
-266,~saveOrder~
-106,~$pageNav~
-169,~500~
-208,~$msg~
-275,~$condition~
+167,~JText~
+126,~'banner.php'~
+121,~'order_Dir'~
+282,~extends~
+22,~$this~
+124,~DS~
+230,~name~
+279,~saveOrder~
+103,~$pageNav~
+164,~500~
+204,~$msg~
+269,~$condition~
 310,~.viewContent.filter_order~
-104,~loadResult~
-75,~]~
-250,~toInteger~
-271,~<~
-60,~'search'~
+98,~loadResult~
+69,~]~
+245,~toInteger~
+265,~<~
+54,~'search'~
 221,~switch~
 311,~'sectname'~
-267,~$order~
+262,~$order~
 288,~'index.php'~
 372,~delete~
-81,~int~
-226,~default~
-68,~'limitstart'~
-370,~$fp~
-190,~'select.booleanlist'~
+75,~int~
+220,~default~
+62,~'limitstart'~
+371,~$fp~
+186,~'select.booleanlist'~
 373,~'menu'~
-35,~display~
+130,~display~
 359,~' ORDER BY a.name'~
-268,~$conditions~
-19,~=~
+263,~$conditions~
+13,~=~
 385,~' )'~
-216,~'catid = '~
-218,~getNextOrder~
-256,~'  )'~
-243,~setMessage~
-146,~getCmd~
+211,~'catid = '~
+213,~getNextOrder~
+251,~'  )'~
+240,~setMessage~
+140,~getCmd~
 338,~.viewMenu.limitstart~
 377,~showRestore~
 378,~$state~
-144,~'array'~
-80,~'cc.id = '~
-121,~_~
-223,~$link~
-233,~>~
-246,~publish~
-94,~$orderby~
-197,~jexit~
-248,~empty~
-263,~' WHERE bid = '~
-118,~$lists~
+138,~'array'~
+76,~'cc.id = '~
+116,~_~
+217,~$link~
+228,~>~
+256,~publish~
+92,~$orderby~
+193,~jexit~
+243,~empty~
+258,~' WHERE bid = '~
+114,~$lists~
 327,~' LEFT JOIN #__sections AS s ON s.id = cc.section AND s.scope="content"'~
-89,~?~
-149,~JTable~
-196,~checkToken~
-199,~$post~
-220,~checkin~
-142,~'cid'~
-281,~'com_banners'~
-282,~clean~
-222,~case~
-135,~edit~
-306,~viewTrashContent~
+87,~?~
+143,~JTable~
+191,~checkToken~
+195,~$post~
+215,~checkin~
+136,~'cid'~
+275,~'com_banners'~
+277,~clean~
+219,~case~
+190,~edit~
+305,~viewTrashContent~
 317,~'c.state = -2'~
-229,~copy~
-400,~$xmlfile~
-206,~'task'~
-269,~for~
+241,~copy~
+402,~$xmlfile~
+200,~'task'~
+272,~for~
 395,~fromTrash~
-87,~false~
-209,~'Reset Banner clicks'~
-25,~registerTask~
+80,~false~
+203,~'Reset Banner clicks'~
+21,~registerTask~
 354,~$items~
-252,~','~
+246,~','~
 363,~'content'~
-166,~return~
-192,~sticky~
-18,~$config~
+165,~return~
+185,~sticky~
+12,~$config~
 328,~$contents~
-125,~'grid.state'~
-138,~_task~
-195,~save~
+120,~'grid.state'~
+133,~_task~
+223,~save~
 358,~' FROM #__menu AS a'~
-182,~$directory~
+177,~$directory~
 320,~'SELECT count(c.id)'~
-70,~$where~
-41,~getDBO~
-235,~as~
-162,~!~
+65,~$where~
+34,~getDBO~
+236,~as~
+158,~!~
 340,~'LOWER(m.name) LIKE '~
-264,~' OR bid = '~
-355,~$type~
-48,~'cc.title'~
-5,~or~
-299,~'restoreconfirm'~
+259,~' OR bid = '~
+356,~$type~
+41,~'cc.title'~
+7,~or~
+300,~'restoreconfirm'~
 388,~addIncludePath~
-83,~Quote~
-298,~deleteTrash~
-277,~$cond~
-120,~JHTML~
-66,~'list_limit'~
-38,~$db~
+81,~Quote~
+297,~deleteTrash~
+271,~$cond~
+115,~JHTML~
+57,~'list_limit'~
+35,~$db~
 309,~"~
-219,~store~
-161,~' FROM #__bannerclient'~
+214,~store~
+155,~' FROM #__bannerclient'~
 383,~', ordering = '~
-157,~showBanner~
+152,~showBanner~
 315,~strtolower~
-300,~viewrestoreTrash~
-30,~'save'~
-128,~require_once~
+299,~viewrestoreTrash~
+24,~'save'~
+127,~require_once~
 318,~'LOWER(c.title) LIKE '~
-113,~limit~
-276,~$found~
-91,~implode~
-167,~JError~
-294,~'mid'~
+108,~limit~
+270,~$found~
+85,~implode~
+161,~JError~
+293,~'mid'~
 325,~' LEFT JOIN #__users AS u ON u.id = c.checked_out'~
-92,~' AND '~
-186,~imageurl~
-64,~'limit'~
+84,~' AND '~
+180,~imageurl~
+60,~'limit'~
 369,~'frontpage.php'~
-411,~' - '~
-103,~$total~
-272,~++~
-213,~imptotal~
-42,~$context~
-159,~$sql~
-297,~'delete'~
-184,~'imageurl'~
+409,~' - '~
+99,~$total~
+266,~++~
+208,~imptotal~
+37,~$context~
+156,~$sql~
+298,~'delete'~
+179,~'imageurl'~
 398,~$component~
-249,~JArrayHelper~
-245,~'Items copied'~
+244,~JArrayHelper~
+239,~'Items copied'~
 336,~'m.menutype'~
 368,~'tables'~
-71,~if~
-307,~$return~
-371,~TableFrontPage~
-231,~$table~
-403,~'.xml'~
+73,~if~
+308,~$return~
+370,~TableFrontPage~
+226,~$table~
+401,~'.xml'~
 404,~$data~
-134,~banners~
-172,~'select.option'~
-37,~$mainframe~
+129,~banners~
+169,~'select.option'~
+32,~$mainframe~
 347,~$menus~
-20,~array~
-17,~__construct~
+11,~array~
+16,~__construct~
 334,~showListContent~
-39,~&~
-124,~'state'~
+36,~&~
+119,~'state'~
 350,~'SELECT a.title AS name'~
-202,~JREQUEST_ALLOWRAW~
-178,~'select.genericlist'~
-406,~'component'~
-40,~JFactory~
-255,~' WHERE bid IN ( '~
+197,~JREQUEST_ALLOWRAW~
+174,~'select.genericlist'~
+405,~'component'~
+33,~JFactory~
+250,~' WHERE bid IN ( '~
 391,~'models'~
 362,~'type'~
-286,~'manage'~
-14,~JController~
-117,~'onchange="document.adminForm.submit();"'~
-187,~intval~
-56,~'int'~
-55,~'filter_catid'~
-175,~'Select Client'~
-401,~'/components/com_menus/'~
-43,~'com_banners.banner.list.'~
-96,~' '~
-115,~loadObjectList~
-2,~(~
-52,~''~
-145,~$option~
-173,~'0'~
-225,~break~
-214,~check~
-210,~$unlimited~
+285,~'manage'~
+112,~'onchange="document.adminForm.submit();"'~
+283,~JController~
+183,~intval~
+50,~'int'~
+49,~'filter_catid'~
+168,~'Select Client'~
+399,~'/components/com_menus/'~
+38,~'com_banners.banner.list.'~
+90,~' '~
+109,~loadObjectList~
+1,~(~
+46,~''~
+142,~$option~
+170,~'0'~
+218,~break~
+209,~check~
+207,~$unlimited~
 6,~die~
 44,~$filter_order~
-101,~' LEFT JOIN #__categories AS cc ON cc.id = b.catid'~
-105,~'joomla.html.pagination'~
-122,~'list.category'~
-212,~'unlimited'~
+95,~' LEFT JOIN #__categories AS cc ON cc.id = b.catid'~
+100,~'joomla.html.pagination'~
+117,~'list.category'~
+206,~'unlimited'~
 326,~'SELECT c.title, c.id, c.sectionid, c.catid, g.name AS groupname, cc.title AS catname, s.title AS sectname'~
-163,~query~
-4,~)~
+157,~query~
+3,~)~
 343,~' FROM #__menu AS m'~
 384,~' WHERE id IN ( '~
-289,~'ALERTNOTAUTH'~
-152,~'Table'~
-155,~get~
-211,~getBool~
-73,~'P'~
-356,~content~
-65,~getCfg~
-177,~array_merge~
-241,~getNullDate~
-191,~'class="inputbox"'~
-100,~' FROM #__banner AS b'~
-1,~defined~
-189,~'sticky'~
-228,~cancel~
-238,~'Copy of '~
-10,~'joomla.application.component.controller'~
-236,~$id~
-402,~'/'~
-405,~parseXMLInstallFile~
+287,~'ALERTNOTAUTH'~
+146,~'Table'~
+150,~get~
+205,~getBool~
+67,~'P'~
+355,~content~
+58,~getCfg~
+172,~array_merge~
+234,~getNullDate~
+187,~'class="inputbox"'~
+94,~' FROM #__banner AS b'~
+4,~defined~
+184,~'sticky'~
+224,~cancel~
+231,~'Copy of '~
+9,~'joomla.application.component.controller'~
+229,~$id~
+400,~'/'~
+403,~parseXMLInstallFile~
 292,~'admin_html'~
-205,~$task~
+201,~$task~
 324,~' LEFT JOIN #__groups AS g ON g.id = c.access'~
-26,~'add'~
+17,~'add'~
 353,~' ORDER BY a.title'~
-293,~$mid~
-217,~ordering~
+294,~$mid~
+212,~ordering~
 314,~JString~
-304,~viewTrashMenu~
+303,~viewTrashMenu~
 330,~&&~
-203,~bind~
-273,~!=~
-58,~'filter_state'~
-119,~'catid'~
+198,~bind~
+267,~!=~
+52,~'filter_state'~
+113,~'catid'~
 380,~9999~
-31,~'resethits'~
-99,~'SELECT COUNT(*)'~
-280,~getCache~
-185,~'list.images'~
+25,~'resethits'~
+93,~'SELECT COUNT(*)'~
+274,~getCache~
+181,~'list.images'~
 139,~$cid~
 290,~JApplicationHelper~
 329,~sectionid~
-154,~checkout~
-259,~'Items published'~
-193,~'showBanner'~
-27,~,~
-253,~'UPDATE #__banner'~
+151,~checkout~
+254,~'Items published'~
+188,~'showBanner'~
+18,~,~
+248,~'UPDATE #__banner'~
 367,~'com_frontpage'~
-61,~'string'~
-188,~catid~
+55,~'string'~
+182,~catid~
 352,~' WHERE ( a.id IN ( '~
-399,~-~
-90,~' WHERE '~
-36,~global~
-296,~viewdeleteTrash~
+397,~-~
+86,~' WHERE '~
+31,~global~
+295,~viewdeleteTrash~
 381,~'UPDATE #__content'~
-150,~getInstance~
-283,~'New ordering saved'~
-409,~'Component'~
-67,~$limitstart~
+144,~getInstance~
+278,~'New ordering saved'~
+408,~'Component'~
+64,~$limitstart~
 333,~HTML_trash~
 82,~'LOWER(b.name) LIKE '~
-147,~'option'~
-12,~BannerControllerBanner~
-136,~$user~
-46,~.~
+141,~'option'~
+132,~$user~
+281,~BannerControllerBanner~
+39,~.~
 313,~.search~
-84,~'%'~
+79,~'%'~
 379,~$ordering~
-110,~' INNER JOIN #__bannerclient AS c ON c.cid = b.cid'~
-179,~'class="inputbox" size="1"'~
-305,~'viewContent'~
+105,~' INNER JOIN #__bannerclient AS c ON c.cid = b.cid'~
+175,~'class="inputbox" size="1"'~
+307,~'viewContent'~
 346,~' LEFT JOIN #__components AS com ON com.id = m.componentid AND m.type = "components"'~
-3,~'_JEXEC'~
-59,~$search~
-102,~setQuery~
-265,~'Items removed'~
+2,~'_JEXEC'~
+56,~$search~
+97,~setQuery~
+260,~'Items removed'~
 341,~', m.menutype, m.ordering, m.ordering,  m.name'~
-156,~'id'~
-270,~$i~
-53,~'word'~
+149,~'id'~
+264,~$i~
+47,~'word'~
 345,~'SELECT m.name, m.id, m.menutype, m.type, com.name AS com_name'~
-116,~$javascript~
-114,~$rows~
-76,~'b.showBanner = 1'~
-274,~raiseError~
-16,~function~
-140,~JRequest~
-112,~limitstart~
-51,~'filter_order_Dir'~
-98,~$query~
-129,~JPATH_COMPONENT~
-33,~'publish'~
+111,~$javascript~
+110,~$rows~
+70,~'b.showBanner = 1'~
+268,~raiseError~
+30,~function~
+134,~JRequest~
+107,~limitstart~
+45,~'filter_order_Dir'~
+96,~$query~
+123,~JPATH_COMPONENT~
+27,~'publish'~
 342,~'SELECT count(*)'~
-254,~' SET showBanner = '~
-301,~'restore'~
+249,~' SET showBanner = '~
+302,~'restore'~
 322,~' LEFT JOIN #__categories AS cc ON cc.id = c.catid'~
-63,~'global.list.limit'~
-78,~'U'~
-97,~', b.ordering'~
-260,~'Items unpublished'~
-109,~'SELECT b.*, c.name AS client_name, cc.title AS category_name, u.name AS editor'~
-69,~0~
-242,~'No items selected'~
+59,~'global.list.limit'~
+71,~'U'~
+91,~', b.ordering'~
+255,~'Items unpublished'~
+104,~'SELECT b.*, c.name AS client_name, cc.title AS category_name, u.name AS editor'~
+63,~0~
+237,~'No items selected'~
 321,~' FROM #__content AS c'~
-21,~parent~
-160,~'SELECT cid, name'~
-230,~null~
-287,~redirect~
+14,~parent~
+154,~'SELECT cid, name'~
+225,~null~
+289,~redirect~
 291,~getPath~
-79,~'b.showBanner = 0'~
-86,~true~
+72,~'b.showBanner = 0'~
+77,~true~
 410,~.=~
-158,~1~
+153,~1~
 319,~', s.name, cc.name, c.title'~
-133,~BannersViewBanner~
-148,~$row~
-164,~setRedirect~
-107,~new~
-224,~'index.php?option=com_banners&task=edit&cid[]='~
-215,~bid~
-165,~'index.php?option=com_banners'~
-170,~getErrorMsg~
-57,~$filter_state~
-394,~'MenusModel'~
-279,~$cache~
-232,~$n~
-24,~->~
-168,~raiseWarning~
-302,~restoreTrash~
-72,~==~
-207,~clicks~
-49,~'cmd'~
+128,~BannersViewBanner~
+147,~$row~
+160,~setRedirect~
+101,~new~
+216,~'index.php?option=com_banners&task=edit&cid[]='~
+210,~bid~
+159,~'index.php?option=com_banners'~
+163,~getErrorMsg~
+53,~$filter_state~
+393,~'MenusModel'~
+276,~$cache~
+227,~$n~
+20,~->~
+162,~raiseWarning~
+301,~restoreTrash~
+66,~==~
+202,~clicks~
+42,~'cmd'~
 386,~'joomla.application.component.model'~
-284,~authorize~
+286,~authorize~
 312,~.viewContent.filter_order_Dir~
-153,~load~
-181,~'onchange="changeDisplayImage();"'~
-204,~getError~
+148,~load~
+176,~'onchange="changeDisplayImage();"'~
+199,~getError~
 357,~'SELECT a.name'~
 331,~sectname~
 361,~showDelete~
-408,~<>~
-278,~reorder~
+407,~<>~
+273,~reorder~
 396,~'Item(s) successfully Restored'~
-183,~'/images/banners'~
+178,~'/images/banners'~
 261,~remove~
 351,~' FROM #__content AS a'~
-200,~'post'~
+194,~'post'~
 365,~JPATH_ADMINISTRATOR~
-88,~count~
-180,~cid~
+83,~count~
+173,~cid~
 389,~JPATH_BASE~
-258,~' ) )'~
-32,~'unpublish'~
-244,~sprintf~
+253,~' ) )'~
+26,~'unpublish'~
+238,~sprintf~
 366,~'components'~
-257,~' AND ( checked_out = 0 OR ( checked_out = '~
-201,~'custombannercode'~
-9,~jimport~
-108,~JPagination~
-407,~||~
+252,~' AND ( checked_out = 0 OR ( checked_out = '~
+196,~'custombannercode'~
+10,~jimport~
+102,~JPagination~
+406,~||~
 364,~$obj~
 349,~$mids~

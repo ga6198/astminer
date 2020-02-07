@@ -1,9 +1,11 @@
 package astminer.parse.antlr
 
 import astminer.common.model.Node
+import me.vovak.antlr.parser.PhpParser
 import org.antlr.v4.runtime.ParserRuleContext
 import org.antlr.v4.runtime.Vocabulary
 import org.antlr.v4.runtime.tree.ErrorNode
+import org.antlr.v4.runtime.tree.ParseTree
 import org.antlr.v4.runtime.tree.TerminalNode
 
 fun convertAntlrTree(tree: ParserRuleContext, ruleNames: Array<String>, vocabulary: Vocabulary): SimpleNode {
@@ -15,7 +17,10 @@ private fun convertRuleContext(ruleContext: ParserRuleContext, ruleNames: Array<
     val currentNode = SimpleNode(typeLabel, parent, null)
     val children: MutableList<Node> = ArrayList()
 
+    //DEBUG: Add debug tag to come back to this if needed
     ruleContext.children.forEach {
+        //println(ruleContext.children)
+
         if (it is TerminalNode) {
             children.add(convertTerminal(it, currentNode, vocabulary))
             return@forEach
@@ -24,7 +29,19 @@ private fun convertRuleContext(ruleContext: ParserRuleContext, ruleNames: Array<
             children.add(convertErrorNode(it, currentNode))
             return@forEach
         }
-        children.add(convertRuleContext(it as ParserRuleContext, ruleNames, currentNode, vocabulary))
+
+        //println("Class of it: ${it.javaClass.kotlin}")
+        //seems to break whenever there is a class me.vovak.antlr.parser.PhpParser$AttributesContext
+
+        //verify that the next context will not be null
+        var nextContext = it as ParserRuleContext;
+
+        //if (ruleContext.children != null) {
+        //if (it !is PhpParser.AttributesContext && it != PhpParser.FormalParameterListContext) {
+        if (nextContext.children != null) {
+                //recursive function. get the child of the ruleContext and calls the function again, with the child as a new ruleContext
+                children.add(convertRuleContext(it as ParserRuleContext, ruleNames, currentNode, vocabulary))
+        }
     }
     currentNode.setChildren(children)
 

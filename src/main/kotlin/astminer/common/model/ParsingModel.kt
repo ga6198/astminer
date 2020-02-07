@@ -51,6 +51,12 @@ interface Parser<T : Node> {
      * @return list of AST roots, one for each parsed file
      */
     fun parseProject(projectRoot: File, filter: (File) -> Boolean): List<ParseResult<T>> {
+        //projectRoot.walkTopDown().forEach{
+        projectRoot.walk().forEach{
+            println(it)
+        }
+
+
         val files = projectRoot.walkTopDown().filter(filter).toList()
         return parse(files)
     }

@@ -84,15 +84,19 @@ class Code2VecExtractor : CliktCommand() {
         miner: PathMiner,
         storage: Code2VecPathStorage
     ) {
+        println("Roots: $roots")
+
         val methods = roots.mapNotNull {
             it.root
         }.flatMap {
             methodSplitter.splitIntoMethods(it)
         }
+        println("Methods: $methods")
         methods.forEach { methodInfo ->
             val methodNameNode = methodInfo.method.nameNode ?: return@forEach
             val methodRoot = methodInfo.method.root
             val label = splitToSubtokens(methodNameNode.getToken()).joinToString("|")
+            println("Current label: $label")
             methodRoot.preOrder().forEach { it.setNormalizedToken() }
             methodNameNode.setNormalizedToken("METHOD_NAME")
 
@@ -122,6 +126,7 @@ class Code2VecExtractor : CliktCommand() {
                     extractFromMethods(roots, FuzzyMethodSplitter(), miner, storage)
                 }
                 "java" -> {
+                    println("this line is reached")
                     val parser = GumTreeJavaParser()
                     val roots = parser.parseWithExtension(File(projectRoot), extension)
                     extractFromMethods(roots, GumTreeMethodSplitter(), miner, storage)
@@ -133,8 +138,16 @@ class Code2VecExtractor : CliktCommand() {
                 }
                 "php" -> {
                     val parser = PhpMainParser()
+                    println("Finished creating parser")
                     val roots = parser.parseWithExtension(File(projectRoot), extension)
-                    extractFromMethods(roots, PhpMethodSplitter(), miner, storage)
+                    println("Finished parsing")
+                    try {
+                        extractFromMethods(roots, PhpMethodSplitter(), miner, storage)
+                    }
+                    catch (e: Exception) {
+                        println("Error occurred w/ extractFromMethods")
+                    }
+                    print("Finished extracting methods")
                 }
                 else -> throw UnsupportedOperationException("Unsupported extension $extension")
             }

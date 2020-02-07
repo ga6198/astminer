@@ -22,7 +22,15 @@ class PythonMethodSplitter : TreeMethodSplitter<SimpleNode> {
     }
 
     override fun splitIntoMethods(root: SimpleNode): Collection<MethodInfo<SimpleNode>> {
+        println("Running splitIntoMethods")
+
         val methodRoots = root.preOrder().filter {
+
+            val temp = decompressTypeLabel(it.getTypeLabel())
+            val temp2 = decompressTypeLabel(it.getTypeLabel()).last()
+            println("decompressTypeLabel(it.getTypeLabel()): $temp")
+            println("decompressTypeLabel(it.getTypeLabel()).last(): $temp2")
+
             decompressTypeLabel(it.getTypeLabel()).last() == METHOD_NODE
         }
         return methodRoots.map { collectMethodInfo(it as SimpleNode) }
