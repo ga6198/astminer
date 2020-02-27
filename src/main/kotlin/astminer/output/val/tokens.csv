@@ -1,486 +1,442 @@
 id,token
-224,~$selected~
-326,~$focus~
-75,~select id as id,user_name as user_name from vtiger_users where id=? and status='Active' union select vtiger_user2role.userid as id,vtiger_users.user_name as user_name from vtiger_user2role inner join vtiger_users on vtiger_users.id=vtiger_user2role.userid inner join vtiger_role on vtiger_role.roleid=vtiger_user2role.roleid where vtiger_role.parentrole like ? and status='Active' union select shareduserid as id,vtiger_users.user_name as user_name from vtiger_tmp_write_user_sharing_per inner join vtiger_users on vtiger_users.id=vtiger_tmp_write_user_sharing_per.shareduserid where status='Active' and vtiger_tmp_write_user_sharing_per.userid=? and vtiger_tmp_write_user_sharing_per.tabid=9~
-209,~getTranslatedString~
-55,~'user_privileges/sharing_privileges_'~
-322,~'INVITATION'~
-58,~require~
-158,~$value~
-313,~'AM'~
-240,~$updated~
-320,~$desc~
-162,~'am'~
-289,~' ,'~
-42,~$shared_ids~
-407,~$qcondition~
-188,~$q~
-432,~'LBL_MINE'~
-372,~$grp_res~
-225,~do~
-27,~getFullNameFromQResult~
-341,~$ary_res~
-359,~$owner_qry~
-353,~time_end~
-72,~::~
-245,~$reply~
-178,~'fmt">'~
-250,~'Due Date'~
-457,~getUserName~
-208,~'">'~
-44,~getSharedCalendarId~
-472,~$noOfRows~
-449,~',MONTH:'~
-24,~'sharedid'~
-257,~$current_username~
-357,~getDisplayDate~
-395,~getDBInsertDateTimeValue~
-428,~<option value='~
-469,~generateQuestionMarks~
-230,~$user_id~
-319,~$subject~
-150,~'<option value="'~
-340,~$qry~
-31,~{~
-355,~location~
-96,~else~
-439,~'fieldval'~
-442,~date~
-39,~$userid~
-177,~'<input type="hidden" name="'~
-186,~'" class=small '~
-239,~'LBL_UPDATED'~
-246,~'activity_mode'~
-214,~get_group_options~
-107,~$edhr~
-412,~ AND vtiger_crmentity.smownerid = ~
-29,~[~
-199,~\"~
-104,~:~
-277,~': '~
-419,~<span style='padding-left: 10px; padding-right: 10px;'><b>~
-95,~get_user_array~
-398,~getActivityMailInfo~
-456,~SELECT vtiger_users.user_name,vtiger_sharedcalendar.* from vtiger_sharedcalendar left join vtiger_users on vtiger_sharedcalendar.sharedid=vtiger_users.id where userid=?~
-333,~foreach~
-105,~explode~
-392,~$end_hour~
-111,~$hr~
-269,~' : '~
-348,~$st_date~
-196,~ from  ~
-244,~'edit'~
-386,~'sendnotification'~
-181,~$tablename~
-32,~}~
-459,~CRMEntity~
-3,~;~
-148,~'selected'~
-371,~$group_qry~
-332,~send_mail~
-405,~$only_for_user~
-321,~modules/Emails/mail.php~
-116,~am~
-255,~$msg~
-284,~Location~
-485,~getContactName~
-37,~SELECT * from vtiger_sharedcalendar where sharedid=?~
-45,~$user_details~
-30,~]~
-466,~group_users~
-418,~$userscount~
-22,~<~
-394,~$endDate~
-106,~list~
-342,~sendnotification~
-273,~DateTimeField~
-402,~strip_tags~
-406,~calendarview_getSelectedUserId~
-227,~getAssignedTo~
-297,~strlen~
-115,~pm~
-131,~$fmt~
-126,~'24'~
-8,~=~
-400,~'onlyforuser'~
-98,~$starttime~
-259,~$status~
-82,~array_push~
-365,~'count'~
-155,~'min" id="'~
-309,~timeString~
-484,~$cont_name~
-119,~>~
-448,~YEAR:'~
-354,~$end_time~
-417,~$users~
-114,~12~
-191,~getRoleSubordinates~
-2,~$adb~
-463,~GetGroupUsers~
-78,~empty~
-473,~$z~
-118,~'starthour'~
-93,~Active~
-310,~is_object~
-117,~?~
-213,~get_current_user_access_groups~
-144,~'hr" '~
-344,~subject~
-142,~'<select class=small name="'~
-184,~'onChange = "getSelectedStatus();"'~
-173,~23~
-382,~$rel_name~
-57,~'.php'~
-339,~select * from vtiger_activity where activityid=?~
-363,~select count(*) as count from vtiger_users where id=?~
-444,~$y~
-270,~'subject'~
-103,~$stmin~
-460,~$crmentity~
-121,~twoDigit~
-385,~edit~
-168,~'<option value="pm" '~
-295,~10~
-123,~'endfmt'~
-169,~'>PM</option>'~
-206,~$Res~
-153,~'</select>&nbsp;'~
-482,~contactid~
-134,~$mod_strings~
-447,~split~
-467,~$userIds~
-52,~$current_user~
-356,~$location~
-33,~for~
-202,~ from ~
-62,~false~
-288,~LBL_REGARDS_STRING~
-260,~','~
-34,~return~
-36,~getSharedUserId~
-393,~ ~
-443,~$currtime~
-212,~$tabid~
-362,~$owner_id~
-109,~'am/pm'~
-112,~'startfmt'~
-334,~as~
-307,~'hour'~
-360,~$res~
-415,~$app_strings~
-229,~$description~
-452,~',MINUTE:'~
-79,~!~
-167,~'>AM</option>'~
-421,~ : </b>~
-99,~$endtime~
-474,~'email1'~
-71,~or~
-381,~relname~
-479,~select * from vtiger_cntactivityrel where activityid=?~
-440,~isset~
-437,~</select></span>~
-9,~"~
-67,~'Calendar'~
-462,~'include/utils/GetGroupUsers.php'~
-94,~FALSE~
-216,~$nameArray~
-73,~$parent_roles~
-464,~$getGroupObj~
-324,~';'~
-311,~hour~
-233,~require_once~
-100,~$format~
-350,~$st_time~
-380,~$rel_res~
-41,~implode~
-242,~$created~
-436,~' ~
-53,~id~
-475,~$emailadd~
-86,~fetchByAssoc~
-215,~fetch_array~
-272,~'st_date_time'~
-83,~ order by user_name ASC~
-287,~'description'~
-327,~$record~
-367,~$assignType~
-387,~'user_id'~
-413,~sql_escape_string~
-197,~ inner join vtiger_role2picklist on vtiger_role2picklist.picklistvalueid = ~
-426,~'COMBO_ALL'~
-450,~',DAY:'~
-200,~) and picklistid in (select picklistid from ~
-470,~$groupqry~
-6,~Array~
-279,~'taskpriority'~
-23,~++~
-130,~$min~
-434,~continue~
-152,~'</option>'~
-414,~calendarview_getSelectedUserFilterQuerySuffix~
-151,~'" '~
-403,~ENT_QUOTES~
-306,~':'~
-156,~'min" class=small '~
-253,~invite~
-425,~<option value='ALL'>~
-136,~%~
-43,~if~
-455,~echo~
-217,~'private'~
-254,~'LBL_ACTIVITY_INVITATION'~
-143,~'hr" id="'~
-101,~$timearr~
-226,~$fieldvalue~
-465,~getAllUsersInGroup~
-375,~$desc_qry~
-424,~is_admin~
-13,~array~
-91,~&~
-204,~' and picklistid in (select picklistid from ~
-364,~$usr_res~
-337,~$activity_type~
-64,~$profileGlobalPermission~
-247,~Events~
-50,~$username~
-438,~calendarview_getUserSelectOptions~
-345,~priority~
-368,~$usr_id~
-160,~'fmt" id="'~
-265,~'LBL_DETAILS_STRING'~
-140,~'onChange="changeEndtime_StartTime(document.EditView.activitytype.value);"'~
-258,~'status'~
-159,~$minsel~
-165,~$pmselected~
-102,~$sthr~
-194,~$roleids~
-336,~$return_id~
-433,~$index~
-263,~' '~
-267,~LBL_SUBJECT~
-10,~SELECT vtiger_users.*,vtiger_sharedcalendar.* from vtiger_sharedcalendar left join vtiger_users on vtiger_sharedcalendar.sharedid=vtiger_users.id where userid=?~
-4,~(~
-358,~select smownerid from vtiger_crmentity where crmid=?~
-124,~'endhour'~
-127,~''~
-268,~'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'~
-251,~getUserFullName~
-338,~$mail_data~
-278,~Priority~
-454,~die~
-174,~LBL_HR~
-187,~select * from ~
-281,~'relatedto'~
-481,~$cont_res~
-69,~$defaultOrgSharingPermission~
-163,~$amselected~
-483,~$cont_id~
-262,~'<br><br>'~
-205,~query~
-290,~'<br>'~
-5,~)~
-138,~'start'~
-377,~description~
-330,~$to_email~
-222,~$group_option~
-302,~$date~
-80,~ OR id=?~
-308,~'minute'~
-236,~Entering getActivityDetails(~
-298,~$datetime~
-391,~'Task'~
-157,~*~
-315,~$am_pm~
-271,~Start date and time~
-201,~) order by sortid asc~
-12,~$id~
-370,~select groupname from vtiger_groups where groupid=?~
-441,~Y:m:d:H:i:s~
-189,~roleid~
-351,~due_date~
-166,~'<option value="am" '~
-110,~+~
-54,~$assigned_user_id~
-147,~$hrvalue~
-294,~$no~
-476,~$curr_userid~
-349,~time_start~
-396,~getDBInsertDateValue~
-335,~sendInvitation~
-66,~&&~
-397,~getDBInsertTimeValue~
-445,~$d~
-461,~$groupid~
-180,~$fieldname~
-38,~!=~
-76,~::%~
-430,~$useridInUse~
-303,~$h~
-378,~select case vtiger_crmentity.setype when 'Leads' then vtiger_leaddetails.lastname when 'Accounts' then vtiger_account.accountname when 'Potentials' then vtiger_potential.potentialname when 'Quotes' then vtiger_quotes.subject when 'PurchaseOrder' then vtiger_purchaseorder.subject when 'SalesOrder' then vtiger_salesorder.subject when 'Invoice' then vtiger_invoice.subject when 'Campaigns' then vtiger_campaign.campaignname when 'HelpDesk' then vtiger_troubletickets.title  end as relname from vtiger_seactivityrel inner join vtiger_crmentity on vtiger_crmentity.crmid=vtiger_seactivityrel.crmid left join vtiger_leaddetails on vtiger_leaddetails.leadid = vtiger_seactivityrel.crmid  left join vtiger_account on vtiger_account.accountid=vtiger_seactivityrel.crmid left join vtiger_potential on vtiger_potential.potentialid=vtiger_seactivityrel.crmid left join vtiger_quotes on vtiger_quotes.quoteid= vtiger_seactivityrel.crmid left join vtiger_purchaseorder on vtiger_purchaseorder.purchaseorderid = vtiger_seactivityrel.crmid  left join vtiger_salesorder on vtiger_salesorder.salesorderid = vtiger_seactivityrel.crmid left join vtiger_invoice on vtiger_invoice.invoiceid = vtiger_seactivityrel.crmid  left join vtiger_campaign on vtiger_campaign.campaignid = vtiger_seactivityrel.crmid left join vtiger_troubletickets on vtiger_troubletickets.ticketid = vtiger_seactivityrel.crmid where vtiger_seactivityrel.activityid=?~
-292,~Exiting getActivityDetails method ...~
-379,~$rel_qry~
-84,~Error filling in user array: ~
-221,~$groupname~
-14,~,~
-60,~$is_admin~
-388,~'assign_type'~
-291,~'.'~
-176,~LBL_MIN~
-312,~minute~
-451,~',HOUR:'~
-154,~'<select name="'~
-26,~'Users'~
-89,~'user_name'~
-317,~$inviteesid~
-120,~-~
-145,~'>'~
-243,~'mode'~
-422,~$userSelectdata~
-1,~global~
-228,~$from~
-264,~'.<br> '~
-274,~getDBTimeZone~
-220,~groupname~
-40,~'userid'~
-329,~getUserEmailId~
-480,~$cont_qry~
-20,~$j~
-161,~'fmt" class=small '~
-7,~$sharedid~
-170,~'</select>'~
-427,~</option>~
-179,~getTimeCombo~
-190,~$roleid~
-56,~.~
-132,~$todocheck~
-231,~$log~
-468,~select email1,id from vtiger_users where id in(~
-373,~$grp_name~
-261,~$list~
-286,~LBL_APP_DESCRIPTION~
-18,~num_rows~
-28,~$sharedname~
-17,~$result~
-48,~$i~
-49,~'id'~
-19,~$rows~
-90,~while~
-171,~'hr" class=small '~
-175,~'&nbsp;'~
-35,~function~
-316,~/~
-128,~getaddEventPopupTime~
-235,~return_module_language~
-182,~$js_fn~
-185,~'" id="'~
-256,~'LBL_ACTIVITY_NOTIFICATION'~
-108,~$edmin~
-411,~ AND vtiger_crmentity.smownerid IN (~
-11,~$query~
-192,~$subrole~
-218,~get_select_options_array~
-266,~':<br>'~
-325,~$invitees_array~
-238,~debug~
-408,~'ALL'~
-276,~LBL_STATUS~
-431,~selected='true'~
-210,~getActFieldCombo~
-59,~'user_privileges/user_privileges_'~
-296,~trim~
-374,~select description from vtiger_crmentity where crmid=?~
-410,~$user_group_ids~
-21,~0~
-331,~user_name~
-92,~unset~
-122,~'startmin'~
-252,~$name~
-203,~.picklist_valueid where roleid ='~
-361,~smownerid~
-113,~>=~
-125,~'endmin'~
-141,~null~
-299,~formatUserTimeString~
-195,~select distinct ~
-347,~date_start~
-399,~$default_charset~
-478,~getEventNotification~
-318,~$mode~
-74,~$role_seq~
-81,~.=~
-85,~true~
-280,~Related To~
-65,~1~
-389,~'group_name'~
-376,~$des_res~
-211,~$noof_group_rows~
-282,~'contact_name'~
-429,~->id'~
-87,~$row~
-88,~$temp_result~
-149,~$hrsel~
-301,~new~
-446,~$sec~
-164,~'pm'~
-305,~getDisplayTime~
-223,~=>~
-63,~2~
-207,~$noofrows~
-283,~LBL_CONTACT_LIST~
-46,~select * from vtiger_users where deleted=0 and status='Active' and id!=?~
-314,~'PM'~
-15,~->~
-435,~$userselect~
-61,~==~
-471,~$groupqry_res~
-420,~'LBL_LIST_OF'~
-77,~$params~
-248,~'End date and time'~
-275,~'end_date_time'~
-328,~$inviteeid~
-232,~$current_language~
-70,~3~
-293,~getActivityDetails~
-369,~T~
-458,~$am~
-241,~'LBL_CREATED'~
-304,~$m~
-423,~<select class='small' onchange='fnRedirect();' name='onlyforuser'>~
-300,~$timeStr~
-183,~'eventstatus'~
-25,~query_result~
-384,~$relatedContacts~
-383,~getActivityRelatedContacts~
-249,~$end_date_lable~
-366,~U~
-404,~htmlspecialchars~
-416,~SELECT id,user_name FROM vtiger_users WHERE status = 'Active' and deleted = 0~
-343,~$send_notification~
-401,~$_REQUEST~
-198,~.picklist_valueid where roleid in (~
-129,~$hour~
-352,~$end_date~
-390,~$start_hour~
-193,~count~
-346,~$priority~
-219,~$users_combo~
-135,~$combo~
-172,~<=~
-137,~5~
-16,~pquery~
-139,~$jsfn~
-51,~getOtherUserName~
-477,~$mail_status~
-68,~getTabid~
-133,~$bimode~
-97,~getSharingUserName~
-47,~$num_rows~
-453,~'}]~
-285,~'location'~
-146,~$hrtext~
-234,~'include/utils/utils.php'~
-237,~) method ...~
-323,~$invites~
-409,~fetchUserGroupids~
+227,~$selected~
+329,~$focus~
+79,~select id as id,user_name as user_name from vtiger_users where id=? and status='Active' union select vtiger_user2role.userid as id,vtiger_users.user_name as user_name from vtiger_user2role inner join vtiger_users on vtiger_users.id=vtiger_user2role.userid inner join vtiger_role on vtiger_role.roleid=vtiger_user2role.roleid where vtiger_role.parentrole like ? and status='Active' union select shareduserid as id,vtiger_users.user_name as user_name from vtiger_tmp_write_user_sharing_per inner join vtiger_users on vtiger_users.id=vtiger_tmp_write_user_sharing_per.shareduserid where status='Active' and vtiger_tmp_write_user_sharing_per.userid=? and vtiger_tmp_write_user_sharing_per.tabid=9~
+212,~getTranslatedString~
+59,~'user_privileges/sharing_privileges_'~
+325,~'INVITATION'~
+62,~require~
+161,~$value~
+316,~'AM'~
+243,~$updated~
+323,~$desc~
+165,~'am'~
+292,~' ,'~
+46,~$shared_ids~
+410,~$qcondition~
+191,~$q~
+435,~'LBL_MINE'~
+375,~$grp_res~
+228,~do~
+34,~getFullNameFromQResult~
+344,~$ary_res~
+362,~$owner_qry~
+356,~time_end~
+76,~::~
+248,~$reply~
+181,~'fmt">'~
+253,~'Due Date'~
+211,~'">'~
+48,~getSharedCalendarId~
+31,~'sharedid'~
+260,~$current_username~
+360,~getDisplayDate~
+398,~getDBInsertDateTimeValue~
+431,~<option value='~
+233,~$user_id~
+322,~$subject~
+153,~'<option value="'~
+343,~$qry~
+5,~{~
+358,~location~
+100,~else~
+43,~$userid~
+180,~'<input type="hidden" name="'~
+189,~'" class=small '~
+242,~'LBL_UPDATED'~
+249,~'activity_mode'~
+217,~get_group_options~
+111,~$edhr~
+415,~ AND vtiger_crmentity.smownerid = ~
+36,~[~
+202,~\"~
+108,~:~
+280,~': '~
+422,~<span style='padding-left: 10px; padding-right: 10px;'><b>~
+99,~get_user_array~
+401,~getActivityMailInfo~
+336,~foreach~
+109,~explode~
+395,~$end_hour~
+115,~$hr~
+272,~' : '~
+351,~$st_date~
+199,~ from  ~
+247,~'edit'~
+389,~'sendnotification'~
+184,~$tablename~
+6,~}~
+4,~;~
+151,~'selected'~
+374,~$group_qry~
+335,~send_mail~
+408,~$only_for_user~
+324,~modules/Emails/mail.php~
+120,~am~
+258,~$msg~
+287,~Location~
+41,~SELECT * from vtiger_sharedcalendar where sharedid=?~
+49,~$user_details~
+37,~]~
+421,~$userscount~
+29,~<~
+397,~$endDate~
+110,~list~
+345,~sendnotification~
+276,~DateTimeField~
+405,~strip_tags~
+409,~calendarview_getSelectedUserId~
+230,~getAssignedTo~
+300,~strlen~
+119,~pm~
+135,~$fmt~
+130,~'24'~
+16,~=~
+403,~'onlyforuser'~
+102,~$starttime~
+262,~$status~
+86,~array_push~
+368,~'count'~
+158,~'min" id="'~
+312,~timeString~
+123,~>~
+357,~$end_time~
+420,~$users~
+118,~12~
+194,~getRoleSubordinates~
+13,~$adb~
+82,~empty~
+122,~'starthour'~
+97,~Active~
+313,~is_object~
+121,~?~
+216,~get_current_user_access_groups~
+147,~'hr" '~
+347,~subject~
+145,~'<select class=small name="'~
+187,~'onChange = "getSelectedStatus();"'~
+176,~23~
+385,~$rel_name~
+61,~'.php'~
+342,~select * from vtiger_activity where activityid=?~
+366,~select count(*) as count from vtiger_users where id=?~
+273,~'subject'~
+107,~$stmin~
+125,~twoDigit~
+388,~edit~
+171,~'<option value="pm" '~
+298,~10~
+127,~'endfmt'~
+172,~'>PM</option>'~
+209,~$Res~
+156,~'</select>&nbsp;'~
+138,~$mod_strings~
+56,~$current_user~
+359,~$location~
+38,~for~
+205,~ from ~
+66,~false~
+291,~LBL_REGARDS_STRING~
+263,~','~
+39,~return~
+40,~getSharedUserId~
+396,~ ~
+215,~$tabid~
+365,~$owner_id~
+113,~'am/pm'~
+116,~'startfmt'~
+337,~as~
+310,~'hour'~
+363,~$res~
+418,~$app_strings~
+232,~$description~
+83,~!~
+170,~'>AM</option>'~
+424,~ : </b>~
+103,~$endtime~
+75,~or~
+384,~relname~
+440,~</select></span>~
+1,~"~
+71,~'Calendar'~
+98,~FALSE~
+219,~$nameArray~
+77,~$parent_roles~
+327,~';'~
+314,~hour~
+236,~require_once~
+104,~$format~
+353,~$st_time~
+383,~$rel_res~
+45,~implode~
+245,~$created~
+439,~' ~
+57,~id~
+90,~fetchByAssoc~
+218,~fetch_array~
+275,~'st_date_time'~
+87,~ order by user_name ASC~
+290,~'description'~
+330,~$record~
+370,~$assignType~
+390,~'user_id'~
+416,~sql_escape_string~
+200,~ inner join vtiger_role2picklist on vtiger_role2picklist.picklistvalueid = ~
+429,~'COMBO_ALL'~
+203,~) and picklistid in (select picklistid from ~
+14,~Array~
+282,~'taskpriority'~
+30,~++~
+134,~$min~
+437,~continue~
+155,~'</option>'~
+417,~calendarview_getSelectedUserFilterQuerySuffix~
+154,~'" '~
+406,~ENT_QUOTES~
+309,~':'~
+159,~'min" class=small '~
+256,~invite~
+428,~<option value='ALL'>~
+140,~%~
+47,~if~
+3,~echo~
+220,~'private'~
+257,~'LBL_ACTIVITY_INVITATION'~
+146,~'hr" id="'~
+105,~$timearr~
+229,~$fieldvalue~
+378,~$desc_qry~
+427,~is_admin~
+20,~array~
+95,~&~
+207,~' and picklistid in (select picklistid from ~
+367,~$usr_res~
+340,~$activity_type~
+68,~$profileGlobalPermission~
+250,~Events~
+54,~$username~
+441,~calendarview_getUserSelectOptions~
+348,~priority~
+371,~$usr_id~
+163,~'fmt" id="'~
+268,~'LBL_DETAILS_STRING'~
+144,~'onChange="changeEndtime_StartTime(document.EditView.activitytype.value);"'~
+261,~'status'~
+162,~$minsel~
+168,~$pmselected~
+106,~$sthr~
+197,~$roleids~
+339,~$return_id~
+436,~$index~
+266,~' '~
+270,~LBL_SUBJECT~
+17,~SELECT vtiger_users.*,vtiger_sharedcalendar.* from vtiger_sharedcalendar left join vtiger_users on vtiger_sharedcalendar.sharedid=vtiger_users.id where userid=?~
+9,~(~
+361,~select smownerid from vtiger_crmentity where crmid=?~
+128,~'endhour'~
+131,~''~
+271,~'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'~
+254,~getUserFullName~
+341,~$mail_data~
+281,~Priority~
+177,~LBL_HR~
+190,~select * from ~
+284,~'relatedto'~
+73,~$defaultOrgSharingPermission~
+166,~$amselected~
+265,~'<br><br>'~
+208,~query~
+293,~'<br>'~
+10,~)~
+142,~'start'~
+380,~description~
+333,~$to_email~
+225,~$group_option~
+305,~$date~
+84,~ OR id=?~
+311,~'minute'~
+239,~Entering getActivityDetails(~
+301,~$datetime~
+394,~'Task'~
+8,~writeMsg~
+160,~*~
+318,~$am_pm~
+274,~Start date and time~
+204,~) order by sortid asc~
+19,~$id~
+373,~select groupname from vtiger_groups where groupid=?~
+192,~roleid~
+354,~due_date~
+169,~'<option value="am" '~
+114,~+~
+58,~$assigned_user_id~
+150,~$hrvalue~
+297,~$no~
+352,~time_start~
+399,~getDBInsertDateValue~
+338,~sendInvitation~
+70,~&&~
+400,~getDBInsertTimeValue~
+183,~$fieldname~
+42,~!=~
+80,~::%~
+433,~$useridInUse~
+306,~$h~
+381,~select case vtiger_crmentity.setype when 'Leads' then vtiger_leaddetails.lastname when 'Accounts' then vtiger_account.accountname when 'Potentials' then vtiger_potential.potentialname when 'Quotes' then vtiger_quotes.subject when 'PurchaseOrder' then vtiger_purchaseorder.subject when 'SalesOrder' then vtiger_salesorder.subject when 'Invoice' then vtiger_invoice.subject when 'Campaigns' then vtiger_campaign.campaignname when 'HelpDesk' then vtiger_troubletickets.title  end as relname from vtiger_seactivityrel inner join vtiger_crmentity on vtiger_crmentity.crmid=vtiger_seactivityrel.crmid left join vtiger_leaddetails on vtiger_leaddetails.leadid = vtiger_seactivityrel.crmid  left join vtiger_account on vtiger_account.accountid=vtiger_seactivityrel.crmid left join vtiger_potential on vtiger_potential.potentialid=vtiger_seactivityrel.crmid left join vtiger_quotes on vtiger_quotes.quoteid= vtiger_seactivityrel.crmid left join vtiger_purchaseorder on vtiger_purchaseorder.purchaseorderid = vtiger_seactivityrel.crmid  left join vtiger_salesorder on vtiger_salesorder.salesorderid = vtiger_seactivityrel.crmid left join vtiger_invoice on vtiger_invoice.invoiceid = vtiger_seactivityrel.crmid  left join vtiger_campaign on vtiger_campaign.campaignid = vtiger_seactivityrel.crmid left join vtiger_troubletickets on vtiger_troubletickets.ticketid = vtiger_seactivityrel.crmid where vtiger_seactivityrel.activityid=?~
+295,~Exiting getActivityDetails method ...~
+382,~$rel_qry~
+88,~Error filling in user array: ~
+224,~$groupname~
+21,~,~
+64,~$is_admin~
+391,~'assign_type'~
+294,~'.'~
+179,~LBL_MIN~
+315,~minute~
+157,~'<select name="'~
+33,~'Users'~
+93,~'user_name'~
+320,~$inviteesid~
+124,~-~
+148,~'>'~
+246,~'mode'~
+425,~$userSelectdata~
+12,~global~
+231,~$from~
+267,~'.<br> '~
+277,~getDBTimeZone~
+223,~groupname~
+44,~'userid'~
+332,~getUserEmailId~
+27,~$j~
+164,~'fmt" class=small '~
+15,~$sharedid~
+173,~'</select>'~
+430,~</option>~
+182,~getTimeCombo~
+193,~$roleid~
+60,~.~
+136,~$todocheck~
+234,~$log~
+376,~$grp_name~
+264,~$list~
+289,~LBL_APP_DESCRIPTION~
+25,~num_rows~
+35,~$sharedname~
+24,~$result~
+52,~$i~
+53,~'id'~
+26,~$rows~
+94,~while~
+2,~Hello world!~
+174,~'hr" class=small '~
+178,~'&nbsp;'~
+7,~function~
+319,~/~
+132,~getaddEventPopupTime~
+238,~return_module_language~
+185,~$js_fn~
+188,~'" id="'~
+259,~'LBL_ACTIVITY_NOTIFICATION'~
+112,~$edmin~
+414,~ AND vtiger_crmentity.smownerid IN (~
+18,~$query~
+195,~$subrole~
+221,~get_select_options_array~
+269,~':<br>'~
+328,~$invitees_array~
+241,~debug~
+411,~'ALL'~
+279,~LBL_STATUS~
+434,~selected='true'~
+213,~getActFieldCombo~
+63,~'user_privileges/user_privileges_'~
+299,~trim~
+377,~select description from vtiger_crmentity where crmid=?~
+413,~$user_group_ids~
+28,~0~
+334,~user_name~
+96,~unset~
+126,~'startmin'~
+255,~$name~
+206,~.picklist_valueid where roleid ='~
+364,~smownerid~
+117,~>=~
+129,~'endmin'~
+11,~null~
+302,~formatUserTimeString~
+198,~select distinct ~
+350,~date_start~
+402,~$default_charset~
+321,~$mode~
+78,~$role_seq~
+85,~.=~
+89,~true~
+283,~Related To~
+69,~1~
+392,~'group_name'~
+379,~$des_res~
+214,~$noof_group_rows~
+285,~'contact_name'~
+432,~->id'~
+91,~$row~
+92,~$temp_result~
+152,~$hrsel~
+304,~new~
+167,~'pm'~
+308,~getDisplayTime~
+226,~=>~
+67,~2~
+210,~$noofrows~
+286,~LBL_CONTACT_LIST~
+50,~select * from vtiger_users where deleted=0 and status='Active' and id!=?~
+317,~'PM'~
+22,~->~
+438,~$userselect~
+65,~==~
+423,~'LBL_LIST_OF'~
+81,~$params~
+251,~'End date and time'~
+278,~'end_date_time'~
+331,~$inviteeid~
+235,~$current_language~
+74,~3~
+296,~getActivityDetails~
+372,~T~
+244,~'LBL_CREATED'~
+307,~$m~
+426,~<select class='small' onchange='fnRedirect();' name='onlyforuser'>~
+303,~$timeStr~
+186,~'eventstatus'~
+32,~query_result~
+387,~$relatedContacts~
+386,~getActivityRelatedContacts~
+252,~$end_date_lable~
+369,~U~
+407,~htmlspecialchars~
+419,~SELECT id,user_name FROM vtiger_users WHERE status = 'Active' and deleted = 0~
+346,~$send_notification~
+404,~$_REQUEST~
+201,~.picklist_valueid where roleid in (~
+133,~$hour~
+355,~$end_date~
+393,~$start_hour~
+196,~count~
+349,~$priority~
+222,~$users_combo~
+139,~$combo~
+175,~<=~
+141,~5~
+23,~pquery~
+143,~$jsfn~
+55,~getOtherUserName~
+72,~getTabid~
+137,~$bimode~
+101,~getSharingUserName~
+51,~$num_rows~
+288,~'location'~
+149,~$hrtext~
+237,~'include/utils/utils.php'~
+240,~) method ...~
+326,~$invites~
+412,~fetchUserGroupids~

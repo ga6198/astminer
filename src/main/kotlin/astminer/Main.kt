@@ -92,44 +92,19 @@ fun runExamples() {
     allJavaAsts()
     */
 
-    //added code from Code2VecExtractor to help with debugging
-    val outputDir = File("testOutput")
-    val miner = PathMiner(PathRetrievalSettings(5, 5))
+    //test astminer cli code
+    //outputs to astminer/testOutput
+    testAstminerCliCode();
 
-    val outputDirForLanguage = outputDir.resolve("php")
-    outputDirForLanguage.mkdir()
-    val storage = Code2VecPathStorage(outputDirForLanguage.path, false, 100)
-
-    //val parser = PhpMainParser()
-    val parser = PythonParser()
-    println("Finished creating parser")
-    val currentWorkingDirectory = System.getProperty("user.dir")
-    println(currentWorkingDirectory)
-    val pathname = currentWorkingDirectory + "/src/main/kotlin/astminer/files" //"~/astminer/src/main/kotlin/astminer/files"
-    //val pathname = currentWorkingDirectory + "/testData/examples" //"~/astminer/testData/examples/"
-    val extension = "php"
-    //val extension = "py"
-    val roots = parser.parseWithExtension(File(pathname), extension)
-    println("Finished parsing")
-    try {
-        extractFromMethods(roots, PhpMethodSplitter(), miner, storage)
-        //extractFromMethods(roots, PythonMethodSplitter(), miner, storage)
-    }
-    catch (e: Exception) {
-        println("Error occurred w/ extractFromMethods")
-    }
-    println("Finished extracting methods")
-
-    print("Press enter to continue ")
-    val stringInput = readLine()
-    ///----------------
-
+    /*
+    //outputs to astminer/src/main/kotlin/astminer/output
     val trainArray = getDirectories("train")
     runPythonCommand(trainArray)
     val testArray = getDirectories("test")
     runPythonCommand(testArray)
     val valArray = getDirectories("val")
     runPythonCommand(valArray)
+     */
 }
 
 //TODO: pass in output file name from code2vec preprocess.sh
@@ -183,6 +158,43 @@ fun runPythonCommand(args: Array<String>){
 
 }
 
+//---------------------Astminer CLI code
+fun testAstminerCliCode(){
+    //added code from Code2VecExtractor to help with debugging
+    val outputDir = File("testOutput")
+    val miner = PathMiner(PathRetrievalSettings(5, 5))
+
+    val outputDirForLanguage = outputDir.resolve("php")
+    outputDirForLanguage.mkdir()
+    val storage = Code2VecPathStorage(outputDirForLanguage.path, false, 100)
+
+    println("OutputDirForLanguage: ${outputDirForLanguage.path}")
+
+    val parser = PhpMainParser()
+    //val parser = PythonParser()
+    println("Finished creating parser")
+    val currentWorkingDirectory = System.getProperty("user.dir")
+    println(currentWorkingDirectory)
+    val pathname = currentWorkingDirectory + "/testData/examples"//"/src/main/kotlin/astminer/files" //"~/astminer/src/main/kotlin/astminer/files"
+    //val pathname = currentWorkingDirectory + "/testData/examples" //"~/astminer/testData/examples/"
+    val extension = "php"
+    //val extension = "py"
+    val roots = parser.parseWithExtension(File(pathname), extension)
+    println("Finished parsing")
+    try {
+        extractFromMethods(roots, PhpMethodSplitter(), miner, storage)
+        //extractFromMethods(roots, PythonMethodSplitter(), miner, storage)
+    }
+    catch (e: Exception) {
+        println("Error occurred w/ extractFromMethods")
+    }
+    println("Finished extracting methods")
+
+    print("Press enter to continue ")
+    val stringInput = readLine()
+    ///----------------
+}
+
 //
 fun <T : Node> extractFromMethods(
     roots: List<ParseResult<T>>,
@@ -193,12 +205,18 @@ fun <T : Node> extractFromMethods(
     println("Roots: $roots")
 
     val methods = roots.mapNotNull {
+        println("Current Root FilePath: ${it.filePath}")
         it.root
     }.flatMap {
         methodSplitter.splitIntoMethods(it)
     }
     println("Methods: $methods")
     methods.forEach { methodInfo ->
+        //added this to check an issue where all method names are null
+        if(methodInfo.method.nameNode != null){
+            print("Found a method name that is not null: ")
+            println(methodInfo.method.nameNode)
+        }
         val methodNameNode = methodInfo.method.nameNode ?: return@forEach
         val methodRoot = methodInfo.method.root
         val label = splitToSubtokens(methodNameNode.getToken()).joinToString("|")

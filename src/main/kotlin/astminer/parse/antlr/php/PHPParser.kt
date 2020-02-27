@@ -33,6 +33,9 @@ class PhpMainParser : Parser<SimpleNode> {
             //val context = parser.expression()
             //val context = parser.htmlElementOrPhpBlock()
             val context = parser.phpBlock()
+
+
+            //returns a simpleNode. Will run for each file, meaning files are converted into nodes
             convertAntlrTree(context, PhpParser.ruleNames, PhpParser.VOCABULARY)
         } catch (e: Exception) {
             e.printStackTrace() //show error

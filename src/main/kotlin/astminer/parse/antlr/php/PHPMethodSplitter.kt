@@ -11,11 +11,16 @@ import astminer.parse.antlr.decompressTypeLabel
 //funcdef comes from PythonParser.g4, Python2.g4 and Python.g4 files
 //methodDeclaration is from JavaParser.g4 and Java8Parser.g4
 
+//TODO: investigate this to see why name node are returned as null. Might be because I commented out the METHOD_NAME_NODE
+
 class PhpMethodSplitter : TreeMethodSplitter<SimpleNode> {
 
     companion object {
         //private const val METHOD_NODE = "namespaceStatement"
-        private const val METHOD_NODE = "functionDeclaration" //"funcdef"
+
+        //Try to change this to NAME, since the parser is only picking up names
+        private const val METHOD_NODE = "NAME"
+        //private const val METHOD_NODE = "functionDeclaration" //"funcdef"
         private const val METHOD_NAME_NODE = "identifier" //"NAME"
 
         private const val CLASS_DECLARATION_NODE = "classDeclaration" //"classdef"
