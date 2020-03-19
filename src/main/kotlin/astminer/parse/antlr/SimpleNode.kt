@@ -7,6 +7,16 @@ class SimpleNode(private val typeLabel: String, private var parent: Node?, priva
 
     private var children: List<Node> = emptyList()
 
+    //implementing a print function that prints all members
+    fun printInfo(){
+        println("SimpleNode Info")
+        println("TypeLabel: $typeLabel")
+        println("Parent: $parent")
+        println("Token: $token")
+        println("Children: $children")
+        println("Metadata: $metadata")
+    }
+
     fun setChildren(newChildren: List<Node>) {
         children = newChildren
         children.forEach { (it as SimpleNode).setParent(this) }

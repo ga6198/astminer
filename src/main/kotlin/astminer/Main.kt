@@ -175,7 +175,14 @@ fun testAstminerCliCode(){
     println("Finished creating parser")
     val currentWorkingDirectory = System.getProperty("user.dir")
     println(currentWorkingDirectory)
-    val pathname = currentWorkingDirectory + "/testData/examples"//"/src/main/kotlin/astminer/files" //"~/astminer/src/main/kotlin/astminer/files"
+    val pathname = currentWorkingDirectory + "/testData/examples/php/test"
+    //val pathname = currentWorkingDirectory + "/testData/examples/php_test/1" //admin.categories.php //UNSAFE
+    //val pathname = currentWorkingDirectory + "/testData/examples/php_test/2" //admin.contact.php //UNSAFE
+    //val pathname = currentWorkingDirectory + "/testData/examples/php_test/3" //admin.trash.php //UNSAFE
+    //val pathname = currentWorkingDirectory + "/testData/examples/php_test/4" //banner.php //SAFE, but methods not extracted
+    //val pathname = currentWorkingDirectory + "/testData/examples/php_test/5" //CalendarCommon.php //UNSAFE
+    //val pathname = currentWorkingDirectory + "/testData/examples/php_test/6" //CalendarCommon2013.php
+    //val pathname = currentWorkingDirectory + "/testData/examples"//"/src/main/kotlin/astminer/files" //"~/astminer/src/main/kotlin/astminer/files"
     //val pathname = currentWorkingDirectory + "/testData/examples" //"~/astminer/testData/examples/"
     val extension = "php"
     //val extension = "py"
@@ -187,11 +194,12 @@ fun testAstminerCliCode(){
     }
     catch (e: Exception) {
         println("Error occurred w/ extractFromMethods")
+        e.printStackTrace()
     }
     println("Finished extracting methods")
 
-    print("Press enter to continue ")
-    val stringInput = readLine()
+    //print("Press enter to continue ")
+    //val stringInput = readLine()
     ///----------------
 }
 
@@ -211,6 +219,7 @@ fun <T : Node> extractFromMethods(
         methodSplitter.splitIntoMethods(it)
     }
     println("Methods: $methods")
+    //Split method names so they are divided by |
     methods.forEach { methodInfo ->
         //added this to check an issue where all method names are null
         if(methodInfo.method.nameNode != null){
@@ -219,6 +228,7 @@ fun <T : Node> extractFromMethods(
         }
         val methodNameNode = methodInfo.method.nameNode ?: return@forEach
         val methodRoot = methodInfo.method.root
+        //This is the part that splits the method names into parts
         val label = splitToSubtokens(methodNameNode.getToken()).joinToString("|")
         println("Current label: $label")
         methodRoot.preOrder().forEach { it.setNormalizedToken() }

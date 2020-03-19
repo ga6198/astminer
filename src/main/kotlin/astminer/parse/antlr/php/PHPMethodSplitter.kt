@@ -19,48 +19,48 @@ class PhpMethodSplitter : TreeMethodSplitter<SimpleNode> {
         //private const val METHOD_NODE = "namespaceStatement"
 
         //Try to change this to NAME, since the parser is only picking up names
-        private const val METHOD_NODE = "NAME"
-        //private const val METHOD_NODE = "functionDeclaration" //"funcdef"
+        //private const val METHOD_NODE = "NAME"
+        private const val METHOD_NODE = "functionDeclaration" //"funcdef"
         private const val METHOD_NAME_NODE = "identifier" //"NAME"
 
         private const val CLASS_DECLARATION_NODE = "classDeclaration" //"classdef"
         private const val CLASS_NAME_NODE = "identifier" //"NAME"
 
         private const val METHOD_PARAMETER_NODE = "formalParameterList" //"parameters"
-        //private const val METHOD_PARAMETER_INNER_NODE = "formalParameterList" //"typedargslist"
+        private const val METHOD_PARAMETER_INNER_NODE = "formalParameterList" //"typedargslist"
         private const val METHOD_SINGLE_PARAMETER_NODE = "formalParameter"//"tfpdef"
-        private const val PARAMETER_NAME_NODE = "variableInitializer" //"NAME"
+        private const val PARAMETER_NAME_NODE = "VarName "//"variableInitializer" //"NAME"
     }
 
     override fun splitIntoMethods(root: SimpleNode): Collection<MethodInfo<SimpleNode>> {
         println("running splitIntoMethods")
 
+        //extracts only the method nodes from all roots by checking if the type label is the same as the METHOD_NODE one given at the top
         val methodRoots = root.preOrder().filter {
             //for every node, decompressTypeLabel splits the
             //TODO: Look at getTypeLabel() for PHP. Probably uses SimpleNode class
             //decompressTypeLabel splits a type label, splitting it wherever there is |
             //last() gets the last element of the split
             //Only if the result is the same as a method node, filter()
-
             val temp = decompressTypeLabel(it.getTypeLabel())
             val temp2 = decompressTypeLabel(it.getTypeLabel()).last()
             println("decompressTypeLabel(it.getTypeLabel()): $temp")
             println("decompressTypeLabel(it.getTypeLabel()).last(): $temp2") //These all print CAPITAL letters
-            val lookFor = "functionDeclaration"
-            val lookFor2 = "FUNCTIONDECLARATION"
-            /*if(decompressTypeLabel(it.getTypeLabel()).last().equals(lookFor) || decompressTypeLabel(it.getTypeLabel()).equals(lookFor) ){
-                print("Method node caught!")
-                //there could be an issue w/ the methodnode being lower case, but the decompresstypelabel being capital
+            println("token: ${it.getToken()}")
+            if(it == null){
+                println("Found null node")
             }
-
-            if(decompressTypeLabel(it.getTypeLabel()).last().equals(lookFor2) || decompressTypeLabel(it.getTypeLabel()).equals(lookFor2) ){
-                print("Method node 2 caught!")
-                //there could be an issue w/ the methodnode being lower case, but the decompresstypelabel being capital
-            }*/
 
 
             decompressTypeLabel(it.getTypeLabel()).last() == METHOD_NODE
         }
+        //DEBUG: Added to see each methodRoot's info
+        println("Method roots after extracting only the true method nodes: ${methodRoots}")
+        for ((index, root) in methodRoots.withIndex()){
+            print("Examining Method Node $index: ")
+            root.prettyPrint();
+        }
+
         return methodRoots.map { collectMethodInfo(it as SimpleNode) }
     }
 
@@ -71,7 +71,7 @@ class PhpMethodSplitter : TreeMethodSplitter<SimpleNode> {
         val className = classRoot?.getChildOfType(CLASS_NAME_NODE) as? SimpleNode
 
         val parametersRoot = methodNode.getChildOfType(METHOD_PARAMETER_NODE) as? SimpleNode
-        //val innerParametersRoot = parametersRoot?.getChildOfType(METHOD_PARAMETER_INNER_NODE) as? SimpleNode
+        val innerParametersRoot = parametersRoot?.getChildOfType(METHOD_PARAMETER_INNER_NODE) as? SimpleNode
 
         val parametersList = when {
             //innerParametersRoot != null -> getListOfParameters(innerParametersRoot)
@@ -102,10 +102,26 @@ class PhpMethodSplitter : TreeMethodSplitter<SimpleNode> {
             return listOf(ParameterNode(parameterRoot, null, parameterRoot))
         }
         return parameterRoot.getChildrenOfType(METHOD_SINGLE_PARAMETER_NODE).map {
+            //DEBUG: trying to solve this issue: kotlin.TypeCastException: null cannot be cast to non-null type astminer.parse.antlr.SimpleNode
+            if(decompressTypeLabel(it.getTypeLabel()) == listOf<String>("topStatement", "statement", "emptyStatement", "SemiColon")){
+                println("breakpoint")
+            }
+
+            if(it != null){
+                println("Nothing wrong with token")
+            }
+            //if(it == null) {
+            else{
+                println("Faulty token that equals null: ${it.getToken()}")
+            }
+
             if (decompressTypeLabel(it.getTypeLabel()).last() == PARAMETER_NAME_NODE) {
                 ParameterNode(it as SimpleNode, null, it)
             } else {
-                ParameterNode(it as SimpleNode, null, it.getChildOfType(PARAMETER_NAME_NODE) as SimpleNode)
+                //NOTE: This if statement is something I patched in to handle null nodes. The internal line is the original
+                //if(it !is null) {
+                    ParameterNode(it as SimpleNode, null, it.getChildOfType(PARAMETER_NAME_NODE) as SimpleNode)
+                //}
             }
         }
     }
