@@ -3,16 +3,12 @@ package astminer.parse.antlr.php
 import astminer.common.model.Parser
 import astminer.parse.antlr.SimpleNode
 import astminer.parse.antlr.convertAntlrTree
+import me.vovak.antlr.parser.PhpLexer
+import me.vovak.antlr.parser.PhpParser
 import org.antlr.v4.runtime.CommonTokenStream
 import org.antlr.v4.runtime.CharStreams
 import java.io.InputStream
 import java.lang.Exception
-import me.vovak.antlr.parser.PhpLexer
-import me.vovak.antlr.parser.PhpParser
-
-import me.vovak.antlr.parser.Java8Lexer
-import me.vovak.antlr.parser.Java8Parser
-import org.antlr.runtime.tree.*
 
 class PhpMainParser : Parser<SimpleNode> {
     override fun parse(content: InputStream): SimpleNode? {

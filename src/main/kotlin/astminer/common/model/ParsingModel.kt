@@ -25,7 +25,10 @@ interface Node {
         getChildren().forEach { it.prettyPrint(indent + 1, indentSymbol) }
     }
 
+    //Get the list of children nodes (List<Node>). Then only choose ones with matching type label string
     fun getChildrenOfType(typeLabel: String) = getChildren().filter { it.getTypeLabel() == typeLabel }
+
+    //Get the first value of a List<Node> or returns null
     fun getChildOfType(typeLabel: String) = getChildrenOfType(typeLabel).firstOrNull()
 }
 

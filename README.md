@@ -4,6 +4,26 @@
 
 #The php extractor is run from astminer/src/main/kotlin/astminer/Main.kt
 
+#Solving java version issue (has been compiled with Java 55.0 but run with 52.0)
+1. Switch IntelliJ to Java JDK 1.8
+- File > Project Structure
+- Choose Project SDK 1.8 and Project language level 8
+2. Ensure Gradle is using JVM 1.8
+- gedit ~/.bashrc to add environment variables
+- add these lines: 
+JAVA_HOME=/usr/lib/jvm/jdk1.8.0_241/
+export JAVA_HOME
+(JAVA_HOME is the Java directory and bin directory should be left off)
+- Run gradle -version to check if jvm is correct
+3. Inside IntelliJ, use the elephant icon to run gradle generateGrammarSources. This recompiles the Parser and Lexer files using the correct java version. (gradle clean may be needed beforehand)
+
+THE PRECEDING IS INVALID. DO THE FOLLOWING INSTEAD
+File > Settings > Build, Execution, Deployment > Gradle
+Change the gradle JVM to 1.8
+
+#Issue Debugging
+In admin.categories.php, the saveOrder function parsing in failing. One node has children of tokens "&" and "$cid". However, the code gets a child of PARAMETER_NAME_NODE (VarName), but the types of the nodes are "Ampersand" and "variableInitializer|VarName". Since the child is null, the program fails
+
 # astminer
 A library for mining of [path-based representations of code](https://arxiv.org/pdf/1803.09544.pdf) and more, supported by the [Machine Learning Methods for Software Engineering](https://research.jetbrains.org/groups/ml_methods) group at [JetBrains Research](https://research.jetbrains.org).
 

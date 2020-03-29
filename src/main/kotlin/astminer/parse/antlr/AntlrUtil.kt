@@ -1,11 +1,9 @@
 package astminer.parse.antlr
 
 import astminer.common.model.Node
-import me.vovak.antlr.parser.PhpParser
 import org.antlr.v4.runtime.ParserRuleContext
 import org.antlr.v4.runtime.Vocabulary
 import org.antlr.v4.runtime.tree.ErrorNode
-import org.antlr.v4.runtime.tree.ParseTree
 import org.antlr.v4.runtime.tree.TerminalNode
 
 fun convertAntlrTree(tree: ParserRuleContext, ruleNames: Array<String>, vocabulary: Vocabulary): SimpleNode {

@@ -29,7 +29,7 @@ class PhpMethodSplitter : TreeMethodSplitter<SimpleNode> {
         private const val METHOD_PARAMETER_NODE = "formalParameterList" //"parameters"
         private const val METHOD_PARAMETER_INNER_NODE = "formalParameterList" //"typedargslist"
         private const val METHOD_SINGLE_PARAMETER_NODE = "formalParameter"//"tfpdef"
-        private const val PARAMETER_NAME_NODE = "VarName "//"variableInitializer" //"NAME"
+        private const val PARAMETER_NAME_NODE = "VarName"//"variableInitializer" //"NAME"
     }
 
     override fun splitIntoMethods(root: SimpleNode): Collection<MethodInfo<SimpleNode>> {
@@ -70,11 +70,15 @@ class PhpMethodSplitter : TreeMethodSplitter<SimpleNode> {
         val classRoot = getEnclosingClass(methodNode)
         val className = classRoot?.getChildOfType(CLASS_NAME_NODE) as? SimpleNode
 
+        //as? will typecast the parametersRoot to null
         val parametersRoot = methodNode.getChildOfType(METHOD_PARAMETER_NODE) as? SimpleNode
         val innerParametersRoot = parametersRoot?.getChildOfType(METHOD_PARAMETER_INNER_NODE) as? SimpleNode
 
         val parametersList = when {
             //innerParametersRoot != null -> getListOfParameters(innerParametersRoot)
+
+            //The parametersRoot should only call getListOfParameters if it's not null
+            //If this is the case, why are null nodes still passed to the function?
             parametersRoot != null -> getListOfParameters(parametersRoot)
             else -> emptyList()
         }
@@ -98,30 +102,88 @@ class PhpMethodSplitter : TreeMethodSplitter<SimpleNode> {
     }
 
     private fun getListOfParameters(parameterRoot: SimpleNode): List<ParameterNode<SimpleNode>> {
+        var rootChildren = parameterRoot.getChildrenOfType(METHOD_SINGLE_PARAMETER_NODE)
+        for (node in rootChildren){
+            println("Token: ${node.getToken()}")
+            println("Type Label: ${node.getTypeLabel()}")
+            println("isLeaf?: ${node.isLeaf()}")
+            println("Full Path")
+            println(node.prettyPrint())
+        }
+
+
+        //if the last type label is "VarName", a list of parameter nodes is returned
+        //used if we directly found the parameter name
         if (decompressTypeLabel(parameterRoot.getTypeLabel()).last() == PARAMETER_NAME_NODE) {
             return listOf(ParameterNode(parameterRoot, null, parameterRoot))
         }
+
+        var parameterNodeList = mutableListOf<ParameterNode<SimpleNode>>();
+        var parameterChildren = parameterRoot.getChildrenOfType(METHOD_SINGLE_PARAMETER_NODE);
+
+        for (child in parameterChildren){
+            //If the node of the "FormalParameter" is "VarName", the parameter node has been found
+            //ex. $section
+            if (decompressTypeLabel(child.getTypeLabel()).last() == PARAMETER_NAME_NODE) {
+                parameterNodeList.add(ParameterNode(child as SimpleNode, null, child))
+            }
+            else{
+                //VarName not found yet, so check if child is VarName
+                var deeperChild = child.getChildOfType(PARAMETER_NAME_NODE)
+                if(deeperChild != null){
+                    parameterNodeList.add(ParameterNode(child as SimpleNode, null, deeperChild as SimpleNode))
+                }
+                //once again, varName not found, so extract another set of children. Used to handle something like &$cid
+                else{
+                    //get all nodes that starts with variableInitializer -- ex. &$cid becomes $cid
+                    var deeperChildren = child.getChildrenOfType("variableInitializer")
+                    for (deeperLevelChild in deeperChildren){
+                        if (decompressTypeLabel(deeperLevelChild.getTypeLabel()).last() == PARAMETER_NAME_NODE) {
+                            parameterNodeList.add(ParameterNode(deeperLevelChild as SimpleNode, null, deeperLevelChild))
+                        }
+                    }
+                }
+            }
+
+        }
+
+        return parameterNodeList;
+
+        //if "VarName" was not found, get children of type "FormalParameter"
         return parameterRoot.getChildrenOfType(METHOD_SINGLE_PARAMETER_NODE).map {
             //DEBUG: trying to solve this issue: kotlin.TypeCastException: null cannot be cast to non-null type astminer.parse.antlr.SimpleNode
-            if(decompressTypeLabel(it.getTypeLabel()) == listOf<String>("topStatement", "statement", "emptyStatement", "SemiColon")){
-                println("breakpoint")
-            }
 
-            if(it != null){
-                println("Nothing wrong with token")
-            }
-            //if(it == null) {
-            else{
-                println("Faulty token that equals null: ${it.getToken()}")
-            }
-
+            //If the node of the "FormalParameter" is "VarName", the parameter node has been found
+            //ex. $section
             if (decompressTypeLabel(it.getTypeLabel()).last() == PARAMETER_NAME_NODE) {
                 ParameterNode(it as SimpleNode, null, it)
-            } else {
-                //NOTE: This if statement is something I patched in to handle null nodes. The internal line is the original
-                //if(it !is null) {
+            }
+            //ex. &$cid
+            else {
+                //There's likely an issue with getChildOfType. it==null does nothing, so it must be an issue with the children
+                var child = it.getChildOfType(PARAMETER_NAME_NODE)
+                if(child == null){
+                    println("null node found")
+                    //var variableChildren = it.getChildrenOfType(PARAMETER_NAME_NODE);
+                    var typeLabel = "variableInitializer" //"variableInitializer|VarName"
+                    ParameterNode(it as SimpleNode, null, it.getChildOfType(typeLabel) as SimpleNode)
+                }
+
+                var child2 = it.getChildOfType("variableInitializer|VarName")
+                if(child2 == null){
+                    println("getting variableInitializer|VarName child did not work")
+
+                }
+
+                //get children of the current child node
+                //var children = it.getChildrenOfType("variableInitializer|VarName")
+
+
+                    //Original Line
                     ParameterNode(it as SimpleNode, null, it.getChildOfType(PARAMETER_NAME_NODE) as SimpleNode)
-                //}
+
+                //ParameterNode(it as SimpleNode, null, it.getChildOfType("variableInitializer|VarName") as SimpleNode)
+
             }
         }
     }
