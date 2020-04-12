@@ -176,14 +176,14 @@ fun testAstminerCliCode(){
     val currentWorkingDirectory = System.getProperty("user.dir")
     println(currentWorkingDirectory)
     //val pathname = currentWorkingDirectory + "/testData/examples/php/test"
-    val pathname = currentWorkingDirectory + "/testData/examples/php_test/1" //admin.categories.php //UNSAFE
+    //val pathname = currentWorkingDirectory + "/testData/examples/php_test/1" //admin.categories.php //UNSAFE
     //val pathname = currentWorkingDirectory + "/testData/examples/php_test/2" //admin.contact.php //UNSAFE
     //val pathname = currentWorkingDirectory + "/testData/examples/php_test/3" //admin.trash.php //UNSAFE
     //val pathname = currentWorkingDirectory + "/testData/examples/php_test/4" //banner.php //SAFE, but methods not extracted
     //val pathname = currentWorkingDirectory + "/testData/examples/php_test/5" //CalendarCommon.php //UNSAFE
     //val pathname = currentWorkingDirectory + "/testData/examples/php_test/6" //CalendarCommon2013.php
     //val pathname = currentWorkingDirectory + "/testData/examples"//"/src/main/kotlin/astminer/files" //"~/astminer/src/main/kotlin/astminer/files"
-    //val pathname = currentWorkingDirectory + "/testData/examples" //"~/astminer/testData/examples/"
+    val pathname = currentWorkingDirectory + "/testData/examples" //"~/astminer/testData/examples/"
     val extension = "php"
     //val extension = "py"
     val roots = parser.parseWithExtension(File(pathname), extension)

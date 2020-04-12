@@ -1,0 +1,22 @@
+//Code2Vec
+
+//preprocessing files with Astminer for Code2Vec
+source preprocess_php.sh
+
+//training Code2Vec model
+source train_php.sh 
+
+//Evaluating Code2Vec model
+python3 code2vec.py --load models/java14_model/saved_model_iter8.release --test data/java14m/java14m.test.c2v
+
+
+
+Code2vec creates an example per method, which means that one file will have multiple examples.
+How can the examples be associated back with each file?
+Do I just pass the examples to the embedding layer?
+This will help add a unique id and link to a different file
+https://github.com/tech-srl/code2vec/issues/41
+
+Exporting code vectors
+https://github.com/tech-srl/code2vec/issues/66
+https://github.com/tech-srl/code2vec/issues/62
