@@ -30,6 +30,8 @@ interface Node {
 
     //Get the first value of a List<Node> or returns null
     fun getChildOfType(typeLabel: String) = getChildrenOfType(typeLabel).firstOrNull()
+
+    fun removeChildrenOfType(typeLabel: String)
 }
 
 interface Parser<T : Node> {

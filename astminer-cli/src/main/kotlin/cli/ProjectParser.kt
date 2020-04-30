@@ -5,16 +5,15 @@ import astminer.ast.DotAstStorage
 import astminer.common.model.AstStorage
 import astminer.common.model.Node
 import astminer.common.model.Parser
+import astminer.common.preOrder
+import astminer.parse.antlr.java.JavaParser
 import astminer.parse.antlr.python.PythonParser
 import astminer.parse.antlr.php.PhpMainParser
 import astminer.parse.cpp.FuzzyCppParser
 import astminer.parse.java.GumTreeJavaParser
 import com.github.ajalt.clikt.core.CliktCommand
-import com.github.ajalt.clikt.parameters.options.default
-import com.github.ajalt.clikt.parameters.options.option
-import com.github.ajalt.clikt.parameters.options.required
-import com.github.ajalt.clikt.parameters.options.split
-import com.github.ajalt.clikt.parameters.options.flag
+import com.github.ajalt.clikt.parameters.options.*
+import com.github.ajalt.clikt.parameters.types.int
 import java.io.File
 
 
@@ -31,12 +30,6 @@ class ProjectParser : CliktCommand() {
      * @param type name of storage
      */
     private data class SupportedAstStorage(val astStorage: AstStorage, val type: String)
-
-    /**
-     * @param granularity class that implements granularity parsing
-     * @param level level of granularity
-     */
-    private data class SupportedGranularityLevel(val granularity: Granularity, val level: String)
 
     /**
      * List of supported language extensions and corresponding parsers.
@@ -92,13 +85,65 @@ class ProjectParser : CliktCommand() {
         help = "if passed, split tokens into sequence of tokens"
     ).flag(default = false)
 
+    val excludeModifiers: List<String> by option(
+        "--filter-modifiers",
+        help = "Comma-separated list of function's modifiers, which should be filtered." +
+                "Works only for method-level granulation."
+    ).split(",").default(emptyList())
+
+    val excludeAnnotations: List<String> by option(
+        "--filter-annotations",
+        help = "Comma-separated list of function's annotations, which should be filtered." +
+                "Works only for method-level granulation."
+    ).split(",").default(emptyList())
+
+    val filterConstructors: Boolean by option(
+        "--remove-constructors",
+        help = "Remove constructor methods, works for method-level granulation"
+    ).flag(default = false)
+
+    val excludeNodes: List<String> by option(
+        "--remove-nodes",
+        help = "Comma-separated list of node types, which must be removed from asts."
+    ).split(",").default(emptyList())
+
+    val javaParser: String by option(
+        "--java-parser",
+        help = "Choose a parser for .java files." +
+                "'gumtree' for GumTree parser, 'antlr' for antlr parser."
+    ).default("gumtree")
+
+    val maxMethodNameLength: Int by option(
+        "--max-method-name-length",
+        help = "Filtering methods with a large sequence of subtokens in their names"
+    ).int().default(-1)
+
+    val maxTokenLength: Int by option(
+        "--max-token-length",
+        help = "Filter methods containing a long sequence of subtokens in the ast node"
+    ).int().default(-1)
+
+    val maxTreeSize: Int by option(
+        "--max-tree-size",
+        help = "Filter methods by their ast size"
+    ).int().default(-1)
+
     private fun getParser(extension: String): Parser<out Node> {
-        for (language in supportedLanguages) {
-            if (extension == language.extension) {
-                return language.parser
+        return when (extension) {
+            "java" -> {
+                when (javaParser) {
+                    "gumtree" -> GumTreeJavaParser()
+                    "antlr" -> JavaParser()
+                    else -> {
+                        throw UnsupportedOperationException("Unsupported parser for java extension $javaParser")
+                    }
+                }
+            }
+            else -> {
+                supportedLanguages.find { it.extension == extension }?.parser
+                    ?: throw UnsupportedOperationException("Unsupported extension $extension")
             }
         }
-        throw UnsupportedOperationException("Unsupported extension $extension")
     }
 
     private fun getStorage(storageType: String): AstStorage {
@@ -113,7 +158,17 @@ class ProjectParser : CliktCommand() {
     private fun getGranularity(granularityLevel: String): Granularity {
         when (granularityLevel) {
             "file" -> return FileGranularity(isTokenSplitted)
-            "method" -> return MethodGranularity(isTokenSplitted, isMethodNameHide)
+            "method" -> {
+                val filterPredicates = mutableListOf(
+                    ModifierFilterPredicate(excludeModifiers), AnnotationFilterPredicate(excludeAnnotations),
+                    MethodNameLengthFilterPredicate(maxMethodNameLength), TokenLengthFilterPredicate(maxTokenLength),
+                    TreeSizeFilterPredicate(maxTreeSize)
+                )
+                if (filterConstructors) {
+                    filterPredicates.add(ConstructorFilterPredicate())
+                }
+                return MethodGranularity(isTokenSplitted, isMethodNameHide, filterPredicates, javaParser)
+            }
         }
         throw UnsupportedOperationException("Unsupported granularity level $granularityLevel")
     }
@@ -127,13 +182,16 @@ class ProjectParser : CliktCommand() {
             val parser = getParser(extension)
             // Choose granularity level
             val granularity = getGranularity(granularityLevel)
-            val roots = granularity.splitByGranularityLevel(
-                parser.parseWithExtension(File(projectRoot), extension),
-                extension
-            )
+            // Parse project
+            val parsedProject = parser.parseWithExtension(File(projectRoot), extension)
+            // Split project to required granularity level
+            val roots = granularity.splitByGranularityLevel(parsedProject, extension)
             roots.forEach { parseResult ->
                 val root = parseResult.root
                 val filePath = parseResult.filePath
+                root?.preOrder()?.forEach { node ->
+                    excludeNodes.forEach { node.removeChildrenOfType(it) }
+                }
                 root?.apply {
                     // Save AST as it is or process it to extract features / path-based representations
                     storage.store(root, label = filePath)

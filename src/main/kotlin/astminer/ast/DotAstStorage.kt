@@ -36,8 +36,9 @@ class DotAstStorage : AstStorage {
             // TODO: save full signature for method
             val (sourceFile, label) = splitFullPath(fullPath)
             val normalizedLabel = normalizeAstLabel(label)
+            val normalizedFilepath = normalizeFilepath(sourceFile)
             val nodesMap = dumpAst(root, File(astDirectoryPath, astFilenameFormat.format(index)), normalizedLabel)
-            val nodeDescriptionFormat = "${astFilenameFormat.format(index)},$sourceFile,$label,%d,%s,%s"
+            val nodeDescriptionFormat = "${astFilenameFormat.format(index)},$normalizedFilepath,$label,%d,%s,%s"
             for (node in root.preOrder()) {
                 descriptionLines.add(
                         nodeDescriptionFormat.format(nodesMap.getId(node) - 1, node.getNormalizedToken(), node.getTypeLabel())
@@ -49,7 +50,9 @@ class DotAstStorage : AstStorage {
 
     private fun dumpAst(root: Node, file: File, astName: String) : RankedIncrementalIdStorage<Node> {
         val nodesMap = RankedIncrementalIdStorage<Node>()
-        val astLines = mutableListOf("digraph $astName {")
+        // dot parsers (e.g. pydot) can't parse graph/digraph if its name is "graph"
+        val fixedAstName = if (astName == "graph" || astName == "digraph") "_$astName" else astName
+        val astLines = mutableListOf("digraph $fixedAstName {")
 
         for (node in root.preOrder()) {
             val rootId = nodesMap.record(node) - 1
@@ -66,7 +69,14 @@ class DotAstStorage : AstStorage {
 
     // Label should contain only latin letters and underscores, other symbols replace with an underscore
     internal fun normalizeAstLabel(label: String): String =
-            label.replace("[^A-z,^_]".toRegex(), "_")
+            label.replace("[^A-z^_]".toRegex(), "_")
+
+    /**
+     * Filepath should contain only latin letters, underscores, hyphens, backslashes and dots
+     * Underscore replace other symbols
+     */
+    internal fun normalizeFilepath(filepath: String): String =
+            filepath.replace("[^A-z^_^\\-^.^/]".toRegex(), "_")
 
     /**
      * Split the full path to specified file into the parent's path, and the file name
