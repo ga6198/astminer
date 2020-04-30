@@ -17,5 +17,18 @@ fun toPathContext(path: ASTPath, getToken: (Node) -> String = { node -> node.get
             path.downwardNodes.map { OrientedNodeType(it.getTypeLabel(), Direction.DOWN) }
     //println("Printing AST nodes")
     //println(astNodes.toString())
+
+    if (startToken == null || startToken == ""){
+        println("startToken empty")
+    }
+
+    if(endToken == ""){
+        println("endToken empty")
+    }
+
+    if(astNodes.isNullOrEmpty()){
+        println("astnodes empty")
+    }
+
     return PathContext(startToken, astNodes, endToken)
 }

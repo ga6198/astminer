@@ -198,6 +198,8 @@ fun testAstminerCliCode(){
     }
     println("Finished extracting methods")
 
+    // Save stored data on disk
+    storage.save(Long.MAX_VALUE, Long.MAX_VALUE)
     //print("Press enter to continue ")
     //val stringInput = readLine()
     ///----------------
@@ -237,6 +239,26 @@ fun <T : Node> extractFromMethods(
         // Retrieve paths from every node individually
         val maxPathContexts = 500
         val paths = miner.retrievePaths(methodRoot).take(maxPathContexts)
+
+        val contexts = LabeledPathContexts(label, paths.map {
+            toPathContext(it) { node ->
+                node.getNormalizedToken()
+            }
+        })
+
+        for (context in contexts.pathContexts){
+            if (context.startToken == "" )
+            {
+                println("StartToken empty")
+            }
+            if(context.endToken == ""){
+                println("EndToken empty")
+            }
+            if(context.orientedNodeTypes.isEmpty()){
+                println("Nodes paths empty")
+            }
+        }
+
         storage.store(LabeledPathContexts(label, paths.map {
             toPathContext(it) { node ->
                 node.getNormalizedToken()
