@@ -1,0 +1,10 @@
+#!/bin/bash
+#file for quickly updating and building the astminer cli
+#update the astminer library
+./gradlew shadowJar
+
+#move to astminer-cli
+cd astminer-cli
+
+#create the runnable jar
+./gradlew shadowJar
