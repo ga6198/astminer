@@ -35,6 +35,13 @@ class PhpMethodSplitter : TreeMethodSplitter<SimpleNode> {
     override fun splitIntoMethods(root: SimpleNode): Collection<MethodInfo<SimpleNode>> {
         println("running splitIntoMethods")
 
+        //NOTE: filePath can be passed in from extractFromMethods using it.filePath, with "it" being a filePath
+        //This will require a lot of modification to splitIntoMethods in each of the methodSplitters and TreeSplittingModel.kt
+        //TODO: leave this for later
+
+        //retrieve dummy method info (places all global code under a method)
+        val dummyMethodInfo = collectDummyMethodInfo(root)
+
         //extracts only the method nodes from all roots by checking if the type label is the same as the METHOD_NODE one given at the top
         val methodRoots = root.preOrder().filter {
             //for every node, decompressTypeLabel splits the
@@ -61,7 +68,53 @@ class PhpMethodSplitter : TreeMethodSplitter<SimpleNode> {
             root.prettyPrint();
         }
 
-        return methodRoots.map { collectMethodInfo(it as SimpleNode) }
+        var methodInfo = methodRoots.map { collectMethodInfo(it as SimpleNode) }
+
+        //Still investigating dummy method, so comment this out if the dummy method causes errors
+        //add dummy method in with other method Info
+        methodInfo = methodInfo.toMutableList()
+        methodInfo.add(dummyMethodInfo)
+        //methodInfo.toMutableList().add(dummyMethodInfo)
+
+        return methodInfo
+    }
+
+    //function to gather global code (represented with ANTLR "statement" under a dummy method)
+    private fun collectDummyMethodInfo(root: SimpleNode): MethodInfo<SimpleNode>{
+        //extract the things that are not method nodes. Extract global scope lines. Investigate antlr to see what those are (topStatement|statement nodes).
+        //add the end combine the list with the methodRoots
+        val nonMethodRoots = root.preOrder().filter {
+            //checks if the method roots contains statements not wrapped in functions
+            decompressTypeLabel(it.getTypeLabel()).contains("topStatement") &&
+            decompressTypeLabel(it.getTypeLabel()).contains("statement")
+        }
+
+        //cast nodes into simpleNodes
+        var nonMethodRootsList = mutableListOf<SimpleNode>();
+        for (statement in nonMethodRoots){
+            nonMethodRootsList.add(statement as SimpleNode)
+        }
+
+        //for each nonMethodRoot, the "topstatement|" label may need to be removed because wrapping them in another node no longer makes them topStatements
+
+        //a new header node to wrap the nonmethodroots in
+        val newMethodRoot = SimpleNode("topStatement|" + METHOD_NODE, null, "null") //original type label: phpBlock
+
+        newMethodRoot.setChildren(nonMethodRootsList) //newMethodRoot.setChildren(nonMethodRoots)
+
+        //create a node that represents the nonMethodRoot nodes' name
+        val rootMethodNameNode = SimpleNode(METHOD_NAME_NODE + "|Label", newMethodRoot, "include")
+
+        // dummy function info
+        // ParameterList and ElementNode are empty because the dummy function will not have a class wrapper or parameters
+        val rootMethodInfo =  MethodInfo(
+            MethodNode<SimpleNode>(newMethodRoot, null, rootMethodNameNode),
+            ElementNode<SimpleNode>(null, null),
+            mutableListOf<ParameterNode<SimpleNode>>() //emptyList() //parametersList
+        )
+        //newMethodRoot.map{}
+
+        return rootMethodInfo
     }
 
     private fun collectMethodInfo(methodNode: SimpleNode): MethodInfo<SimpleNode> {
