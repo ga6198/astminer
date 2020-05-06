@@ -21,7 +21,8 @@ class PythonMethodSplitter : TreeMethodSplitter<SimpleNode> {
         private const val PARAMETER_NAME_NODE = "NAME"
     }
 
-    override fun splitIntoMethods(root: SimpleNode): Collection<MethodInfo<SimpleNode>> {
+    override fun splitIntoMethods(root: SimpleNode, filePath: String): Collection<MethodInfo<SimpleNode>> {
+        //TODO: filePath currently not used
         println("Running splitIntoMethods")
 
         val methodRoots = root.preOrder().filter {

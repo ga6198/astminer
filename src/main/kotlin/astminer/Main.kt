@@ -25,6 +25,7 @@ import astminer.paths.Code2VecPathStorage
 import astminer.paths.PathMiner
 import astminer.paths.PathRetrievalSettings
 import astminer.paths.toPathContext
+import java.util.*
 
 //function to run external process and redirect output
 fun String.runCommand(workingDir: File) {
@@ -223,6 +224,7 @@ fun <T : Node> extractFromMethods(
 ) {
     println("Roots: $roots")
 
+    /*
     val methods = roots.mapNotNull {
         println("Current Root FilePath: ${it.filePath}")
         it.root
@@ -231,9 +233,22 @@ fun <T : Node> extractFromMethods(
     }
     println("Methods: $methods")
 
+     */
 
+    val methods = mutableListOf<MethodInfo<T>>();
+    for (parseResult in roots){
+        //val methodInfoList = method.root?.let { methodSplitter.splitIntoMethods(it, method.filePath) }
+        var methodInfoList = listOf<MethodInfo<T>>();
+        if(parseResult.root != null){
+            methodInfoList = methodSplitter.splitIntoMethods(parseResult.root, parseResult.filePath) as List<MethodInfo<T>>
+        }
 
+        for(methodInfo in methodInfoList) {
+            methods.add(methodInfo)
+        }
+    }
 
+    //methodInfos = Collections.unmodifiableList(methodInfos)
 
     //Split method names so they are divided by |
     methods.forEach { methodInfo ->

@@ -21,7 +21,9 @@ class JavaMethodSplitter : TreeMethodSplitter<SimpleNode> {
         private const val PARAMETER_NAME_NODE = "variableDeclaratorId"
     }
 
-    override fun splitIntoMethods(root: SimpleNode): Collection<MethodInfo<SimpleNode>> {
+    override fun splitIntoMethods(root: SimpleNode, filePath:String): Collection<MethodInfo<SimpleNode>> {
+        //TODO: filePath currently not used
+
         val methodRoots = root.preOrder().filter {
             decompressTypeLabel(it.getTypeLabel()).last() == METHOD_NODE
         }

@@ -23,7 +23,7 @@ fun code2vecJavaMethods() {
         val fileNode = JavaParser().parse(file.inputStream()) ?: return@forFilesWithSuffix
 
         //extract method nodes
-        val methods = JavaMethodSplitter().splitIntoMethods(fileNode)
+        val methods = JavaMethodSplitter().splitIntoMethods(fileNode, file.absolutePath)
 
         methods.forEach { methodInfo ->
             val methodNameNode = methodInfo.method.nameNode ?: return@forEach

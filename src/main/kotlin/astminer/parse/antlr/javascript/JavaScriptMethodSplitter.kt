@@ -16,7 +16,9 @@ class JavaScriptMethodSplitter : TreeMethodSplitter<SimpleNode> {
         private const val FUNCTION_NODE = "Function"
     }
 
-    override fun splitIntoMethods(root: SimpleNode): Collection<MethodInfo<SimpleNode>> {
+    override fun splitIntoMethods(root: SimpleNode, filePath:String): Collection<MethodInfo<SimpleNode>> {
+        //TODO: filePath currently not used
+
         val methodRoots: List<JavaScriptElement> = root.preOrder().map { node ->
             when {
                 node.isArrowElement() -> ArrowElement(node as SimpleNode)

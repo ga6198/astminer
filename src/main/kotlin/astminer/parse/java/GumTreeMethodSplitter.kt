@@ -16,7 +16,9 @@ class GumTreeMethodSplitter : TreeMethodSplitter<GumTreeJavaNode> {
         }
     }
 
-    override fun splitIntoMethods(root: GumTreeJavaNode): Collection<MethodInfo<GumTreeJavaNode>> {
+    override fun splitIntoMethods(root: GumTreeJavaNode, filePath: String): Collection<MethodInfo<GumTreeJavaNode>> {
+        //TODO: filePath currently not used
+
         val methodRoots = root.preOrder().filter { it.getTypeLabel() == TypeLabels.methodDeclaration }
         return methodRoots.map { collectMethodInfo(it as GumTreeJavaNode) }
     }

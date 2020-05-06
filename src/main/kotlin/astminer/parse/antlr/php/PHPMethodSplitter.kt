@@ -32,15 +32,16 @@ class PhpMethodSplitter : TreeMethodSplitter<SimpleNode> {
         private const val PARAMETER_NAME_NODE = "VarName"//"variableInitializer" //"NAME"
     }
 
-    override fun splitIntoMethods(root: SimpleNode): Collection<MethodInfo<SimpleNode>> {
+    override fun splitIntoMethods(root: SimpleNode, filePath: String): Collection<MethodInfo<SimpleNode>> {
         println("running splitIntoMethods")
+        println("current file path: $filePath")
 
         //NOTE: filePath can be passed in from extractFromMethods using it.filePath, with "it" being a filePath
         //This will require a lot of modification to splitIntoMethods in each of the methodSplitters and TreeSplittingModel.kt
         //TODO: leave this for later
 
         //retrieve dummy method info (places all global code under a method)
-        val dummyMethodInfo = collectDummyMethodInfo(root)
+        val dummyMethodInfo = collectDummyMethodInfo(root, filePath)
 
         //extracts only the method nodes from all roots by checking if the type label is the same as the METHOD_NODE one given at the top
         val methodRoots = root.preOrder().filter {
@@ -49,15 +50,6 @@ class PhpMethodSplitter : TreeMethodSplitter<SimpleNode> {
             //decompressTypeLabel splits a type label, splitting it wherever there is |
             //last() gets the last element of the split
             //Only if the result is the same as a method node, filter()
-            val temp = decompressTypeLabel(it.getTypeLabel())
-            val temp2 = decompressTypeLabel(it.getTypeLabel()).last()
-            println("decompressTypeLabel(it.getTypeLabel()): $temp")
-            println("decompressTypeLabel(it.getTypeLabel()).last(): $temp2") //These all print CAPITAL letters
-            println("token: ${it.getToken()}")
-            if(it == null){
-                println("Found null node")
-            }
-
 
             decompressTypeLabel(it.getTypeLabel()).last() == METHOD_NODE
         }
@@ -80,7 +72,13 @@ class PhpMethodSplitter : TreeMethodSplitter<SimpleNode> {
     }
 
     //function to gather global code (represented with ANTLR "statement" under a dummy method)
-    private fun collectDummyMethodInfo(root: SimpleNode): MethodInfo<SimpleNode>{
+    private fun collectDummyMethodInfo(root: SimpleNode, filePath: String): MethodInfo<SimpleNode>{
+        //get just the final part of the filePath, (the file name)
+        val fileParts = filePath.split("/")
+        val fileNameWithExtension = fileParts[fileParts.size - 1]
+        val fileNameExtensionParts = fileNameWithExtension.split(".")
+        val fileName = fileNameExtensionParts[0]
+
         //extract the things that are not method nodes. Extract global scope lines. Investigate antlr to see what those are (topStatement|statement nodes).
         //add the end combine the list with the methodRoots
         val nonMethodRoots = root.preOrder().filter {
@@ -103,7 +101,7 @@ class PhpMethodSplitter : TreeMethodSplitter<SimpleNode> {
         newMethodRoot.setChildren(nonMethodRootsList) //newMethodRoot.setChildren(nonMethodRoots)
 
         //create a node that represents the nonMethodRoot nodes' name
-        val rootMethodNameNode = SimpleNode(METHOD_NAME_NODE + "|Label", newMethodRoot, "include")
+        val rootMethodNameNode = SimpleNode(METHOD_NAME_NODE + "|Label", newMethodRoot, "include_" + fileName)
 
         // dummy function info
         // ParameterList and ElementNode are empty because the dummy function will not have a class wrapper or parameters

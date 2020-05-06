@@ -21,7 +21,7 @@ fun allJavaFiles() {
         val node = JavaParser().parse(file.inputStream()) ?: return@forFilesWithSuffix
         val paths = miner.retrievePaths(node)
         node.prettyPrint()
-        JavaMethodSplitter().splitIntoMethods(node).forEach {
+        JavaMethodSplitter().splitIntoMethods(node, file.absolutePath).forEach {
             println(it.name())
             println(it.returnType())
             println(it.enclosingElementName())
