@@ -44,7 +44,7 @@ class MethodGranularity(override val splitTokens: Boolean,
             "c", "cpp" -> {
                 val methodSplitter = FuzzyMethodSplitter()
                 filteredParseResults.map {
-                    FileMethods(methodSplitter.splitIntoMethods(it.root as FuzzyNode), it.filePath)
+                    FileMethods(methodSplitter.splitIntoMethods(it.root as FuzzyNode, it.filePath), it.filePath)
                 }
             }
             "java" -> {
@@ -52,13 +52,13 @@ class MethodGranularity(override val splitTokens: Boolean,
                     "gumtree" -> {
                         val methodSplitter = GumTreeMethodSplitter()
                         filteredParseResults.map {
-                            FileMethods(methodSplitter.splitIntoMethods(it.root as GumTreeJavaNode), it.filePath)
+                            FileMethods(methodSplitter.splitIntoMethods(it.root as GumTreeJavaNode, it.filePath), it.filePath)
                         }
                     }
                     "antlr" -> {
                         val methodSplitter = JavaMethodSplitter()
                         filteredParseResults.map {
-                            FileMethods(methodSplitter.splitIntoMethods(it.root as SimpleNode), it.filePath)
+                            FileMethods(methodSplitter.splitIntoMethods(it.root as SimpleNode, it.filePath), it.filePath)
                         }
                     }
                     else -> {
@@ -69,7 +69,7 @@ class MethodGranularity(override val splitTokens: Boolean,
             "py" -> {
                 val methodSplitter = PythonMethodSplitter()
                 filteredParseResults.map {
-                    FileMethods(methodSplitter.splitIntoMethods(it.root as SimpleNode), it.filePath)
+                    FileMethods(methodSplitter.splitIntoMethods(it.root as SimpleNode, it.filePath), it.filePath)
                 }
             }
             //need to add some sort of method splitter for php, but it does not seem to exist

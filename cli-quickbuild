@@ -8,3 +8,6 @@ cd astminer-cli
 
 #create the runnable jar
 ./gradlew shadowJar
+
+#go back to main directory
+cd ../

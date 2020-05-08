@@ -85,13 +85,31 @@ class Code2VecExtractor : CliktCommand() {
         storage: Code2VecPathStorage
     ) {
         println("Roots: $roots")
-
+        /*
         val methods = roots.mapNotNull {
             it.root
         }.flatMap {
             methodSplitter.splitIntoMethods(it)
         }
+
+         */
+        val methods = mutableListOf<MethodInfo<T>>();
+        for (parseResult in roots){
+
+            var methodInfoList = listOf<MethodInfo<T>>();
+            //if the current parseResult had a node, split the function name into methods
+            if(parseResult.root != null){
+                methodInfoList = methodSplitter.splitIntoMethods(parseResult.root ?: continue, parseResult.filePath).toList() //as List<MethodInfo<T>>
+            }
+
+            for(methodInfo in methodInfoList) {
+                methods.add(methodInfo)
+            }
+        }
+
         println("Methods: $methods")
+
+
         methods.forEach { methodInfo ->
             val methodNameNode = methodInfo.method.nameNode ?: return@forEach
             val methodRoot = methodInfo.method.root

@@ -178,7 +178,8 @@ fun testAstminerCliCode(){
     println("Finished creating parser")
     val currentWorkingDirectory = System.getProperty("user.dir")
     println(currentWorkingDirectory)
-    val pathname = currentWorkingDirectory + "/testData/examples/php/test"
+    val pathname = currentWorkingDirectory + "/testData/examples/php/test/cwe_test"
+    //val pathname = currentWorkingDirectory + "/testData/examples/php/test"
     //val pathname = currentWorkingDirectory + "/testData/examples/php_test/1" //admin.categories.php //UNSAFE
     //val pathname = currentWorkingDirectory + "/testData/examples/php_test/2" //admin.contact.php //UNSAFE
     //val pathname = currentWorkingDirectory + "/testData/examples/php_test/3" //admin.trash.php //UNSAFE
@@ -240,7 +241,7 @@ fun <T : Node> extractFromMethods(
         //val methodInfoList = method.root?.let { methodSplitter.splitIntoMethods(it, method.filePath) }
         var methodInfoList = listOf<MethodInfo<T>>();
         if(parseResult.root != null){
-            methodInfoList = methodSplitter.splitIntoMethods(parseResult.root, parseResult.filePath) as List<MethodInfo<T>>
+            methodInfoList = methodSplitter.splitIntoMethods(parseResult.root ?: continue, parseResult.filePath).toList() //as List<MethodInfo<T>>
         }
 
         for(methodInfo in methodInfoList) {

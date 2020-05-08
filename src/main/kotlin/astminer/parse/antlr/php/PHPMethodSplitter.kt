@@ -103,6 +103,10 @@ class PhpMethodSplitter : TreeMethodSplitter<SimpleNode> {
         //create a node that represents the nonMethodRoot nodes' name
         val rootMethodNameNode = SimpleNode(METHOD_NAME_NODE + "|Label", newMethodRoot, "include_" + fileName)
 
+        //print the dummy node's info
+        println("Dummy Node Info")
+        newMethodRoot.prettyPrint()
+
         // dummy function info
         // ParameterList and ElementNode are empty because the dummy function will not have a class wrapper or parameters
         val rootMethodInfo =  MethodInfo(
