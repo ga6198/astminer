@@ -12,6 +12,7 @@ import astminer.common.model.*
 import astminer.common.preOrder
 import astminer.common.setNormalizedToken
 import astminer.common.splitToSubtokens
+import astminer.parse.antlr.SimpleNode
 import astminer.parse.antlr.python.PythonMethodSplitter
 import astminer.parse.antlr.python.PythonParser
 import astminer.parse.antlr.php.PhpMethodSplitter
@@ -25,6 +26,9 @@ import astminer.paths.Code2VecPathStorage
 import astminer.paths.PathMiner
 import astminer.paths.PathRetrievalSettings
 import astminer.paths.toPathContext
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.time.temporal.ChronoUnit
 import java.util.*
 
 //function to run external process and redirect output
@@ -161,6 +165,9 @@ fun runPythonCommand(args: Array<String>){
 
 //---------------------Astminer CLI code
 fun testAstminerCliCode(){
+    //start tracking program duration
+    val startDateTime = LocalDateTime.now()
+
     //added code from Code2VecExtractor to help with debugging
     val outputDir = File("testOutput")
     val miner = PathMiner(PathRetrievalSettings(5, 5))
@@ -178,8 +185,8 @@ fun testAstminerCliCode(){
     println("Finished creating parser")
     val currentWorkingDirectory = System.getProperty("user.dir")
     println(currentWorkingDirectory)
-    val pathname = currentWorkingDirectory + "/testData/examples/php/test/cwe_test"
-    //val pathname = currentWorkingDirectory + "/testData/examples/php/test"
+    //val pathname = currentWorkingDirectory + "/testData/examples/php/test/cwe_test"
+    val pathname = currentWorkingDirectory + "/testData/examples/php/test"
     //val pathname = currentWorkingDirectory + "/testData/examples/php_test/1" //admin.categories.php //UNSAFE
     //val pathname = currentWorkingDirectory + "/testData/examples/php_test/2" //admin.contact.php //UNSAFE
     //val pathname = currentWorkingDirectory + "/testData/examples/php_test/3" //admin.trash.php //UNSAFE
@@ -214,6 +221,18 @@ fun testAstminerCliCode(){
     //print("Press enter to continue ")
     //val stringInput = readLine()
     ///----------------
+
+    val endDateTime = LocalDateTime.now()
+    val totalTime = ChronoUnit.SECONDS.between(startDateTime, endDateTime)
+    val hours = totalTime/3600
+    val minutes = (totalTime % 3600) / 60
+    val seconds = totalTime % 60
+    val timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds)
+    println("Total Time: $timeString")
+    println("Total Files: ${roots.size}")
+    //println("Total Time: $hours:$minutes:$seconds")
+    //println("Time: $totalTime")
+    //var stuff: List<ParseResult<SimpleNode>>
 }
 
 //

@@ -23,6 +23,10 @@ import com.github.ajalt.clikt.parameters.options.*
 import com.github.ajalt.clikt.parameters.types.int
 import com.github.ajalt.clikt.parameters.types.long
 import java.io.File
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.time.temporal.ChronoUnit
+import astminer.parse.antlr.SimpleNode
 
 class Code2VecExtractor : CliktCommand() {
 
@@ -131,6 +135,7 @@ class Code2VecExtractor : CliktCommand() {
     private fun extract() {
         val outputDir = File(outputDirName)
         for (extension in extensions) {
+
             val miner = PathMiner(PathRetrievalSettings(maxPathHeight, maxPathWidth))
 
             val outputDirForLanguage = outputDir.resolve(extension)
@@ -155,16 +160,26 @@ class Code2VecExtractor : CliktCommand() {
                     extractFromMethods(roots, PythonMethodSplitter(), miner, storage)
                 }
                 "php" -> {
+                    //start tracking program duration
+                    val startDateTime = LocalDateTime.now()
+
                     println("ProjectRoot: ${projectRoot}")
                     val parser = PhpMainParser()
                     println("Finished creating parser")
                     val roots = parser.parseWithExtension(File(projectRoot), extension)
                     println("Finished parsing")
-                    //try {
-                        extractFromMethods(roots, PhpMethodSplitter(), miner, storage)
-                    //}
-                    //catch (e: Exception) {
-                    //    println("Error occurred w/ extractFromMethods")
+
+                    extractFromMethods(roots, PhpMethodSplitter(), miner, storage)
+
+                    //display status
+                    val endDateTime = LocalDateTime.now()
+                    val totalTime = ChronoUnit.SECONDS.between(startDateTime, endDateTime)
+                    val hours = totalTime/3600
+                    val minutes = (totalTime % 3600) / 60
+                    val seconds = totalTime % 60
+                    val timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds)
+                    println("Total Time: $timeString")
+                    println("Total Files: ${roots.size}")
                 }
                 else -> throw UnsupportedOperationException("Unsupported extension $extension")
             }
