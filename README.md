@@ -2,26 +2,18 @@
 [![CircleCI](https://circleci.com/gh/JetBrains-Research/astminer.svg?style=svg)](https://circleci.com/gh/JetBrains-Research/astminer)
 [ ![Download](https://api.bintray.com/packages/egor-bogomolov/astminer/astminer/images/download.svg) ](https://bintray.com/egor-bogomolov/astminer/astminer/_latestVersion)
 
-#The php extractor is run from astminer/src/main/kotlin/astminer/Main.kt
+# The php extractor is run from astminer/src/main/kotlin/astminer/Main.kt
 
-#Solving java version issue (has been compiled with Java 55.0 but run with 52.0)
+# Solving java version issue (has been compiled with Java 55.0 but run with 52.0)
 1. Switch IntelliJ to Java JDK 1.8
 - File > Project Structure
 - Choose Project SDK 1.8 and Project language level 8
 2. Ensure Gradle is using JVM 1.8
-- gedit ~/.bashrc to add environment variables
-- add these lines: 
-JAVA_HOME=/usr/lib/jvm/jdk1.8.0_241/
-export JAVA_HOME
-(JAVA_HOME is the Java directory and bin directory should be left off)
-- Run gradle -version to check if jvm is correct
+- File > Settings > Build, Execution, Deployment > Gradle
+- Change the gradle JVM to 1.8
 3. Inside IntelliJ, use the elephant icon to run gradle generateGrammarSources. This recompiles the Parser and Lexer files using the correct java version. (gradle clean may be needed beforehand)
 
-THE PRECEDING IS INVALID. DO THE FOLLOWING INSTEAD
-File > Settings > Build, Execution, Deployment > Gradle
-Change the gradle JVM to 1.8
-
-#Issue Debugging
+# Issue Debugging
 In admin.categories.php, the saveOrder function parsing in failing. One node has children of tokens "&" and "$cid". However, the code gets a child of PARAMETER_NAME_NODE (VarName), but the types of the nodes are "Ampersand" and "variableInitializer|VarName". Since the child is null, the program fails
 
 # astminer
