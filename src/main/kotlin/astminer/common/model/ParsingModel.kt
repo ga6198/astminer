@@ -67,12 +67,37 @@ interface Parser<T : Node> {
     }
 
     /**
+     * Parse all files that pass [filter][filter] in [root folder][projectRoot] and its sub-folders for FILES.
+     * @param projectRoot root folder containing files to parse
+     * @param filter lambda expression that determines which files should be parsed
+     * @return list of files
+     */
+    fun parseProjectForFiles(projectRoot: File, filter: (File) -> Boolean): List<File> {
+        //projectRoot.walkTopDown().forEach{
+        projectRoot.walk().forEach{
+            println(it)
+        }
+
+
+        val files = projectRoot.walkTopDown().filter(filter).toList()
+        return files
+    }
+
+    /**
      * Parse all files with given extension in [root folder][projectRoot] and its sub-folders.
      * @param projectRoot root folder containing files to parse
      * @param extension extension of files that should be parsed
      * @return list of AST roots, one for each parsed file
      */
     fun parseWithExtension(projectRoot: File, extension: String) = parseProject(projectRoot) { it.isFile && it.extension == extension }
+
+    /**
+     * Parse all files with given extension in [root folder][projectRoot] and its sub-folders as FILES
+     * @param projectRoot root folder containing files to parse
+     * @param extension extension of files that should be parsed
+     * @return list of files
+     */
+    fun parseWithExtensionForFiles(projectRoot: File, extension: String) = parseProjectForFiles(projectRoot) { it.isFile && it.extension == extension }
 }
 
 data class ParseResult<T : Node>(val root: T?, val filePath: String)

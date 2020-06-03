@@ -84,6 +84,10 @@ fun testAstminerCliCode(){
     val pathname = currentWorkingDirectory + "/testData/examples" //"~/astminer/testData/examples/"
     val extension = "php"
     //val extension = "py"
+
+
+    //IMPORTANT: ORIGINAL CODE THAT WAS CAUSING MEMORY OVERFLOW
+    /*
     val roots = parser.parseWithExtension(File(pathname), extension)
     println("Finished parsing")
     try {
@@ -94,6 +98,27 @@ fun testAstminerCliCode(){
         println("Error occurred w/ extractFromMethods")
         e.printStackTrace()
     }
+     */
+    val files = parser.parseWithExtensionForFiles(File(pathname), extension)
+    for (file in files){
+        //add file to list in order to work with parse() function
+        val fileList = listOf<File>(file)
+
+        //parse a single file for the root node (as a list)
+        val roots = parser.parse(fileList)
+
+        //extract the methods for the single file`
+        try {
+            extractFromMethods(roots, PhpMethodSplitter(), miner, storage)
+            //extractFromMethods(roots, PythonMethodSplitter(), miner, storage)
+        }
+        catch (e: Exception) {
+            println("Error occurred w/ extractFromMethods on file ${file.path}")
+            e.printStackTrace()
+        }
+    }
+
+
     println("Finished extracting methods")
 
     // Save stored data on disk

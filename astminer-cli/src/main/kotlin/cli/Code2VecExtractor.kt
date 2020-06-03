@@ -138,15 +138,30 @@ class Code2VecExtractor : CliktCommand() {
                 }
                 "php" -> {
                     println("ProjectRoot: ${projectRoot}")
+                    /*
                     val parser = PhpMainParser()
-                    println("Finished creating parser")
                     val roots = parser.parseWithExtension(File(projectRoot), extension)
-                    println("Finished parsing")
-                    //try {
-                        extractFromMethods(roots, PhpMethodSplitter(), miner, storage)
-                    //}
-                    //catch (e: Exception) {
-                    //    println("Error occurred w/ extractFromMethods")
+                    extractFromMethods(roots, PhpMethodSplitter(), miner, storage)
+                     */
+                    val parser = PhpMainParser()
+                    val files = parser.parseWithExtensionForFiles(File(projectRoot), extension)
+                    for (file in files){
+                        //add file to list in order to work with parse() function
+                        val fileList = listOf<File>(file)
+
+                        //parse a single file for the root node (as a list)
+                        val roots = parser.parse(fileList)
+
+                        //extract the methods for the single file`
+                        try {
+                            extractFromMethods(roots, PhpMethodSplitter(), miner, storage)
+                            //extractFromMethods(roots, PythonMethodSplitter(), miner, storage)
+                        }
+                        catch (e: Exception) {
+                            println("Error occurred w/ extractFromMethods on file ${file.path}")
+                            e.printStackTrace()
+                        }
+                    }
                 }
                 else -> throw UnsupportedOperationException("Unsupported extension $extension")
             }
