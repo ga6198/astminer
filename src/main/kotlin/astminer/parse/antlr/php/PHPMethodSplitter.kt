@@ -42,6 +42,8 @@ class PhpMethodSplitter : TreeMethodSplitter<SimpleNode> {
             //decompressTypeLabel splits a type label, splitting it wherever there is |
             //last() gets the last element of the split
             //Only if the result is the same as a method node, filter()
+
+            /*
             val temp = decompressTypeLabel(it.getTypeLabel())
             val temp2 = decompressTypeLabel(it.getTypeLabel()).last()
             println("decompressTypeLabel(it.getTypeLabel()): $temp")
@@ -50,7 +52,7 @@ class PhpMethodSplitter : TreeMethodSplitter<SimpleNode> {
             if(it == null){
                 println("Found null node")
             }
-
+            */
 
             decompressTypeLabel(it.getTypeLabel()).last() == METHOD_NODE
         }
