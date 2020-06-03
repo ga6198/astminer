@@ -7,12 +7,12 @@ fun toPathContext(path: ASTPath, getToken: (Node) -> String = { node -> node.get
 
     val startToken = getToken(path.upwardNodes.first())
     //val startToken = "~" + getToken(path.upwardNodes.first()) + "~"
-    print("Start Token: ")
-    println(startToken)
+    //print("Start Token: ")
+    //println(startToken)
     val endToken = getToken(path.downwardNodes.last())
     //val endToken = "~" + getToken(path.downwardNodes.last()) + "~"
-    print("End Token: ")
-    println(endToken)
+    //print("End Token: ")
+    //println(endToken)
     val astNodes = path.upwardNodes.map { OrientedNodeType(it.getTypeLabel(), Direction.UP) } +
             path.downwardNodes.map { OrientedNodeType(it.getTypeLabel(), Direction.DOWN) }
     //println("Printing AST nodes")

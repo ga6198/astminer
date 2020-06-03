@@ -155,13 +155,15 @@ fun <T : Node> extractFromMethods(
         val methodRoot = methodInfo.method.root
         //This is the part that splits the method names into parts
         val label = splitToSubtokens(methodNameNode.getToken()).joinToString("|")
-        println("Current label: $label")
+        //println("Current label: $label")
         methodRoot.preOrder().forEach { it.setNormalizedToken() }
         methodNameNode.setNormalizedToken("METHOD_NAME")
 
         // Retrieve paths from every node individually
         val maxPathContexts = 500
         val paths = miner.retrievePaths(methodRoot).take(maxPathContexts)
+
+        println("Num paths: ${paths.size}")
 
         val contexts = LabeledPathContexts(label, paths.map {
             toPathContext(it) { node ->
