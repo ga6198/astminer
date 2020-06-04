@@ -70,17 +70,17 @@ interface Parser<T : Node> {
      * Parse all files that pass [filter][filter] in [root folder][projectRoot] and its sub-folders for FILES.
      * @param projectRoot root folder containing files to parse
      * @param filter lambda expression that determines which files should be parsed
-     * @return list of files
+     * @return list of files string
      */
-    fun parseProjectForFiles(projectRoot: File, filter: (File) -> Boolean): List<File> {
+    fun parseProjectForFiles(projectRoot: File, filter: (File) -> Boolean): List<String> {
         //projectRoot.walkTopDown().forEach{
         projectRoot.walk().forEach{
             println(it)
         }
 
-
         val files = projectRoot.walkTopDown().filter(filter).toList()
-        return files
+        val fileNames = files.map{file -> file.path}
+        return fileNames
     }
 
     /**
@@ -95,7 +95,7 @@ interface Parser<T : Node> {
      * Parse all files with given extension in [root folder][projectRoot] and its sub-folders as FILES
      * @param projectRoot root folder containing files to parse
      * @param extension extension of files that should be parsed
-     * @return list of files
+     * @return list of files strings
      */
     fun parseWithExtensionForFiles(projectRoot: File, extension: String) = parseProjectForFiles(projectRoot) { it.isFile && it.extension == extension }
 }

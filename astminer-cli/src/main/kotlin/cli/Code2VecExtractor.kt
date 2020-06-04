@@ -180,7 +180,7 @@ class Code2VecExtractor : CliktCommand() {
                     val files = parser.parseWithExtensionForFiles(File(projectRoot), extension)
                     for (file in files){
                         //add file to list in order to work with parse() function
-                        val fileList = listOf<File>(file)
+                        val fileList = listOf<File>(File(file))
 
                         //parse a single file for the root node (as a list)
                         val roots = parser.parse(fileList)
@@ -191,7 +191,7 @@ class Code2VecExtractor : CliktCommand() {
                             //extractFromMethods(roots, PythonMethodSplitter(), miner, storage)
                         }
                         catch (e: Exception) {
-                            println("Error occurred w/ extractFromMethods on file ${file.path}")
+                            println("Error occurred w/ extractFromMethods on file ${file}")
                             e.printStackTrace()
                         }
                     }
