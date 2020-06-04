@@ -109,11 +109,13 @@ class Code2VecExtractor : CliktCommand() {
 
             println("Num paths: ${paths.size}")
 
+            /*
             val contexts = LabeledPathContexts(label, paths.map {
                 toPathContext(it) { node ->
                     node.getNormalizedToken()
                 }
             })
+             */
 
             storage.store(LabeledPathContexts(label, paths.map {
                 toPathContext(it) { node ->
