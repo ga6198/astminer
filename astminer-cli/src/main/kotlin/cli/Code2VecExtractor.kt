@@ -92,6 +92,37 @@ class Code2VecExtractor : CliktCommand() {
             methodSplitter.splitIntoMethods(it)
         }
         println("Methods: $methods")
+        println("Method count: ${methods.size}")
+
+        for (methodInfo in methods){
+            val methodNameNode = methodInfo.method.nameNode ?: continue //if null, go to next iteration
+            val methodRoot = methodInfo.method.root
+            //This is the part that splits the method names into parts
+            val label = splitToSubtokens(methodNameNode.getToken()).joinToString("|")
+            //println("Current label: $label")
+            methodRoot.preOrder().forEach { it.setNormalizedToken() }
+            methodNameNode.setNormalizedToken("METHOD_NAME")
+
+            // Retrieve paths from every node individually
+            //val maxPathContexts = 500
+            val paths = miner.retrievePaths(methodRoot).take(maxPathContexts)
+
+            println("Num paths: ${paths.size}")
+
+            val contexts = LabeledPathContexts(label, paths.map {
+                toPathContext(it) { node ->
+                    node.getNormalizedToken()
+                }
+            })
+
+            storage.store(LabeledPathContexts(label, paths.map {
+                toPathContext(it) { node ->
+                    node.getNormalizedToken()
+                }
+            }))
+        }
+
+        /*
         methods.forEach { methodInfo ->
             val methodNameNode = methodInfo.method.nameNode ?: return@forEach
             val methodRoot = methodInfo.method.root
@@ -108,6 +139,8 @@ class Code2VecExtractor : CliktCommand() {
                 }
             }))
         }
+
+         */
     }
 
     private fun extract() {
