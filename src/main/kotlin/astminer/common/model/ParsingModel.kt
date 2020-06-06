@@ -47,7 +47,8 @@ interface Parser<T : Node> {
      * @param files files to parse
      * @return list of AST roots, one for each parsed file
      */
-    fun parse(files: List<File>): List<ParseResult<T>> = files.map { ParseResult(parse(it.inputStream()), it.path) }
+    fun parse(files: List<File>): MutableList<ParseResult<T>> =
+        files.map { ParseResult(parse(it.inputStream()), it.path) }.toMutableList()
 
     /**
      * Parse all files that pass [filter][filter] in [root folder][projectRoot] and its sub-folders.

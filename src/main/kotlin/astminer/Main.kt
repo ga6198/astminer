@@ -143,6 +143,8 @@ fun <T : Node> extractFromMethods(
     }.flatMap {
         methodSplitter.splitIntoMethods(it)
     }
+    //roots.clear()
+
     println("Methods: $methods")
     //Split method names so they are divided by |
     //Note: rewrote as for loop to allocate less memory
@@ -157,6 +159,8 @@ fun <T : Node> extractFromMethods(
 
         // Retrieve paths from every node individually
         val maxPathContexts = 500
+
+        // Likely the problematic line that causes mem overflow
         val paths = miner.retrievePaths(methodRoot).take(maxPathContexts)
 
         println("Num paths: ${paths.size}")
