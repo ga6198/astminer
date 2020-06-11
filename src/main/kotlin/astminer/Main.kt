@@ -64,7 +64,8 @@ fun testAstminerCliCode(){
 
     val outputDirForLanguage = outputDir.resolve("php")
     outputDirForLanguage.mkdir()
-    val storage = Code2VecPathStorage(outputDirForLanguage.path, false, 100)
+    //val storage = Code2VecPathStorage(outputDirForLanguage.path, false, 100)
+    val storage = Code2VecPathStorage(outputDirForLanguage.path, true, 100)
 
     println("OutputDirForLanguage: ${outputDirForLanguage.path}")
 
@@ -164,14 +165,6 @@ fun <T : Node> extractFromMethods(
         val paths = miner.retrievePaths(methodRoot).take(maxPathContexts)
 
         println("Num paths: ${paths.size}")
-
-        /*
-        val contexts = LabeledPathContexts(label, paths.map {
-            toPathContext(it) { node ->
-                node.getNormalizedToken()
-            }
-        })
-         */
 
         storage.store(LabeledPathContexts(label, paths.map {
             toPathContext(it) { node ->

@@ -5,10 +5,13 @@ import astminer.parse.antlr.SimpleNode
 import astminer.parse.antlr.convertAntlrTree
 import me.vovak.antlr.parser.PhpLexer
 import me.vovak.antlr.parser.PhpParser
-import org.antlr.v4.runtime.CommonTokenStream
 import org.antlr.v4.runtime.CharStreams
+import org.antlr.v4.runtime.CommonTokenStream
+import org.antlr.v4.runtime.atn.LexerATNSimulator
+import org.antlr.v4.runtime.atn.ParserATNSimulator
+import org.antlr.v4.runtime.atn.PredictionContextCache
 import java.io.InputStream
-import java.lang.Exception
+
 
 class PhpMainParser : Parser<SimpleNode> {
     override fun parse(content: InputStream): SimpleNode? {
@@ -17,9 +20,17 @@ class PhpMainParser : Parser<SimpleNode> {
 
         return try {
             val lexer = PhpLexer(CharStreams.fromStream(content))
+
+            //reset atn simulator to clear cache and prevent mem overflow
+            lexer.interpreter = LexerATNSimulator(lexer, lexer.atn, lexer.interpreter.decisionToDFA, PredictionContextCache())
+            lexer.interpreter.clearDFA()
             lexer.removeErrorListeners()
             val tokens = CommonTokenStream(lexer)
             val parser = PhpParser(tokens)
+
+            //reset atn simulator to clear cache and prevent mem overflow
+            parser.interpreter = ParserATNSimulator(parser, parser.atn, parser.interpreter.decisionToDFA, PredictionContextCache())
+            parser.interpreter.clearDFA()
             parser.removeErrorListeners()
             //val context = parser.compilationUnit() //original before I commented it out
             //not sure if this declaration is correct, but convertAntlrTree does take a parser rule context. Look at the javascript folder for more help

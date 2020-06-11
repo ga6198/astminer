@@ -81,12 +81,12 @@ class FuzzyCppParser : Parser<FuzzyNode> {
     /**
      * @see [Parser.parse]
      */
-    override fun parse(files: List<File>): List<ParseResult<FuzzyNode>> {
+    override fun parse(files: List<File>): MutableList<ParseResult<FuzzyNode>> {
         val outputModuleFactory = OutputModuleFactory()
         val paths = files.map { it.path }
         FuzzyC2Cpg(outputModuleFactory).runAndOutput(paths.toTypedArray())
         val cpg = outputModuleFactory.internalGraph
-        return cpg2Nodes(cpg)
+        return cpg2Nodes(cpg).toMutableList()
     }
 
     /**
