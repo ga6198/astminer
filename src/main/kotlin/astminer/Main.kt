@@ -21,10 +21,7 @@ import astminer.parse.cpp.FuzzyCppParser
 import astminer.parse.cpp.FuzzyMethodSplitter
 import astminer.parse.java.GumTreeJavaParser
 import astminer.parse.java.GumTreeMethodSplitter
-import astminer.paths.Code2VecPathStorage
-import astminer.paths.PathMiner
-import astminer.paths.PathRetrievalSettings
-import astminer.paths.toPathContext
+import astminer.paths.*
 
 //function to run external process and redirect output
 fun String.runCommand(workingDir: File) {
@@ -64,7 +61,7 @@ fun testAstminerCliCode(){
 
     val outputDirForLanguage = outputDir.resolve("php")
     outputDirForLanguage.mkdir()
-    val storage = Code2VecPathStorage(outputDirForLanguage.path, false, 100)
+    val storage = Code2SeqPathStorage(outputDirForLanguage.path, false, 100) //val storage = Code2VecPathStorage(outputDirForLanguage.path, false, 100)
 
     println("OutputDirForLanguage: ${outputDirForLanguage.path}")
 
@@ -108,7 +105,7 @@ fun <T : Node> extractFromMethods(
     roots: List<ParseResult<T>>,
     methodSplitter: TreeMethodSplitter<T>,
     miner: PathMiner,
-    storage: Code2VecPathStorage
+    storage: CountingPathStorage<String>
 ) {
     println("Roots: $roots")
 
