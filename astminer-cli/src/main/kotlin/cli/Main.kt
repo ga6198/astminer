@@ -12,7 +12,8 @@ fun main(args: Array<String>) {
             "parse" -> ProjectParser().main(args.sliceArray(1 until args.size))
             "pathContexts" -> PathContextsExtractor().main(args.sliceArray(1 until args.size))
             "code2vec" -> Code2VecExtractor().main(args.sliceArray(1 until args.size))
-            else -> throw Exception("The first argument should be task's name: either 'preprocess', 'parse', 'pathContexts', or 'code2vec'")
+            "code2seq" -> Code2SeqExtractor().main(args.sliceArray(1 until args.size))
+            else -> throw Exception("The first argument should be task's name: either 'preprocess', 'parse', 'pathContexts', 'code2vec' or 'code2seq'")
         }
     }
 }
