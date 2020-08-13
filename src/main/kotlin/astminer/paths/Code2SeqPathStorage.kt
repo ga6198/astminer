@@ -73,8 +73,8 @@ class Code2SeqPathStorage(
                 tokensMap.getIdRank(it.startTokenId) <= tokensLimit &&
                         tokensMap.getIdRank(it.endTokenId) <= tokensLimit &&
                         pathsMap.getIdRank(it.pathId) <= pathsLimit
-            }
-            for (pathContextId in pathContextIdsString){
+            }.joinToString(separator = " "){
+            pathContextId ->
                 val startToken = tokensMap.lookUpValue(pathContextId.startTokenId)
                 val separatedStartToken = startToken?.let { encodeTokens(it) }
 
@@ -86,12 +86,13 @@ class Code2SeqPathStorage(
                 val endToken = tokensMap.lookUpValue(pathContextId.endTokenId)
                 val separatedEndToken = endToken?.let { encodeTokens(it) }
 
-                lines.add("${labeledPathContextIds.label} $separatedStartToken,$separatedPath,$separatedEndToken")
+                "${separatedStartToken},${separatedPath},${separatedEndToken}"
+                //lines.add("${labeledPathContextIds.label} $separatedStartToken,$separatedPath,$separatedEndToken")
             }
                     /*.joinToString(separator = " ") { pathContextId ->
                 "${pathContextId.startTokenId},${pathContextId.pathId},${pathContextId.endTokenId}"
             }*/
-            //lines.add("${labeledPathContextIds.label} $pathContextIdsString")
+            lines.add("${labeledPathContextIds.label} $pathContextIdsString")
         }
 
         writeLinesToFile(lines, file)
