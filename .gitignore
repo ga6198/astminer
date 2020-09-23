@@ -2,3 +2,6 @@
 .idea/
 .gradle/
 examples/out/
+testData/examples/php/memoryleak/
+testData/examples/php/test_large/
+
